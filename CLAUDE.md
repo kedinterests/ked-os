@@ -130,8 +130,7 @@ Follow `memory/session-end.md` — run without being asked.
 
 KED-OS knows about:
 - **Brilliant OS** — reference for patterns, structure, and shared context (read-only)
-- **Life OS** — Chris's personal work (read-only when explicitly needed)
 
 KED-OS is isolated from:
-- Life OS does not know about KED-OS (from Life OS perspective)
-- Brilliant OS does not know about KED-OS (from Brilliant OS perspective)
+- **Life OS** — Chris's personal work (not referenced from KED-OS)
+- **Brilliant OS** does not know about KED-OS (from Brilliant OS perspective)
