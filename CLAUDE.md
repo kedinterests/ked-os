@@ -41,27 +41,9 @@ New KED term? Add to `memory/glossary.md` before end of session.
 
 Before any client-facing copy, emails, proposals, or content written on Kenny's behalf: load `memory/people/kenny-dubose.md`.
 
-## Session Start — Classify First
+## Session Start
 
-**Model routing — follow strictly:**
-
-- **Haiku:** task management, note logging, quick lookups, status updates, project organization
-- **Sonnet:** Code, architecture, complex troubleshooting, anything requiring judgment
-
-**First response: check the model.** If on wrong model for the task, flag it and suggest switching.
-
-**Load only what the session requires:**
-
-| Session type | Load |
-|---|---|
-| Quick task / admin | Nothing beyond CLAUDE.md |
-| KED code / snippet | `core/ked-stack.md` + `core/astro-patterns.md` |
-| Architecture / security | `core/ked-stack.md` (full) + Kenny's profile |
-| Industry news prep | Nothing extra — skill handles context |
-| New project | Create from `internal/_template/` first |
-
-If writing code: query snippets first (`python3 scripts/ked.py query snippets --tag X`), then load the file only if a match is found.
-Radar cadence: if `memory/radar.md` last reviewed > 3–4 weeks, flag it.
+Follow `memory/session-start.md` — run at the top of every session. It covers user detection, model classification (Haiku vs Sonnet), what to load by session type, and surfacing in-flight work.
 
 ## KED-OS Index (Token-Efficient Lookups)
 

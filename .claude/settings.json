@@ -2,5 +2,18 @@
   "model": "claude-opus-4-7",
   "max_tokens": 8000,
   "temperature": 1.0,
-  "status_line": "KED-OS"
+  "status_line": "KED-OS",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git fetch origin 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
 }
