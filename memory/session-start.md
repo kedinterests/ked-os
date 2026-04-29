@@ -24,12 +24,15 @@ If the email is unknown, ask before assuming.
 
 ## 2. Classify the Session — Pick the Right Model
 
-**Model routing — follow strictly:**
+**Default: Sonnet.** Always prompt Chris to downgrade or upgrade based on the task at hand — do not silently proceed on the wrong model.
 
-- **Haiku:** task management, TASKS.md updates, note logging, file organization, quick lookups, status updates, radar reviews. Do not use Sonnet for these.
-- **Sonnet:** code, architecture, security review, proposals, complex troubleshooting, anything requiring judgment.
+**Model routing:**
 
-**First response in every session: assess the model.** If running on Sonnet/Opus and the opening prompt is clearly Haiku territory, flag it and suggest switching. If the prompt is ambiguous, ask what we're doing before recommending.
+- **Haiku:** task management, TASKS.md updates, note logging, file organization, quick lookups, status updates, radar reviews. Suggest downgrading from Sonnet for these.
+- **Sonnet (default):** code, architecture, security review, proposals, complex troubleshooting, anything requiring judgment.
+- **Opus:** suggest upgrading from Sonnet only when the task warrants it (deep architectural reasoning, complex multi-file refactors, hard debugging).
+
+**First response in every session: assess the model and prompt for a switch if the current one doesn't fit.** If the prompt is ambiguous, ask what we're doing before recommending.
 
 ## 3. Load Only What the Session Requires
 
