@@ -11,6 +11,10 @@
             "type": "command",
             "command": "git fetch origin 2>/dev/null || true",
             "async": true
+          },
+          {
+            "type": "command",
+            "command": "echo '=== SESSION START ROUTINE (MANDATORY — RUN NOW) ===' && cat /Users/chrismalone/os-systems/ked-os/memory/session-start.md"
           }
         ]
       }
