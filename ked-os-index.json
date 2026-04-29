@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-04-29",
+    "description": "KED-OS index — projects, skills, snippets, memory, core docs"
+  },
+  "projects": [
+    {
+      "id": "new-directory-pages",
+      "name": "New Directory Pages",
+      "status": "active",
+      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script", "Tailwind CSS", "Decap CMS"],
+      "path": "internal/new-directory-pages",
+      "repo": "kedinterests/new-directory-pages",
+      "local": "~/new-directory-pages-1/",
+      "description": "Multi-county mineral rights professionals directory for MRF, driven by Google Sheets via Apps Script, deployed per-county to Cloudflare Pages.",
+      "tags": ["mrf", "directory", "county", "astro", "cloudflare", "google-sheets"]
+    },
+    {
+      "id": "bakken",
+      "name": "Bakken",
+      "status": "in-progress",
+      "stack": ["Astro", "Tailwind CSS v4", "Decap CMS", "Cloudflare Pages"],
+      "path": "internal/bakken",
+      "repo": null,
+      "local": "~/bakken/",
+      "description": "Oil & gas site for the Bakken region, built from scraped HTML with Decap CMS for frontend content editing. No git remote yet.",
+      "tags": ["bakken", "astro", "decap-cms", "cloudflare", "oil-gas"]
+    },
+    {
+      "id": "mrf-custom-css-scripts",
+      "name": "MRF Custom CSS & Scripts",
+      "status": "active",
+      "stack": ["Discourse CSS", "JavaScript"],
+      "path": "internal/mrf-custom-css-scripts",
+      "repo": "kedinterests/mrf-custom-css-scripts",
+      "local": null,
+      "description": "Custom CSS and JavaScript for MineralRightsForum Discourse forum. Organized into common, desktop, and mobile partials.",
+      "tags": ["mrf", "discourse", "css", "scripts", "cleanup"]
+    },
+    {
+      "id": "mineralwise-astro",
+      "name": "Mineralwise Astro",
+      "status": "active",
+      "stack": ["Astro"],
+      "path": "internal/mineralwise-astro",
+      "repo": "kedinterests/mineralwise-astro",
+      "local": null,
+      "description": "Private Astro project for Mineralwise. Details TBD — clone before working on it.",
+      "tags": ["mineralwise", "astro", "private"]
+    },
+    {
+      "id": "county-category-header",
+      "name": "County Category Header",
+      "status": "maintenance",
+      "stack": ["Discourse theme component"],
+      "path": "internal/county-category-header",
+      "repo": "chrismalone617/County-Pages-Directory-Links",
+      "local": "~/County Pages Directory Links/",
+      "description": "Discourse theme component that adds county header images to MRF category pages.",
+      "tags": ["mrf", "discourse", "theme-component", "county"]
+    },
+    {
+      "id": "discourse-allow-pm-to-staff",
+      "name": "Discourse Allow PM to Staff",
+      "status": "maintenance",
+      "stack": ["Discourse plugin"],
+      "path": "internal/discourse-allow-pm-to-staff",
+      "repo": "kedinterests/discourse-allow-pm-to-staff",
+      "local": "~/discourse-allow-pm-to-staff/",
+      "description": "Discourse plugin that allows forum members to send PMs to staff regardless of trust level restrictions.",
+      "tags": ["mrf", "discourse", "plugin", "pm"]
+    },
+    {
+      "id": "list-pages",
+      "name": "List Pages",
+      "status": "active",
+      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script"],
+      "path": "internal/list-pages",
+      "repo": "kedinterests/list-pages",
+      "local": null,
+      "description": "Astro-based list/directory pages for MRF (testimonials and similar), same architecture as new-directory-pages.",
+      "tags": ["mrf", "astro", "testimonials", "list", "google-sheets"]
+    },
+    {
+      "id": "county-directory-pages",
+      "name": "County Directory Pages (Legacy)",
+      "status": "maintenance",
+      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script", "Tailwind CSS"],
+      "path": "internal/county-directory-pages",
+      "repo": "kedinterests/county-directory-pages",
+      "local": null,
+      "description": "Predecessor to new-directory-pages. Multi-county MRF directory, same architecture but without single-spreadsheet migration or Decap CMS.",
+      "tags": ["mrf", "directory", "county", "astro", "legacy"]
+    },
+    {
+      "id": "reeves-county-texas",
+      "name": "Reeves County Texas (Legacy)",
+      "status": "maintenance",
+      "stack": ["Astro", "Cloudflare Pages"],
+      "path": "internal/reeves-county-texas",
+      "repo": "kedinterests/reeves-county-texas",
+      "local": null,
+      "description": "Original single-county MRF directory for Reeves County, TX. Likely superseded by new-directory-pages (Reeves County exists in sites.json).",
+      "tags": ["mrf", "directory", "county", "astro", "legacy", "reeves-county"]
+    }
+  ],
+  "snippets": [],
+  "skills": [
+    {
+      "id": "code-verification",
+      "name": "Code Verification",
+      "path": "skills/code-verification/SKILL.md",
+      "when": "After any AI-generated code session — security, optimization, and traceability passes."
+    },
+    {
+      "id": "security-audit",
+      "name": "Security Audit",
+      "path": "skills/security-audit/SKILL.md",
+      "when": "Auditing any code — existing, inherited, legacy, or third-party."
+    },
+    {
+      "id": "project-initialization",
+      "name": "Project Initialization",
+      "path": "skills/project-initialization/SKILL.md",
+      "when": "Setting up a new KED project folder from the _template."
+    },
+    {
+      "id": "ked-industry-news",
+      "name": "KED Industry News",
+      "path": "skills/ked-industry-news/SKILL.md",
+      "when": "Weekly O&G / mineral rights / drilling news prep."
+    },
+    {
+      "id": "voice-profile",
+      "name": "Voice Profile",
+      "path": "skills/voice-profile/SKILL.md",
+      "when": "Writing client-facing copy, emails, proposals, or content on Kenny's behalf."
+    }
+  ],
+  "core": [
+    {
+      "id": "ked-stack",
+      "name": "KED Technology Stack",
+      "path": "core/ked-stack.md",
+      "description": "Technologies, frameworks, and tools used in KED projects. Load for code or architecture sessions."
+    },
+    {
+      "id": "astro-patterns",
+      "name": "Astro Patterns & Standards",
+      "path": "core/astro-patterns.md",
+      "description": "Conventions and patterns for Astro projects at KED. Load when building or reviewing Astro code."
+    }
+  ],
+  "memory": [
+    {
+      "id": "kenny-dubose",
+      "name": "Kenny Dubose",
+      "path": "memory/people/kenny-dubose.md",
+      "description": "Kenny's voice profile and communication preferences. Load before any client-facing writing."
+    },
+    {
+      "id": "chris-malone",
+      "name": "Chris Malone",
+      "path": "memory/people/chris-malone.md",
+      "description": "Chris's role, preferences, and working style."
+    },
+    {
+      "id": "company",
+      "name": "Company Context",
+      "path": "memory/context/company.md",
+      "description": "KED Interests company background and context."
+    },
+    {
+      "id": "glossary",
+      "name": "Glossary",
+      "path": "memory/glossary.md",
+      "description": "KED-specific terms, acronyms, and industry vocabulary."
+    },
+    {
+      "id": "radar",
+      "name": "Radar",
+      "path": "memory/radar.md",
+      "description": "Technology and industry radar — what to watch, explore, or adopt."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "eos-startup-routines",
+      "date": "2026-04-28",
+      "path": "decisions/2026-04-28-eos-startup-routines.md",
+      "summary": "Adopted EOS and session-start routines mirroring brilliant-os pattern."
+    },
+    {
+      "id": "model-routing-defaults",
+      "date": "2026-04-28",
+      "path": "decisions/2026-04-28-model-routing-defaults.md",
+      "summary": "Sonnet as default model; always prompt for upgrade/downgrade at session start."
+    }
+  ]
+}
