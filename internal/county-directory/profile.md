@@ -16,8 +16,9 @@ Multi-tenant directory system for mineral rights professionals serving Texas oil
 ## Tech Stack
 
 - **Frontend:** Vanilla HTML/CSS with Tailwind CSS 3.4.13
-- **Hosting:** Netlify Functions (serverless)
-- **Data:** Google Sheets via Apps Script JSON endpoints
+- **Hosting:** Cloudflare Workers (serverless)
+- **Data Storage:** Cloudflare KV (snapshots from Google Sheets)
+- **Data Source:** Google Sheets via Apps Script JSON endpoints
 - **Integration:** Mineral Rights Forum Discourse community
 - **Build:** npm build script for CSS compilation
 
@@ -50,17 +51,17 @@ Each county directory pulls from a dedicated Google Sheet via Apps Script macro 
 
 ## Functions
 
-Netlify serverless functions in `functions/`:
+Cloudflare Workers in `functions/`:
 - `counties.js` — List available county directories
-- `index.js` — Main directory rendering logic
-- `refresh.js` — Refresh data from Google Sheets
+- `index.js` — Main directory rendering logic (onRequestGet handler)
+- `refresh.js` — Refresh data from Google Sheets to KV
 - `health.js` — Health check endpoint
 - `sitemap.xml.js` — Dynamic sitemap generation
 - `robots.txt.js` — Robots.txt generation
 
 ## Deployment
 
-Deployed to Netlify. Triggered updates via `refresh.js` function.
+Deployed to Cloudflare Workers. Data snapshots cached in Cloudflare KV. Updates via `refresh.js` function pull from Google Sheets and refresh KV cache.
 
 ## Build
 

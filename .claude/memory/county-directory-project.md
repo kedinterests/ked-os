@@ -16,7 +16,8 @@ metadata:
 ## Stack
 
 - Vanilla HTML/CSS with Tailwind CSS 3.4.13
-- Netlify serverless functions
+- Cloudflare Workers (serverless)
+- Cloudflare KV (data snapshots)
 - Google Sheets as CMS (via Apps Script endpoints)
 - Multi-domain/multi-tenant architecture
 
@@ -38,7 +39,7 @@ metadata:
 
 ## Data Flow
 
-Google Sheets → Apps Script macro → JSON endpoint → Netlify function → Directory page
+Google Sheets → Apps Script macro → JSON endpoint → Cloudflare Worker (refresh.js) → Cloudflare KV → Worker (index.js) → Directory page
 
 ## How to apply
 
