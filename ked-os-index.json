@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "updated": "2026-04-29",
+    "updated": "2026-05-15",
     "description": "KED-OS index — projects, skills, snippets, memory, core docs"
   },
   "projects": [
@@ -9,12 +9,13 @@
       "id": "new-directory-pages",
       "name": "New Directory Pages",
       "status": "active",
-      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script", "Tailwind CSS", "Decap CMS"],
+      "stack": ["Cloudflare Pages", "Cloudflare Functions", "Google Apps Script", "KV Storage"],
       "path": "internal/new-directory-pages",
       "repo": "kedinterests/new-directory-pages",
       "local": "~/new-directory-pages-1/",
-      "description": "Multi-county mineral rights professionals directory for MRF, driven by Google Sheets via Apps Script, deployed per-county to Cloudflare Pages.",
-      "tags": ["mrf", "directory", "county", "astro", "cloudflare", "google-sheets"]
+      "description": "Multi-county mineral rights professionals directory for MRF. SSR via Cloudflare Functions, data from Google Sheets via Apps Script, stored in KV. Includes a nationwide mineral services directory. Also hosts the MRF redesign proposal assets (see notes/mrf-redesign-proposal.md).",
+      "notes": ["mrf-redesign-proposal"],
+      "tags": ["mrf", "directory", "county", "cloudflare", "google-sheets", "kv", "redesign-proposal"]
     },
     {
       "id": "bakken",
@@ -196,6 +197,12 @@
       "date": "2026-04-28",
       "path": "decisions/2026-04-28-model-routing-defaults.md",
       "summary": "Sonnet as default model; always prompt for upgrade/downgrade at session start."
+    },
+    {
+      "id": "mrf-redesign-proposal",
+      "date": "2026-05-15",
+      "path": "decisions/2026-05-15-mrf-redesign-proposal.md",
+      "summary": "Designed full MRF forum visual rebrand (navy+gold, Playfair Display, 6 logo concepts) and delivered proposal to Kenny with a three-phase zero-risk transition plan. Awaiting approval for Phase 1."
     }
   ]
 }
