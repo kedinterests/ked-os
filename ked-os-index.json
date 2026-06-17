@@ -1,109 +1,195 @@
 {
   "meta": {
     "version": "1.0",
-    "updated": "2026-05-15",
-    "description": "KED-OS index — projects, skills, snippets, memory, core docs"
+    "updated": "2026-06-17",
+    "description": "KED-OS index \u2014 projects, skills, snippets, memory, core docs"
   },
   "projects": [
     {
       "id": "new-directory-pages",
       "name": "New Directory Pages",
       "status": "active",
-      "stack": ["Cloudflare Pages", "Cloudflare Functions", "Google Apps Script", "KV Storage"],
+      "stack": [
+        "Cloudflare Pages",
+        "Cloudflare Functions",
+        "Google Apps Script",
+        "KV Storage"
+      ],
       "path": "internal/new-directory-pages",
       "repo": "kedinterests/new-directory-pages",
       "local": "~/new-directory-pages-1/",
       "description": "Multi-county mineral rights professionals directory for MRF. SSR via Cloudflare Functions, data from Google Sheets via Apps Script, stored in KV. Includes a nationwide mineral services directory. Also hosts the MRF redesign proposal assets (see notes/mrf-redesign-proposal.md).",
-      "notes": ["mrf-redesign-proposal"],
-      "tags": ["mrf", "directory", "county", "cloudflare", "google-sheets", "kv", "redesign-proposal"]
+      "notes": [
+        "mrf-redesign-proposal"
+      ],
+      "tags": [
+        "mrf",
+        "directory",
+        "county",
+        "cloudflare",
+        "google-sheets",
+        "kv",
+        "redesign-proposal"
+      ]
     },
     {
       "id": "bakken",
       "name": "Bakken",
       "status": "in-progress",
-      "stack": ["Astro", "Tailwind CSS v4", "Decap CMS", "Cloudflare Pages"],
+      "stack": [
+        "Astro",
+        "Tailwind CSS v4",
+        "Decap CMS",
+        "Cloudflare Pages"
+      ],
       "path": "internal/bakken",
       "repo": null,
       "local": "~/bakken/",
       "description": "Oil & gas site for the Bakken region, built from scraped HTML with Decap CMS for frontend content editing. No git remote yet.",
-      "tags": ["bakken", "astro", "decap-cms", "cloudflare", "oil-gas"]
+      "tags": [
+        "bakken",
+        "astro",
+        "decap-cms",
+        "cloudflare",
+        "oil-gas"
+      ]
     },
     {
       "id": "mrf-custom-css-scripts",
       "name": "MRF Custom CSS & Scripts",
       "status": "active",
-      "stack": ["Discourse CSS", "JavaScript"],
+      "stack": [
+        "Discourse CSS",
+        "JavaScript"
+      ],
       "path": "internal/mrf-custom-css-scripts",
       "repo": "kedinterests/mrf-custom-css-scripts",
       "local": null,
       "description": "Custom CSS and JavaScript for MineralRightsForum Discourse forum. Organized into common, desktop, and mobile partials.",
-      "tags": ["mrf", "discourse", "css", "scripts", "cleanup"]
+      "tags": [
+        "mrf",
+        "discourse",
+        "css",
+        "scripts",
+        "cleanup"
+      ]
     },
     {
       "id": "mineralwise-astro",
       "name": "Mineralwise Astro",
       "status": "active",
-      "stack": ["Astro"],
+      "stack": [
+        "Astro"
+      ],
       "path": "internal/mineralwise-astro",
       "repo": "kedinterests/mineralwise-astro",
       "local": null,
-      "description": "Private Astro project for Mineralwise. Details TBD — clone before working on it.",
-      "tags": ["mineralwise", "astro", "private"]
+      "description": "Private Astro project for Mineralwise. Details TBD \u2014 clone before working on it.",
+      "tags": [
+        "mineralwise",
+        "astro",
+        "private"
+      ]
     },
     {
       "id": "county-category-header",
       "name": "County Category Header",
       "status": "maintenance",
-      "stack": ["Discourse theme component"],
+      "stack": [
+        "Discourse theme component"
+      ],
       "path": "internal/county-category-header",
       "repo": "chrismalone617/County-Pages-Directory-Links",
       "local": "~/County Pages Directory Links/",
       "description": "Discourse theme component that adds county header images to MRF category pages.",
-      "tags": ["mrf", "discourse", "theme-component", "county"]
+      "tags": [
+        "mrf",
+        "discourse",
+        "theme-component",
+        "county"
+      ]
     },
     {
       "id": "discourse-allow-pm-to-staff",
       "name": "Discourse Allow PM to Staff",
       "status": "maintenance",
-      "stack": ["Discourse plugin"],
+      "stack": [
+        "Discourse plugin"
+      ],
       "path": "internal/discourse-allow-pm-to-staff",
       "repo": "kedinterests/discourse-allow-pm-to-staff",
       "local": "~/discourse-allow-pm-to-staff/",
       "description": "Discourse plugin that allows forum members to send PMs to staff regardless of trust level restrictions.",
-      "tags": ["mrf", "discourse", "plugin", "pm"]
+      "tags": [
+        "mrf",
+        "discourse",
+        "plugin",
+        "pm"
+      ]
     },
     {
       "id": "list-pages",
       "name": "List Pages",
       "status": "active",
-      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script"],
+      "stack": [
+        "Astro",
+        "Cloudflare Pages",
+        "Google Apps Script"
+      ],
       "path": "internal/list-pages",
       "repo": "kedinterests/list-pages",
       "local": null,
       "description": "Astro-based list/directory pages for MRF (testimonials and similar), same architecture as new-directory-pages.",
-      "tags": ["mrf", "astro", "testimonials", "list", "google-sheets"]
+      "tags": [
+        "mrf",
+        "astro",
+        "testimonials",
+        "list",
+        "google-sheets"
+      ]
     },
     {
       "id": "county-directory-pages",
       "name": "County Directory Pages (Legacy)",
       "status": "maintenance",
-      "stack": ["Astro", "Cloudflare Pages", "Google Apps Script", "Tailwind CSS"],
+      "stack": [
+        "Astro",
+        "Cloudflare Pages",
+        "Google Apps Script",
+        "Tailwind CSS"
+      ],
       "path": "internal/county-directory-pages",
       "repo": "kedinterests/county-directory-pages",
       "local": null,
       "description": "Predecessor to new-directory-pages. Multi-county MRF directory, same architecture but without single-spreadsheet migration or Decap CMS.",
-      "tags": ["mrf", "directory", "county", "astro", "legacy"]
+      "tags": [
+        "mrf",
+        "directory",
+        "county",
+        "astro",
+        "legacy"
+      ]
     },
     {
       "id": "reeves-county-texas",
       "name": "Reeves County Texas (Legacy)",
       "status": "maintenance",
-      "stack": ["Astro", "Cloudflare Pages"],
+      "stack": [
+        "Astro",
+        "Cloudflare Pages"
+      ],
       "path": "internal/reeves-county-texas",
       "repo": "kedinterests/reeves-county-texas",
       "local": null,
       "description": "Original single-county MRF directory for Reeves County, TX. Likely superseded by new-directory-pages (Reeves County exists in sites.json).",
-      "tags": ["mrf", "directory", "county", "astro", "legacy", "reeves-county"]
+      "tags": [
+        "mrf",
+        "directory",
+        "county",
+        "astro",
+        "legacy",
+        "reeves-county"
+      ]
     }
   ],
   "snippets": [],
@@ -112,13 +198,13 @@
       "id": "code-verification",
       "name": "Code Verification",
       "path": "skills/code-verification/SKILL.md",
-      "when": "After any AI-generated code session — security, optimization, and traceability passes."
+      "when": "After any AI-generated code session \u2014 security, optimization, and traceability passes."
     },
     {
       "id": "security-audit",
       "name": "Security Audit",
       "path": "skills/security-audit/SKILL.md",
-      "when": "Auditing any code — existing, inherited, legacy, or third-party."
+      "when": "Auditing any code \u2014 existing, inherited, legacy, or third-party."
     },
     {
       "id": "project-initialization",
@@ -137,6 +223,22 @@
       "name": "Voice Profile",
       "path": "skills/voice-profile/SKILL.md",
       "when": "Writing client-facing copy, emails, proposals, or content on Kenny's behalf."
+    },
+    {
+      "id": "gam-reporting",
+      "name": "GAM Reporting",
+      "path": "skills/gam-reporting/SKILL.md",
+      "when": "Generating ad performance reports from Google Ad Manager \u2014 YTD summaries, single-advertiser PDFs, ad unit audits.",
+      "tags": [
+        "gam",
+        "google-ad-manager",
+        "reporting",
+        "pdf",
+        "excel",
+        "impressions",
+        "advertisers",
+        "mrf"
+      ]
     }
   ],
   "core": [
@@ -182,7 +284,7 @@
       "id": "radar",
       "name": "Radar",
       "path": "memory/radar.md",
-      "description": "Technology and industry radar — what to watch, explore, or adopt."
+      "description": "Technology and industry radar \u2014 what to watch, explore, or adopt."
     }
   ],
   "decisions": [
