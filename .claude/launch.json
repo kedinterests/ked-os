@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "dubose-design-hub", "runtimeExecutable": "npx", "runtimeArgs": ["wrangler", "pages", "dev", "public", "--d1", "DB", "--r2", "BUCKET", "-b", "DEV_MODE=true", "--port", "8788", "--cwd", "/Users/chrismalone/dubose-design-hub"], "port": 8788 }
+  ]
+}
