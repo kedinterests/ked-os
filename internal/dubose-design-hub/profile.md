@@ -71,6 +71,31 @@ future code changes instead of auto-deploy-on-push.
 - D1/R2 bindings set via direct Cloudflare API call (no wrangler CLI command exists for Pages project bindings in wrangler 4.65)
 - Zero Trust Access: done, via dashboard (wrangler OAuth token has no Access API scope, so this step can't be scripted). Self-hosted app on `dubose-design-hub.pages.dev`, policy "Household allow-list" (Emails: kenny@kedinterests.com, monikadubose@me.com, chris@kedinterests.com), identity providers set to "accept all available" (defaults to the account's One-time PIN provider). Confirmed enforcing — unauthenticated requests redirect to `kennyd.cloudflareaccess.com` for an email login code.
 
+## Features (2026-07-17c)
+
+- Decisions vs. Selections split: items have a `kind` (`product`/`idea`).
+  Ideas skip category/source/cost and use a simplified idea → decided → done
+  pipeline; each room shows a separate Decisions section above Selections.
+- Pins ("Things I Like") show who added them, and can be converted directly
+  into a room Selection or Decision via "Add to room" (carries the photo over).
+- Any photo field (items, pins) accepts three input methods: file upload,
+  paste (Ctrl/Cmd+V), or an image URL — all resolve through a new
+  `POST /api/upload-url` endpoint that fetches server-side and stores in R2,
+  so serving stays consistent (never a raw external URL).
+- Sherwin-Williams paint color picker: `public/paint-colors.js` holds the
+  full official interior color list (1,525 colors — name, SW code, hex),
+  parsed from Sherwin-Williams' own color reference PDF
+  (`images.sherwin-williams.com/content_images/sw-pdf-sherwin-williams-colorc.pdf`).
+  Searchable field on the shared item form (works for both Product and Idea
+  kinds), auto-fills title/category on match, live swatch preview. `items.color_hex`
+  stores the picked hex; cards/detail use it as a photo fallback.
+- AI "recolor this room" feature is still not built (still out of scope per
+  HANDOFF.md), but the credential slot is documented: a Cloudflare Pages
+  secret named `RECOLOR_API_KEY` on this project, set via
+  `wrangler pages secret put RECOLOR_API_KEY --project-name dubose-design-hub`
+  once a provider is chosen. This is a KED project — BWW's Keeper/Keychain
+  credential system does not apply here.
+
 ## Notes
 
 Local dev quirk worth remembering: `wrangler pages dev --d1 DB --r2 BUCKET`
