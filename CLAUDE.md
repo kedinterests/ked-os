@@ -116,3 +116,5 @@ KED-OS knows about:
 KED-OS is isolated from:
 - **Life OS** — Chris's personal work (not referenced from KED-OS)
 - **Brilliant OS** does not know about KED-OS (from Brilliant OS perspective)
+
+**Hard boundary, no exceptions (Always Active): KED work never writes to brilliant-os, ever.** brilliant-os is Nathan's shared business repo. Every file write and git commit for a KED task — this project, KED Interests, any Kenny Dubose project including personal ones like Dubose Design Hub — belongs in `~/os-systems/ked-os/` or a standalone repo under Chris's own accounts, never in `~/os-systems/brilliant-os/`, regardless of which repo a session happens to be rooted in. A KED preview-server config once leaked into brilliant-os's `.claude/launch.json` and was pushed to `nathaningram/brilliant-os` — Nathan's repo ended up with a commit referencing Kenny Dubose's personal home remodel project. Chris was explicit and repeated: this cannot happen again, ever. If unsure which OS a task belongs to, ask before writing anything.
