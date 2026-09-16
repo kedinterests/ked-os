@@ -29,6 +29,7 @@ New KED term? Add to `memory/glossary.md` before end of session.
 - No CSS comments unless asked
 - Ask rather than assume
 - Never use em dashes or en dashes — use commas, colons, semicolons, or periods instead
+- **Hard rule for all drafted content (Chris, 2026-09-16): pass every draft through `core/writing-rules-no-ai-tells.md` before delivering.** Banned words (delve, journey, seamless, robust, leverage, elevate, unlock, figurative "quietly," etc.), no "it's not X, it's Y", no throat-clearing openers, no restating closers, no reflexive rule of three, no hedge-stacking, no stacked transitions, no self-narration. Three or more violations means revise first, without asking.
 
 ## Code Defaults (Always Active)
 
@@ -39,7 +40,7 @@ New KED term? Add to `memory/glossary.md` before end of session.
 
 ## Writing for Kenny
 
-Before any client-facing copy, emails, proposals, or content written on Kenny's behalf: load `memory/people/kenny-dubose.md`.
+Before any client-facing copy, emails, proposals, or content written on Kenny's behalf: load `memory/people/kenny-dubose.md`. Every draft must also pass `core/writing-rules-no-ai-tells.md`.
 
 ## Session Start
 

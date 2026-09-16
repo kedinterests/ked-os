@@ -26,8 +26,10 @@ role: Founder, KED Interests
 - Tech stack: Astro, Discourse, Vibe — no WordPress
 - Communication: email at kenny@kedinterests.com
 - Decision-making: values data and competitive context in oil & gas energy sector
+- Writing: every draft on Kenny's behalf passes the checklist in `core/writing-rules-no-ai-tells.md` (no em dashes, no banned words, no "it's not X, it's Y", no throat-clearing openers, no restating closers, no hedge-stacking). Three or more violations means revise before delivering.
 
 ## Related Files
 
 - Company context: `memory/context/company.md`
 - Glossary: `memory/glossary.md`
+- Writing rules: `core/writing-rules-no-ai-tells.md`
