@@ -1,190 +1,174 @@
 #!/usr/bin/env python3
+"""KED-OS index query tool."""
+
+import argparse
 import json
 import sys
-import os
 from pathlib import Path
 
+ROOT = Path(__file__).parent.parent
+INDEX_PATH = ROOT / "ked-os-index.json"
+
+
 def load_index():
-    """Load the KED-OS index."""
-    index_path = Path.cwd() / 'ked-os-index.json'
-
-    if not index_path.exists():
-        print("Error: ked-os-index.json not found. Run 'python3 scripts/migrate.py' first.")
-        sys.exit(1)
-
-    with open(index_path, 'r') as f:
+    with open(INDEX_PATH) as f:
         return json.load(f)
 
-def cmd_stats():
-    """Show statistics about KED-OS."""
+
+def cmd_query(args):
     index = load_index()
+    section = args.section
 
-    print("KED-OS Overview")
-    print("=" * 40)
-    print(f"Projects:       {len(index['projects'])}")
-    print(f"Skills:         {len(index['skills'])}")
-    print(f"Core docs:      {len(index['docs'])}")
-    print(f"Memory files:   {len(index['memory'])}")
-    print()
-
-    stacks = {}
-    for proj in index['projects']:
-        stack = proj.get('stack', 'unknown')
-        stacks[stack] = stacks.get(stack, 0) + 1
-
-    print("By Stack:")
-    for stack, count in sorted(stacks.items()):
-        print(f"  {stack}: {count}")
-    print()
-
-    statuses = {}
-    for proj in index['projects']:
-        status = proj.get('status', 'unknown')
-        statuses[status] = statuses.get(status, 0) + 1
-
-    print("Project Status:")
-    for status, count in sorted(statuses.items()):
-        print(f"  {status}: {count}")
-
-def cmd_projects(stack=None):
-    """List projects, optionally filtered by stack."""
-    index = load_index()
-
-    projects = index['projects']
-    if stack:
-        projects = [p for p in projects if stack.lower() in p.get('stack', '').lower()]
-
-    if not projects:
-        print("No projects found.")
-        return
-
-    print("Projects:")
-    print("-" * 60)
-    for proj in sorted(projects, key=lambda p: p['name']):
-        print(f"  {proj['name']}")
-        print(f"    Stack:  {proj.get('stack', 'unknown')}")
-        print(f"    Status: {proj.get('status', 'unknown')}")
-        print(f"    Owner:  {proj.get('owner', 'unknown')}")
-        if proj.get('repo'):
-            print(f"    Repo:   {proj['repo']}")
-        print()
-
-def cmd_skills():
-    """List all skills."""
-    index = load_index()
-
-    skills = index['skills']
-    if not skills:
-        print("No skills found.")
-        return
-
-    print("Available Skills:")
-    print("-" * 60)
-    for skill in sorted(skills, key=lambda s: s['name']):
-        print(f"  {skill['name']}")
-        if skill.get('description'):
-            print(f"    {skill['description']}")
-        print()
-
-def cmd_query(item_type, **filters):
-    """Query the index."""
-    index = load_index()
-
-    if item_type == 'projects':
-        stack = filters.get('stack')
-        cmd_projects(stack)
-    elif item_type == 'skills':
-        cmd_skills()
-    elif item_type == 'stats':
-        cmd_stats()
-    else:
-        print(f"Unknown query type: {item_type}")
+    if section not in index:
+        print(f"Unknown section: {section}. Available: {', '.join(index.keys())}")
         sys.exit(1)
 
-def cmd_search(query):
-    """Search projects and skills by name."""
-    index = load_index()
-    query_lower = query.lower()
+    items = index[section]
+    if not isinstance(items, list):
+        print(json.dumps(items, indent=2))
+        return
 
-    results = []
+    results = items
 
-    for proj in index['projects']:
-        if query_lower in proj['name'].lower() or query_lower in proj.get('repo', '').lower():
-            results.append(('project', proj))
+    if section == "projects":
+        if args.stack:
+            term = args.stack.lower()
+            results = [p for p in results if any(term in s.lower() for s in p.get("stack", []))]
+        if args.status:
+            results = [p for p in results if p.get("status") == args.status]
+        if args.tag:
+            results = [p for p in results if args.tag.lower() in [t.lower() for t in p.get("tags", [])]]
 
-    for skill in index['skills']:
-        if query_lower in skill['name'].lower():
-            results.append(('skill', skill))
+    if section == "snippets":
+        if args.tag:
+            results = [s for s in results if args.tag.lower() in [t.lower() for t in s.get("tags", [])]]
 
     if not results:
-        print(f"No results for: {query}")
+        print("No results.")
         return
 
-    print(f"Search results for '{query}':")
-    print("-" * 60)
-    for item_type, item in results:
-        print(f"  [{item_type}] {item['name']}")
-        if item.get('description'):
-            print(f"    {item['description']}")
-        print()
+    for item in results:
+        _print_item(section, item)
 
-def usage():
-    print("""KED-OS Index Query Tool
 
-Usage:
-  python3 scripts/ked.py stats                    Show KED-OS statistics
-  python3 scripts/ked.py query projects           List all projects
-  python3 scripts/ked.py query projects --stack Astro
-                                                  List projects using Astro
-  python3 scripts/ked.py query skills             List all skills
-  python3 scripts/ked.py search <term>            Search projects and skills
-  python3 scripts/ked.py query snippets --tag <tag>
-                                                  Find snippets with tag (future)
+def _print_item(section, item):
+    if section == "projects":
+        status = item.get("status", "")
+        stack = ", ".join(item.get("stack", []))
+        repo = item.get("repo") or "(no remote)"
+        local = item.get("local") or "(not cloned)"
+        print(f"\n[{item['id']}] {item['name']}  [{status}]")
+        print(f"  Stack:  {stack}")
+        print(f"  Repo:   {repo}")
+        print(f"  Local:  {local}")
+        print(f"  Path:   {item.get('path', '')}")
+        print(f"  {item.get('description', '')}")
+        if item.get("tags"):
+            print(f"  Tags:   {', '.join(item['tags'])}")
+    elif section == "snippets":
+        print(f"\n[{item['id']}] {item.get('name', item['id'])}")
+        print(f"  {item.get('description', '')}")
+        if item.get("tags"):
+            print(f"  Tags: {', '.join(item['tags'])}")
+        if item.get("path"):
+            print(f"  File: {item['path']}")
+    elif section == "skills":
+        print(f"\n[{item['id']}] {item['name']}")
+        print(f"  When: {item.get('when', '')}")
+        print(f"  Path: {item.get('path', '')}")
+    elif section == "core":
+        print(f"\n[{item['id']}] {item['name']}")
+        print(f"  {item.get('description', '')}")
+        print(f"  Path: {item.get('path', '')}")
+    elif section == "memory":
+        print(f"\n[{item['id']}] {item['name']}")
+        print(f"  {item.get('description', '')}")
+        print(f"  Path: {item.get('path', '')}")
+    elif section == "decisions":
+        print(f"\n[{item['id']}]  {item.get('date', '')}  {item.get('summary', '')}")
+        print(f"  Path: {item.get('path', '')}")
+    else:
+        print(json.dumps(item, indent=2))
 
-Examples:
-  python3 scripts/ked.py stats
-  python3 scripts/ked.py query projects --stack Astro
-  python3 scripts/ked.py search mineralwise
-""")
+
+def cmd_search(args):
+    index = load_index()
+    term = args.term.lower()
+    found = False
+
+    for section in ["projects", "snippets", "skills", "core", "memory", "decisions"]:
+        items = index.get(section, [])
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            blob = json.dumps(item).lower()
+            if term in blob:
+                _print_item(section, item)
+                found = True
+
+    if not found:
+        print(f"No results for '{args.term}'.")
+
+
+def cmd_stats(args):
+    index = load_index()
+    projects = index.get("projects", [])
+    snippets = index.get("snippets", [])
+    skills = index.get("skills", [])
+
+    by_status = {}
+    for p in projects:
+        s = p.get("status", "unknown")
+        by_status.setdefault(s, []).append(p["name"])
+
+    print(f"\nKED-OS Index  (updated {index['meta']['updated']})")
+    print(f"  Projects : {len(projects)}")
+    for status, names in sorted(by_status.items()):
+        print(f"    {status}: {', '.join(names)}")
+    print(f"  Snippets : {len(snippets)}")
+    print(f"  Skills   : {len(skills)}")
+    print(f"  Decisions: {len(index.get('decisions', []))}")
+
+    stacks = {}
+    for p in projects:
+        for s in p.get("stack", []):
+            stacks[s] = stacks.get(s, 0) + 1
+    if stacks:
+        print("\n  Stack frequency:")
+        for s, count in sorted(stacks.items(), key=lambda x: -x[1]):
+            print(f"    {s}: {count}")
+
+    not_cloned = [p["name"] for p in projects if not p.get("local")]
+    if not_cloned:
+        print(f"\n  Not cloned locally: {', '.join(not_cloned)}")
+
 
 def main():
-    if len(sys.argv) < 2:
-        usage()
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="KED-OS index query tool")
+    sub = parser.add_subparsers(dest="cmd")
 
-    cmd = sys.argv[1]
+    q = sub.add_parser("query", help="Query a section of the index")
+    q.add_argument("section", choices=["projects", "snippets", "skills", "core", "memory", "decisions"])
+    q.add_argument("--stack", help="Filter projects by stack term")
+    q.add_argument("--status", help="Filter projects by status")
+    q.add_argument("--tag", help="Filter by tag")
 
-    if cmd == 'stats':
-        cmd_stats()
-    elif cmd == 'query':
-        if len(sys.argv) < 3:
-            usage()
-            sys.exit(1)
-        item_type = sys.argv[2]
+    s = sub.add_parser("search", help="Full-text search across all sections")
+    s.add_argument("term")
 
-        filters = {}
-        i = 3
-        while i < len(sys.argv):
-            if sys.argv[i].startswith('--'):
-                key = sys.argv[i][2:]
-                if i + 1 < len(sys.argv):
-                    filters[key] = sys.argv[i + 1]
-                    i += 2
-                else:
-                    i += 1
-            else:
-                i += 1
+    sub.add_parser("stats", help="Overview of all projects and sections")
 
-        cmd_query(item_type, **filters)
-    elif cmd == 'search':
-        if len(sys.argv) < 3:
-            print("Usage: python3 scripts/ked.py search <term>")
-            sys.exit(1)
-        cmd_search(sys.argv[2])
+    args = parser.parse_args()
+
+    if args.cmd == "query":
+        cmd_query(args)
+    elif args.cmd == "search":
+        cmd_search(args)
+    elif args.cmd == "stats":
+        cmd_stats(args)
     else:
-        print(f"Unknown command: {cmd}")
-        usage()
-        sys.exit(1)
+        parser.print_help()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

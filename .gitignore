@@ -31,6 +31,12 @@ out/
 *.tmp
 .claude/settings.local.json
 
+# Secrets
+secrets/
+
+# Worktrees
+.claude/worktrees/
+
 # Logs
 logs/
 *.log

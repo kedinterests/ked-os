@@ -29,6 +29,7 @@ New KED term? Add to `memory/glossary.md` before end of session.
 - No CSS comments unless asked
 - Ask rather than assume
 - Never use em dashes or en dashes — use commas, colons, semicolons, or periods instead
+- **Hard rule for all drafted content (Chris, 2026-09-16): pass every draft through `core/writing-rules-no-ai-tells.md` before delivering.** Banned words (delve, journey, seamless, robust, leverage, elevate, unlock, figurative "quietly," etc.), no "it's not X, it's Y", no throat-clearing openers, no restating closers, no reflexive rule of three, no hedge-stacking, no stacked transitions, no self-narration. Three or more violations means revise first, without asking.
 
 ## Code Defaults (Always Active)
 
@@ -39,29 +40,11 @@ New KED term? Add to `memory/glossary.md` before end of session.
 
 ## Writing for Kenny
 
-Before any client-facing copy, emails, proposals, or content written on Kenny's behalf: load `memory/people/kenny-dubose.md`.
+Before any client-facing copy, emails, proposals, or content written on Kenny's behalf: load `memory/people/kenny-dubose.md`. Every draft must also pass `core/writing-rules-no-ai-tells.md`.
 
-## Session Start — Classify First
+## Session Start
 
-**Model routing — follow strictly:**
-
-- **Haiku:** task management, note logging, quick lookups, status updates, project organization
-- **Sonnet:** Code, architecture, complex troubleshooting, anything requiring judgment
-
-**First response: check the model.** If on wrong model for the task, flag it and suggest switching.
-
-**Load only what the session requires:**
-
-| Session type | Load |
-|---|---|
-| Quick task / admin | Nothing beyond CLAUDE.md |
-| KED code / snippet | `core/ked-stack.md` + `core/astro-patterns.md` |
-| Architecture / security | `core/ked-stack.md` (full) + Kenny's profile |
-| Industry news prep | Nothing extra — skill handles context |
-| New project | Create from `internal/_template/` first |
-
-If writing code: query snippets first (`python3 scripts/ked.py query snippets --tag X`), then load the file only if a match is found.
-Radar cadence: if `memory/radar.md` last reviewed > 3–4 weeks, flag it.
+Follow `memory/session-start.md` — run at the top of every session. It covers user detection, model classification (Haiku vs Sonnet), what to load by session type, and surfacing in-flight work.
 
 ## KED-OS Index (Token-Efficient Lookups)
 
@@ -134,3 +117,5 @@ KED-OS knows about:
 KED-OS is isolated from:
 - **Life OS** — Chris's personal work (not referenced from KED-OS)
 - **Brilliant OS** does not know about KED-OS (from Brilliant OS perspective)
+
+**Hard boundary, no exceptions (Always Active): KED work never writes to brilliant-os, ever.** brilliant-os is Nathan's shared business repo. Every file write and git commit for a KED task — this project, KED Interests, any Kenny Dubose project including personal ones like Dubose Design Hub — belongs in `~/os-systems/ked-os/` or a standalone repo under Chris's own accounts, never in `~/os-systems/brilliant-os/`, regardless of which repo a session happens to be rooted in. A KED preview-server config once leaked into brilliant-os's `.claude/launch.json` and was pushed to `nathaningram/brilliant-os` — Nathan's repo ended up with a commit referencing Kenny Dubose's personal home remodel project. Chris was explicit and repeated: this cannot happen again, ever. If unsure which OS a task belongs to, ask before writing anything.
