@@ -9,7 +9,7 @@ import os
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 CLIENT_SECRET_FILE = os.path.expanduser(
-    "~/Downloads/client_secret_896537630194-oc56mk0ucfdqsrg5a3a25bg97hp74hk5.apps.googleusercontent.com.json"
+    "~/Downloads/client_secret_896537630194-qsnsj3oft0iiithnd7e281vs0a3bvhu0.apps.googleusercontent.com.json"
 )
 
 # Ad Manager API scope

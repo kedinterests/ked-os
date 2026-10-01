@@ -2,6 +2,8 @@
 """Generate a polished PDF report for Enverus from GAM data."""
 
 import json, os, time, urllib.request, urllib.parse
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 import google.auth.transport.requests
 from google.oauth2.credentials import Credentials
 
@@ -9,6 +11,7 @@ CREDENTIALS_FILE = os.path.join(os.path.dirname(__file__), "..", "secrets", "gam
 NETWORK_CODE = "6933594"
 ORDER_NAME = "MRF Enverus 2026/06"
 BASE = f"https://admanager.googleapis.com/v1/networks/{NETWORK_CODE}"
+YESTERDAY = datetime.now(ZoneInfo("America/Chicago")).date() - timedelta(days=1)
 
 with open(CREDENTIALS_FILE) as f:
     cred_data = json.load(f)
@@ -49,7 +52,7 @@ report = post("reports", {
         "dateRange": {
             "fixed": {
                 "startDate": {"year": 2026, "month": 6, "day": 1},
-                "endDate": {"year": 2026, "month": 6, "day": 30},
+                "endDate": {"year": YESTERDAY.year, "month": YESTERDAY.month, "day": YESTERDAY.day},
             }
         },
     },
