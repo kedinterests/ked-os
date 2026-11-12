@@ -84,6 +84,7 @@ Use `python3 scripts/ked.py query skills` to see all available skills.
 | `skills/project-initialization/` | New project folder setup |
 | `skills/ked-industry-news/` | Weekly O&G / mineral rights / drilling news prep |
 | `skills/voice-profile/` | Voice profile |
+| `skills/earpiece/` | Live call notes: "watch my call with [person]". Uses ked-os files only |
 
 ## Projects
 
