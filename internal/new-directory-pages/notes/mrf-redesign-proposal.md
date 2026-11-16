@@ -1,7 +1,7 @@
 # MRF Redesign Proposal
 
 **Date:** 2026-05-15
-**Status:** Proposal delivered to Kenny — awaiting decision on Phase 1
+**Status:** Approved by Kenny (2026-10-19). Phase 1 build starting.
 **Lives in:** `kedinterests/new-directory-pages` repo, deployed to `directory.mineralrightsforum.com`
 
 ---

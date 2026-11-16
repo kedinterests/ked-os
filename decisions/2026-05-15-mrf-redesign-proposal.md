@@ -1,7 +1,7 @@
 # MRF Forum Visual Redesign — Proposal Delivered
 
 **Date:** 2026-05-15
-**Status:** Awaiting Kenny's decision on Phase 1 go-ahead
+**Status:** Approved by Kenny, 2026-10-19. Phase 1 build starting.
 
 ## What
 Designed and delivered a full visual rebrand proposal for MineralRightsForum.com (Discourse forum). Includes six logo concepts, a full Discourse homepage mockup, a complete style guide, and a pitch deck with a three-phase zero-risk transition plan. All assets live at `directory.mineralrightsforum.com` as static HTML pages.

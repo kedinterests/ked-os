@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "google-analytics": {
+      "command": "/Users/chrismalone/.local/bin/analytics-mcp",
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/chrismalone/.config/gcloud/application_default_credentials.json"
+      }
+    },
+    "discourse-mrf": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@discourse/mcp@latest",
+        "--site",
+        "https://mineralrightsforum.com",
+        "--profile",
+        "/Users/chrismalone/.config/discourse-mcp/mineralrightsforum.json",
+        "--toolsets",
+        "search,themes",
+        "--tools_mode",
+        "discourse_api_only",
+        "--allow_writes",
+        "true"
+      ]
+    }
+  }
+}
