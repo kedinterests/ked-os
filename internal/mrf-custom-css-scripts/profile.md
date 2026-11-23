@@ -31,6 +31,7 @@ Custom CSS and JavaScript for MineralRightsForum's Discourse forum, organized in
 
 - Last updated: 2026-01-20
 - Status: active / maintenance
+- 2026-11-19: Mineral Auction sitewide ad moved off the Rotate Banner component in MRF 2026 via a native outlet component (default theme still uses the component). See `notes/2026-11-19-mineral-auction-ad.md`. Theme edits are done through the Discourse API, with the key in `.env.local`.
 
 ## Next Steps
 

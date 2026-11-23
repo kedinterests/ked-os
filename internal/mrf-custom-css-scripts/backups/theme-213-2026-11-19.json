@@ -1,0 +1,873 @@
+{
+  "id": 213,
+  "name": "MRF 2026",
+  "description": "MineralRightsForum 2026 design: navy and gold palette, Playfair Display and Inter, homepage hero, branded footer.",
+  "created_at": "2026-10-19T19:41:38.127Z",
+  "updated_at": "2026-10-19T19:41:51.456Z",
+  "component": false,
+  "color_scheme_id": 23,
+  "dark_color_scheme_id": null,
+  "user_selectable": true,
+  "auto_update": false,
+  "remote_theme_id": null,
+  "settings": [
+    {
+      "setting": "classic_theme_id",
+      "humanized_name": "Classic theme ID",
+      "type": "integer",
+      "default": 90,
+      "value": 90,
+      "description": "Theme ID members return to with the 'Back to classic view' link. Default (Mar 2024) is 90."
+    },
+    {
+      "setting": "nav_menu",
+      "humanized_name": "Nav menu",
+      "type": "objects",
+      "default": [
+        {
+          "label": "Get Started",
+          "links": [
+            {
+              "text": "Using this site",
+              "url": "/c/getting-started/790"
+            }
+          ]
+        },
+        {
+          "label": "Counties",
+          "links": [
+            {
+              "text": "Oil-Gas Producing Counties",
+              "url": "https://directory.mineralrightsforum.com/"
+            }
+          ]
+        },
+        {
+          "label": "Mineral Help",
+          "links": [
+            {
+              "text": "Division Order",
+              "url": "https://www.mineralwise.com/division-orders?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Royalty Statement",
+              "url": "https://www.mineralwise.com/oil-and-gas-royalty-statement?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Oil & Gas Leasing",
+              "url": "https://www.mineralwise.com/oil-and-gas-leasing-top-10-things-to-do?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Royalty Tax",
+              "url": "https://www.mineralwise.com/royalty-taxes?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Leasing - What NOT to Do",
+              "url": "https://www.mineralwise.com/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Oil & Gas 101",
+              "url": "https://www.mineralwise.com/oil-and-gas-basics-for-mineral-owners?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Lease My Land",
+              "url": "https://www.mineralwise.com/lease-my-land?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Recommended Reading",
+              "url": "/t/recommended-reading/24983"
+            }
+          ]
+        },
+        {
+          "label": "About",
+          "links": [
+            {
+              "text": "About Us",
+              "url": "/about"
+            },
+            {
+              "text": "Testimonials",
+              "url": "https://testimonials.mineralrightsforum.com/"
+            }
+          ]
+        },
+        {
+          "label": "Advertise",
+          "links": [
+            {
+              "text": "Advertise with Us",
+              "url": "/t/advertise-with-us-to-reach-mineral-owners/24986"
+            }
+          ]
+        },
+        {
+          "label": "Directories",
+          "links": [
+            {
+              "text": "Mineral Services",
+              "url": "https://directory.mineralrightsforum.com/mineral-services-directory"
+            },
+            {
+              "text": "EagleFord Area Courthouses",
+              "url": "/t/eagleford-shale-area-courthouses/52942"
+            },
+            {
+              "text": "Bakken Area Courthouses",
+              "url": "/t/bakken-shale-area-courthouses/52940",
+              "new_tab": true
+            },
+            {
+              "text": "State Regulatory Agencies",
+              "url": "/t/oil-gas-state-regulatory-agencies/52945",
+              "new_tab": true
+            },
+            {
+              "text": "Industry Associations",
+              "url": "/t/oil-gas-industry-associations/52947",
+              "new_tab": true
+            },
+            {
+              "text": "GIS Maps by State",
+              "url": "/t/oil-gas-gis-maps-by-state/53539",
+              "new_tab": true
+            }
+          ]
+        }
+      ],
+      "value": [
+        {
+          "label": "Get Started",
+          "links": [
+            {
+              "text": "Using this site",
+              "url": "/c/getting-started/790"
+            }
+          ]
+        },
+        {
+          "label": "Counties",
+          "links": [
+            {
+              "text": "Oil-Gas Producing Counties",
+              "url": "https://directory.mineralrightsforum.com/"
+            }
+          ]
+        },
+        {
+          "label": "Mineral Help",
+          "links": [
+            {
+              "text": "Division Order",
+              "url": "https://www.mineralwise.com/division-orders?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Royalty Statement",
+              "url": "https://www.mineralwise.com/oil-and-gas-royalty-statement?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Oil & Gas Leasing",
+              "url": "https://www.mineralwise.com/oil-and-gas-leasing-top-10-things-to-do?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Royalty Tax",
+              "url": "https://www.mineralwise.com/royalty-taxes?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Leasing - What NOT to Do",
+              "url": "https://www.mineralwise.com/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Oil & Gas 101",
+              "url": "https://www.mineralwise.com/oil-and-gas-basics-for-mineral-owners?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Lease My Land",
+              "url": "https://www.mineralwise.com/lease-my-land?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self",
+              "new_tab": true
+            },
+            {
+              "text": "Recommended Reading",
+              "url": "/t/recommended-reading/24983"
+            }
+          ]
+        },
+        {
+          "label": "About",
+          "links": [
+            {
+              "text": "About Us",
+              "url": "/about"
+            },
+            {
+              "text": "Testimonials",
+              "url": "https://testimonials.mineralrightsforum.com/"
+            }
+          ]
+        },
+        {
+          "label": "Advertise",
+          "links": [
+            {
+              "text": "Advertise with Us",
+              "url": "/t/advertise-with-us-to-reach-mineral-owners/24986"
+            }
+          ]
+        },
+        {
+          "label": "Directories",
+          "links": [
+            {
+              "text": "Mineral Services",
+              "url": "https://directory.mineralrightsforum.com/mineral-services-directory"
+            },
+            {
+              "text": "EagleFord Area Courthouses",
+              "url": "/t/eagleford-shale-area-courthouses/52942"
+            },
+            {
+              "text": "Bakken Area Courthouses",
+              "url": "/t/bakken-shale-area-courthouses/52940",
+              "new_tab": true
+            },
+            {
+              "text": "State Regulatory Agencies",
+              "url": "/t/oil-gas-state-regulatory-agencies/52945",
+              "new_tab": true
+            },
+            {
+              "text": "Industry Associations",
+              "url": "/t/oil-gas-industry-associations/52947",
+              "new_tab": true
+            },
+            {
+              "text": "GIS Maps by State",
+              "url": "/t/oil-gas-gis-maps-by-state/53539",
+              "new_tab": true
+            }
+          ]
+        }
+      ],
+      "description": "Main menu in the header. Items with links show as dropdowns; an item with only a URL is a plain link.",
+      "objects_schema": {
+        "name": "menu item",
+        "identifier": "label",
+        "properties": {
+          "label": {
+            "type": "string",
+            "required": true
+          },
+          "url": {
+            "type": "string"
+          },
+          "links": {
+            "type": "objects",
+            "schema": {
+              "name": "link",
+              "identifier": "text",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "required": true
+                },
+                "url": {
+                  "type": "string",
+                  "required": true
+                },
+                "new_tab": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "setting": "nav_mobile_label",
+      "humanized_name": "Nav mobile label",
+      "type": "string",
+      "default": "Menu",
+      "value": "Menu",
+      "description": "Text on the menu button on phones and tablets.",
+      "textarea": false
+    },
+    {
+      "setting": "show_hero",
+      "humanized_name": "Show hero",
+      "type": "bool",
+      "default": true,
+      "value": true,
+      "description": "Show the navy hero banner on the homepage."
+    },
+    {
+      "setting": "hero_eyebrow",
+      "humanized_name": "Hero eyebrow",
+      "type": "string",
+      "default": "For U.S. Mineral Rights Owners & Professionals",
+      "value": "For U.S. Mineral Rights Owners & Professionals",
+      "description": "Small label above the hero heading.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_title",
+      "humanized_name": "Hero title",
+      "type": "string",
+      "default": "The Premier Community for Mineral Rights",
+      "value": "The Premier Community for Mineral Rights",
+      "description": "Hero heading.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_subtitle",
+      "humanized_name": "Hero subtitle",
+      "type": "string",
+      "default": "Ask questions, share expertise, and connect with attorneys, mineral buyers, landmen, and royalty managers across every oil & gas basin in the country.",
+      "value": "Ask questions, share expertise, and connect with attorneys, mineral buyers, landmen, and royalty managers across every oil & gas basin in the country.",
+      "description": "Hero paragraph under the heading.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_stats",
+      "humanized_name": "Hero stats",
+      "type": "objects",
+      "default": [
+        {
+          "value": "18,000+",
+          "label": "Members"
+        },
+        {
+          "value": "396,000+",
+          "label": "Posts"
+        },
+        {
+          "value": "700+",
+          "label": "County Forums"
+        },
+        {
+          "value": "Est. 2009",
+          "label": "Trusted Since"
+        }
+      ],
+      "value": [
+        {
+          "label": "Members",
+          "value": "18,000+"
+        },
+        {
+          "label": "Posts",
+          "value": "396,000+"
+        },
+        {
+          "label": "County Forums",
+          "value": "709"
+        },
+        {
+          "label": "Trusted Since",
+          "value": "Est. 2009"
+        }
+      ],
+      "description": "Stats row in the hero.",
+      "objects_schema": {
+        "name": "stat",
+        "identifier": "label",
+        "properties": {
+          "value": {
+            "type": "string",
+            "required": true
+          },
+          "label": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    },
+    {
+      "setting": "hero_primary_label",
+      "humanized_name": "Hero primary label",
+      "type": "string",
+      "default": "Browse Discussions",
+      "value": "Browse Discussions",
+      "description": "Gold hero button text.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_primary_url",
+      "humanized_name": "Hero primary URL",
+      "type": "string",
+      "default": "/latest",
+      "value": "/latest",
+      "description": "Gold hero button link.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_secondary_label",
+      "humanized_name": "Hero secondary label",
+      "type": "string",
+      "default": "Find a Professional",
+      "value": "Find a Professional",
+      "description": "Outline hero button text.",
+      "textarea": false
+    },
+    {
+      "setting": "hero_secondary_url",
+      "humanized_name": "Hero secondary URL",
+      "type": "string",
+      "default": "https://directory.mineralrightsforum.com/mineral-services-directory",
+      "value": "https://directory.mineralrightsforum.com/mineral-services-directory",
+      "description": "Outline hero button link.",
+      "textarea": false
+    },
+    {
+      "setting": "footer_tagline",
+      "humanized_name": "Footer tagline",
+      "type": "string",
+      "default": "The premier discussion community for U.S. oil and gas mineral & royalty owners since 2009.",
+      "value": "The premier discussion community for U.S. oil and gas mineral & royalty owners since 2009.",
+      "description": "Short line under the footer logo.",
+      "textarea": false
+    },
+    {
+      "setting": "footer_sections",
+      "humanized_name": "Footer sections",
+      "type": "objects",
+      "default": [
+        {
+          "heading": "Community",
+          "links": [
+            {
+              "text": "Latest Topics",
+              "url": "/latest"
+            },
+            {
+              "text": "Top Posts",
+              "url": "/top"
+            },
+            {
+              "text": "Getting Started",
+              "url": "/c/getting-started/790"
+            },
+            {
+              "text": "Testimonials",
+              "url": "/pub/mineral-owners-testimonials"
+            }
+          ]
+        },
+        {
+          "heading": "Resources",
+          "links": [
+            {
+              "text": "Mineral Services Directory",
+              "url": "https://directory.mineralrightsforum.com/mineral-services-directory"
+            },
+            {
+              "text": "County Directory",
+              "url": "https://directory.mineralrightsforum.com/"
+            },
+            {
+              "text": "Mineral Education",
+              "url": "https://mineralwise.com"
+            },
+            {
+              "text": "Press Room",
+              "url": "/t/mrf-press-room/60625"
+            }
+          ]
+        },
+        {
+          "heading": "Company",
+          "links": [
+            {
+              "text": "About",
+              "url": "/about"
+            },
+            {
+              "text": "Contact Us",
+              "url": "mailto:admin@mineralrightsforum.com"
+            },
+            {
+              "text": "Advertise",
+              "url": "/t/advertise-with-us-to-reach-mineral-owners/24986"
+            },
+            {
+              "text": "Privacy",
+              "url": "/privacy"
+            },
+            {
+              "text": "Terms of Service",
+              "url": "/tos"
+            }
+          ]
+        }
+      ],
+      "value": [
+        {
+          "heading": "Community",
+          "links": [
+            {
+              "text": "Latest Topics",
+              "url": "/latest"
+            },
+            {
+              "text": "Top Posts",
+              "url": "/top"
+            },
+            {
+              "text": "Getting Started",
+              "url": "/c/getting-started/790"
+            },
+            {
+              "text": "Testimonials",
+              "url": "/pub/mineral-owners-testimonials"
+            }
+          ]
+        },
+        {
+          "heading": "Resources",
+          "links": [
+            {
+              "text": "Mineral Services Directory",
+              "url": "https://directory.mineralrightsforum.com/mineral-services-directory"
+            },
+            {
+              "text": "County Directory",
+              "url": "https://directory.mineralrightsforum.com/"
+            },
+            {
+              "text": "Mineral Education",
+              "url": "https://mineralwise.com"
+            },
+            {
+              "text": "Press Room",
+              "url": "/t/mrf-press-room/60625"
+            }
+          ]
+        },
+        {
+          "heading": "Company",
+          "links": [
+            {
+              "text": "About",
+              "url": "/about"
+            },
+            {
+              "text": "Contact Us",
+              "url": "mailto:admin@mineralrightsforum.com"
+            },
+            {
+              "text": "Advertise",
+              "url": "/t/advertise-with-us-to-reach-mineral-owners/24986"
+            },
+            {
+              "text": "Privacy",
+              "url": "/privacy"
+            },
+            {
+              "text": "Terms of Service",
+              "url": "/tos"
+            }
+          ]
+        }
+      ],
+      "description": "Footer link columns.",
+      "objects_schema": {
+        "name": "section",
+        "identifier": "heading",
+        "properties": {
+          "heading": {
+            "type": "string",
+            "required": true
+          },
+          "links": {
+            "type": "objects",
+            "schema": {
+              "name": "link",
+              "identifier": "text",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "required": true
+                },
+                "url": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "setting": "classic_link_label",
+      "humanized_name": "Classic link label",
+      "type": "string",
+      "default": "Back to classic view",
+      "value": "Back to classic view",
+      "description": "Text for the footer link that switches a member back to the classic theme.",
+      "textarea": false
+    }
+  ],
+  "themeable_site_settings": [
+    {
+      "setting": "enable_welcome_banner",
+      "default": "true",
+      "description": "Display a banner on your main topic list pages to welcome members and allow them to search site content",
+      "humanized_name": "Enable welcome banner",
+      "type": "bool",
+      "value": "true"
+    },
+    {
+      "setting": "search_experience",
+      "default": "search_icon",
+      "description": "The default position and appearance of search on desktop devices",
+      "humanized_name": "Search experience",
+      "type": "enum",
+      "valid_values": [
+        {
+          "name": "search.experience.search_field",
+          "value": "search_field"
+        },
+        {
+          "name": "search.experience.search_icon",
+          "value": "search_icon"
+        }
+      ],
+      "translate_names": true,
+      "value": "search_icon"
+    }
+  ],
+  "supported": true,
+  "enabled": true,
+  "theme_fields": [
+    {
+      "name": "about",
+      "target": "about",
+      "value": "{\n  \"name\": \"MRF 2026\",\n  \"component\": false,\n  \"authors\": \"KED Interests\",\n  \"about_url\": null,\n  \"license_url\": null,\n  \"theme_version\": \"0.1.0\",\n  \"minimum_discourse_version\": \"3.4.0\",\n  \"assets\": {},\n  \"color_schemes\": {\n    \"MRF Navy & Gold\": {\n      \"primary\": \"0a192f\",\n      \"secondary\": \"ffffff\",\n      \"tertiary\": \"1a3054\",\n      \"quaternary\": \"1a3054\",\n      \"header_background\": \"ffffff\",\n      \"header_primary\": \"0a192f\",\n      \"highlight\": \"d4a520\",\n      \"danger\": \"dc2626\",\n      \"success\": \"16a34a\",\n      \"love\": \"dc2626\"\n    },\n    \"MRF Navy & Gold Dark\": {\n      \"primary\": \"f8f6f1\",\n      \"secondary\": \"0a192f\",\n      \"tertiary\": \"d4a520\",\n      \"quaternary\": \"e0b535\",\n      \"header_background\": \"0e2040\",\n      \"header_primary\": \"f8f6f1\",\n      \"highlight\": \"d4a520\",\n      \"danger\": \"ef4444\",\n      \"success\": \"22c55e\",\n      \"love\": \"f87171\"\n    }\n  }\n}\n",
+      "type_id": 8,
+      "file_path": "about.json"
+    },
+    {
+      "name": "discourse/api-initializers/mrf-gtm-post-in-view.gjs",
+      "target": "extra_js",
+      "value": "import { apiInitializer } from \"discourse/lib/api\";\n\nexport default apiInitializer(\"0.8\", (api) => {\n  const debug = new URLSearchParams(window.location.search).get(\"mrf_debug\") === \"1\";\n  const log = (...args) => {\n    if (debug && window.console && console.log) console.log(\"[MRF GTM]\", ...args);\n  };\n\n  window.dataLayer = window.dataLayer || [];\n  window.__mrf_seen_posts = window.__mrf_seen_posts || new Set();\n\n  function getVirtualPageView() {\n    try {\n      const dl = window.dataLayer || [];\n      // find last virtualPageView\n      for (let i = dl.length - 1; i >= 0; i--) {\n        const x = dl[i];\n        if (x && x.event === \"virtualPageView\" && x.page) return x;\n      }\n    } catch (e) {}\n    return null;\n  }\n\n  function getTopicTitle() {\n    const v = getVirtualPageView();\n    return (v && v.page && v.page.title) ? String(v.page.title) : (document.title || \"\");\n  }\n\n  function getTopicUrl() {\n    const v = getVirtualPageView();\n    return (v && v.page && v.page.url) ? String(v.page.url) : (location.pathname + location.search + location.hash);\n  }\n\n  function findPostNodes() {\n    // broad selector to survive theme variations\n    let nodes = Array.from(document.querySelectorAll(\"article[data-post-id][data-user-id]\"));\n    if (!nodes.length) nodes = Array.from(document.querySelectorAll(\"[data-post-id][data-user-id]\"));\n    return nodes;\n  }\n\n  function getPostNumber(el) {\n    // Some themes store it as data-post-number; otherwise try common DOM hooks.\n    let pn =\n      el.getAttribute?.(\"data-post-number\") ||\n      el.dataset?.postNumber ||\n      el.querySelector?.(\".post-number\")?.textContent ||\n      el.querySelector?.(\"a.post-number\")?.textContent ||\n      null;\n\n    if (pn) return String(pn).trim();\n\n    // As a last resort: parse trailing /<postNumber> from /t/slug/id/<postNumber>\n    const m = (location.pathname || \"\").match(/\\/t\\/[^/]+\\/\\d+\\/(\\d+)(?:\\/)?$/);\n    return m && m[1] ? m[1] : null;\n  }\n\n  function postMeta(el) {\n    const postId = el.getAttribute?.(\"data-post-id\") || el.dataset?.postId || null;\n    const authorId = el.getAttribute?.(\"data-user-id\") || el.dataset?.userId || null;\n    if (!postId || !authorId) return null;\n\n    return {\n      postId: String(postId),\n      authorId: String(authorId),\n      postNumber: getPostNumber(el)\n    };\n  }\n\n  function push(meta) {\n    if (!meta) return;\n    if (window.__mrf_seen_posts.has(meta.postId)) return;\n    window.__mrf_seen_posts.add(meta.postId);\n\n    const payload = {\n      event: \"mrf_post_in_view\",\n      mrf_topic_title: getTopicTitle(),\n      mrf_topic_url: getTopicUrl(),\n      mrf_post_id: meta.postId,\n      mrf_post_number: meta.postNumber,\n      mrf_author_user_id: meta.authorId\n    };\n\n    window.dataLayer.push(payload);\n    log(\"dataLayer.push\", payload);\n  }\n\n  function setupObservers() {\n    const posts = findPostNodes();\n    log(\"Found post nodes:\", posts.length);\n\n    // marker so you can confirm script is alive even if posts not found\n    window.dataLayer.push({ event: \"mrf_theme_loaded\", mrf_path: location.pathname });\n    log(\"mrf_theme_loaded pushed\");\n\n    if (!posts.length) return;\n\n    const io = new IntersectionObserver((entries) => {\n      for (const entry of entries) {\n        if (!entry.isIntersecting) continue;\n        push(postMeta(entry.target));\n      }\n    }, { threshold: 0.6 });\n\n    posts.forEach(p => io.observe(p));\n\n    // Watch for infinite scroll / post inserts\n    const mo = new MutationObserver((mutations) => {\n      for (const m of mutations) {\n        for (const n of m.addedNodes || []) {\n          if (!(n instanceof HTMLElement)) continue;\n\n          if (n.matches?.(\"article[data-post-id][data-user-id], [data-post-id][data-user-id]\")) {\n            io.observe(n);\n            continue;\n          }\n\n          const found = n.querySelectorAll?.(\"article[data-post-id][data-user-id], [data-post-id][data-user-id]\") || [];\n          found.forEach(f => io.observe(f));\n        }\n      }\n    });\n\n    mo.observe(document.body, { childList: true, subtree: true });\n\n    // Immediately push first few posts (helps when already in view)\n    posts.slice(0, 5).forEach(p => push(postMeta(p)));\n  }\n\n  api.onPageChange(() => {\n    // Run now and again after Ember paints\n    setupObservers();\n    setTimeout(setupObservers, 800);\n  });\n});\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/api-initializers/mrf-gtm-post-in-view.gjs"
+    },
+    {
+      "name": "discourse/components/mrf-footer.gjs",
+      "target": "extra_js",
+      "value": "import Component from \"@glimmer/component\";\nimport { action } from \"@ember/object\";\nimport { service } from \"@ember/service\";\nimport { on } from \"@ember/modifier\";\nimport { switchTheme } from \"../lib/mrf-theme-switch\";\n\nexport default class MrfFooter extends Component {\n  @service currentUser;\n\n  get year() {\n    return new Date().getFullYear();\n  }\n\n  get showClassicLink() {\n    return parseInt(settings.classic_theme_id, 10) > 0;\n  }\n\n  @action\n  backToClassic(event) {\n    event.preventDefault();\n    switchTheme(this.currentUser, settings.classic_theme_id, \"footer\");\n  }\n\n  <template>\n    <footer class=\"mrf-footer\">\n      <div class=\"mrf-footer__inner\">\n        <div class=\"mrf-footer__brand\">\n          <a class=\"mrf-footer__logo\" href=\"/\">\n            <span class=\"mrf-strata\" aria-hidden=\"true\">\n              <span class=\"mrf-strata__bar\"></span>\n              <span class=\"mrf-strata__bar\"></span>\n              <span class=\"mrf-strata__bar\"></span>\n              <span class=\"mrf-strata__bar\"></span>\n            </span>\n            <span class=\"mrf-footer__logo-text\">\n              <span class=\"mrf-footer__logo-name\">Mineral Rights Forum</span>\n              <span class=\"mrf-footer__logo-sub\">Est. 2009</span>\n            </span>\n          </a>\n          {{#if settings.footer_tagline}}\n            <p class=\"mrf-footer__tagline\">{{settings.footer_tagline}}</p>\n          {{/if}}\n        </div>\n\n        {{#each settings.footer_sections as |section|}}\n          <div class=\"mrf-footer__col\">\n            <h4>{{section.heading}}</h4>\n            {{#each section.links as |link|}}\n              <a href={{link.url}}>{{link.text}}</a>\n            {{/each}}\n          </div>\n        {{/each}}\n      </div>\n\n      <div class=\"mrf-footer__bottom\">\n        <span>\u00a9 {{this.year}} Mineral Rights Forum. All rights reserved.</span>\n        {{#if this.showClassicLink}}\n          <a\n            href\n            class=\"mrf-footer__classic\"\n            {{on \"click\" this.backToClassic}}\n          >{{settings.classic_link_label}}</a>\n        {{/if}}\n      </div>\n    </footer>\n  </template>\n}\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/components/mrf-footer.gjs"
+    },
+    {
+      "name": "discourse/components/mrf-hero.gjs",
+      "target": "extra_js",
+      "value": "import Component from \"@glimmer/component\";\nimport { service } from \"@ember/service\";\nimport { defaultHomepage } from \"discourse/lib/utilities\";\n\nexport default class MrfHero extends Component {\n  @service router;\n\n  get shouldShow() {\n    if (!settings.show_hero) {\n      return false;\n    }\n\n    const path = (this.router.currentURL || \"/\").split(/[?#]/)[0];\n    return path === \"/\" || path === `/${defaultHomepage()}`;\n  }\n\n  <template>\n    {{#if this.shouldShow}}\n      <section class=\"mrf-hero\">\n        <div class=\"mrf-hero__inner\">\n          {{#if settings.hero_eyebrow}}\n            <span class=\"mrf-hero__eyebrow\">{{settings.hero_eyebrow}}</span>\n          {{/if}}\n\n          <h1 class=\"mrf-hero__title\">{{settings.hero_title}}</h1>\n\n          {{#if settings.hero_subtitle}}\n            <p class=\"mrf-hero__lead\">{{settings.hero_subtitle}}</p>\n          {{/if}}\n\n          {{#if settings.hero_stats.length}}\n            <div class=\"mrf-hero__stats\">\n              {{#each settings.hero_stats as |stat|}}\n                <div class=\"mrf-hero__stat\">\n                  <span class=\"mrf-hero__stat-n\">{{stat.value}}</span>\n                  <span class=\"mrf-hero__stat-l\">{{stat.label}}</span>\n                </div>\n              {{/each}}\n            </div>\n          {{/if}}\n\n          <div class=\"mrf-hero__actions\">\n            {{#if settings.hero_primary_label}}\n              <a\n                class=\"mrf-btn mrf-btn--gold\"\n                href={{settings.hero_primary_url}}\n              >{{settings.hero_primary_label}}</a>\n            {{/if}}\n            {{#if settings.hero_secondary_label}}\n              <a\n                class=\"mrf-btn mrf-btn--ghost\"\n                href={{settings.hero_secondary_url}}\n              >{{settings.hero_secondary_label}}</a>\n            {{/if}}\n          </div>\n        </div>\n      </section>\n    {{/if}}\n  </template>\n}\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/components/mrf-hero.gjs"
+    },
+    {
+      "name": "discourse/lib/mrf-theme-switch.js",
+      "target": "extra_js",
+      "value": "import { ajax } from \"discourse/lib/ajax\";\nimport { popupAjaxError } from \"discourse/lib/ajax-error\";\n\nconst COOKIE_NAME = \"theme_ids\";\nconst TEN_YEARS = 60 * 60 * 24 * 365 * 10;\n\nfunction setDeviceTheme(themeId, seq) {\n  const secure = window.location.protocol === \"https:\" ? \"; secure\" : \"\";\n\n  if (themeId) {\n    document.cookie = `${COOKIE_NAME}=${themeId}|${seq}; path=/; max-age=${TEN_YEARS}; samesite=lax${secure}`;\n  } else {\n    document.cookie = `${COOKIE_NAME}=; path=/; max-age=0; samesite=lax${secure}`;\n  }\n}\n\nexport async function switchTheme(currentUser, themeId, source) {\n  themeId = parseInt(themeId, 10);\n  if (!themeId) {\n    return;\n  }\n\n  try {\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      event: \"mrf_theme_switch\",\n      mrf_theme_id: themeId,\n      mrf_switch_source: source || null,\n      mrf_logged_in: !!currentUser,\n    });\n  } catch (e) {}\n\n  try {\n    if (currentUser) {\n      await ajax(`/u/${currentUser.username_lower}.json`, {\n        type: \"PUT\",\n        data: { theme_ids: [themeId] },\n      });\n      setDeviceTheme(null);\n    } else {\n      setDeviceTheme(themeId, 0);\n    }\n    window.location.reload();\n  } catch (e) {\n    popupAjaxError(e);\n  }\n}\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/lib/mrf-theme-switch.js"
+    },
+    {
+      "name": "yaml",
+      "target": "settings",
+      "value": "classic_theme_id:\n  type: integer\n  default: 90\n  description: \"Theme ID members return to with the 'Back to classic view' link. Default (Mar 2024) is 90.\"\n\nnav_menu:\n  type: objects\n  default:\n    - label: \"Get Started\"\n      links:\n        - text: \"Using this site\"\n          url: \"/c/getting-started/790\"\n    - label: \"Counties\"\n      links:\n        - text: \"Oil-Gas Producing Counties\"\n          url: \"https://directory.mineralrightsforum.com/\"\n    - label: \"Mineral Help\"\n      links:\n        - text: \"Division Order\"\n          url: \"https://www.mineralwise.com/division-orders?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Royalty Statement\"\n          url: \"https://www.mineralwise.com/oil-and-gas-royalty-statement?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Oil & Gas Leasing\"\n          url: \"https://www.mineralwise.com/oil-and-gas-leasing-top-10-things-to-do?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Royalty Tax\"\n          url: \"https://www.mineralwise.com/royalty-taxes?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Leasing - What NOT to Do\"\n          url: \"https://www.mineralwise.com/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Oil & Gas 101\"\n          url: \"https://www.mineralwise.com/oil-and-gas-basics-for-mineral-owners?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Lease My Land\"\n          url: \"https://www.mineralwise.com/lease-my-land?utm_source=mrf&utm_medium=referral&utm_campaign=main_nav&utm_adv=self\"\n          new_tab: true\n        - text: \"Recommended Reading\"\n          url: \"/t/recommended-reading/24983\"\n    - label: \"About\"\n      links:\n        - text: \"About Us\"\n          url: \"/about\"\n        - text: \"Testimonials\"\n          url: \"https://testimonials.mineralrightsforum.com/\"\n    - label: \"Advertise\"\n      links:\n        - text: \"Advertise with Us\"\n          url: \"/t/advertise-with-us-to-reach-mineral-owners/24986\"\n    - label: \"Directories\"\n      links:\n        - text: \"Mineral Services\"\n          url: \"https://directory.mineralrightsforum.com/mineral-services-directory\"\n        - text: \"EagleFord Area Courthouses\"\n          url: \"/t/eagleford-shale-area-courthouses/52942\"\n        - text: \"Bakken Area Courthouses\"\n          url: \"/t/bakken-shale-area-courthouses/52940\"\n          new_tab: true\n        - text: \"State Regulatory Agencies\"\n          url: \"/t/oil-gas-state-regulatory-agencies/52945\"\n          new_tab: true\n        - text: \"Industry Associations\"\n          url: \"/t/oil-gas-industry-associations/52947\"\n          new_tab: true\n        - text: \"GIS Maps by State\"\n          url: \"/t/oil-gas-gis-maps-by-state/53539\"\n          new_tab: true\n  schema:\n    name: menu item\n    identifier: label\n    properties:\n      label:\n        type: string\n        required: true\n      url:\n        type: string\n      links:\n        type: objects\n        schema:\n          name: link\n          identifier: text\n          properties:\n            text:\n              type: string\n              required: true\n            url:\n              type: string\n              required: true\n            new_tab:\n              type: boolean\n\nnav_mobile_label:\n  type: string\n  default: \"Menu\"\n\nshow_hero:\n  type: bool\n  default: true\n  description: \"Show the navy hero banner on the homepage.\"\n\nhero_eyebrow:\n  type: string\n  default: \"For U.S. Mineral Rights Owners & Professionals\"\n\nhero_title:\n  type: string\n  default: \"The Premier Community for Mineral Rights\"\n\nhero_subtitle:\n  type: string\n  default: \"Ask questions, share expertise, and connect with attorneys, mineral buyers, landmen, and royalty managers across every oil & gas basin in the country.\"\n\nhero_stats:\n  type: objects\n  default:\n    - value: \"18,000+\"\n      label: \"Members\"\n    - value: \"396,000+\"\n      label: \"Posts\"\n    - value: \"700+\"\n      label: \"County Forums\"\n    - value: \"Est. 2009\"\n      label: \"Trusted Since\"\n  schema:\n    name: stat\n    identifier: label\n    properties:\n      value:\n        type: string\n        required: true\n      label:\n        type: string\n        required: true\n\nhero_primary_label:\n  type: string\n  default: \"Browse Discussions\"\n\nhero_primary_url:\n  type: string\n  default: \"/latest\"\n\nhero_secondary_label:\n  type: string\n  default: \"Find a Professional\"\n\nhero_secondary_url:\n  type: string\n  default: \"https://directory.mineralrightsforum.com/mineral-services-directory\"\n\nfooter_tagline:\n  type: string\n  default: \"The premier discussion community for U.S. oil and gas mineral & royalty owners since 2009.\"\n\nfooter_sections:\n  type: objects\n  default:\n    - heading: \"Community\"\n      links:\n        - text: \"Latest Topics\"\n          url: \"/latest\"\n        - text: \"Top Posts\"\n          url: \"/top\"\n        - text: \"Getting Started\"\n          url: \"/c/getting-started/790\"\n        - text: \"Testimonials\"\n          url: \"/pub/mineral-owners-testimonials\"\n    - heading: \"Resources\"\n      links:\n        - text: \"Mineral Services Directory\"\n          url: \"https://directory.mineralrightsforum.com/mineral-services-directory\"\n        - text: \"County Directory\"\n          url: \"https://directory.mineralrightsforum.com/\"\n        - text: \"Mineral Education\"\n          url: \"https://mineralwise.com\"\n        - text: \"Press Room\"\n          url: \"/t/mrf-press-room/60625\"\n    - heading: \"Company\"\n      links:\n        - text: \"About\"\n          url: \"/about\"\n        - text: \"Contact Us\"\n          url: \"mailto:admin@mineralrightsforum.com\"\n        - text: \"Advertise\"\n          url: \"/t/advertise-with-us-to-reach-mineral-owners/24986\"\n        - text: \"Privacy\"\n          url: \"/privacy\"\n        - text: \"Terms of Service\"\n          url: \"/tos\"\n  schema:\n    name: section\n    identifier: heading\n    properties:\n      heading:\n        type: string\n        required: true\n      links:\n        type: objects\n        schema:\n          name: link\n          identifier: text\n          properties:\n            text:\n              type: string\n              required: true\n            url:\n              type: string\n              required: true\n\nclassic_link_label:\n  type: string\n  default: \"Back to classic view\"\n",
+      "type_id": 5,
+      "file_path": "settings.yml"
+    },
+    {
+      "name": "scss",
+      "target": "common",
+      "value": "$navy: #0a192f;\n$navy-mid: #0e2040;\n$navy-light: #1a3054;\n$gold: #d4a520;\n$gold-hover: #e0b535;\n$gold-dim: rgba(212, 165, 32, 0.12);\n$gold-border: rgba(212, 165, 32, 0.28);\n$off-white: #f8f6f1;\n$card-radius: 12px;\n$serif: \"Playfair Display\", Georgia, serif;\n$sans: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;\n\n:root {\n  --font-family: #{$sans};\n  --heading-font-family: #{$serif};\n  --mrf-navy: #{$navy};\n  --mrf-gold: #{$gold};\n  --mrf-gold-hover: #{$gold-hover};\n  --d-link-color: var(--primary);\n  --d-button-border-radius: 7px;\n  --d-button-primary-bg-color: #{$gold};\n  --d-button-primary-text-color: #{$navy};\n  --d-button-primary-icon-color: #{$navy};\n  --d-button-primary-bg-color--hover: #{$gold-hover};\n  --d-button-primary-text-color--hover: #{$navy};\n  --d-button-primary-icon-color--hover: #{$navy};\n}\n\nhtml body {\n  font-family: var(--font-family);\n}\n\nh1,\nh2,\nh3,\n.fancy-title,\n#topic-title h1,\n.category-title-header .category-title-name,\n.category-heading h1 {\n  font-family: var(--heading-font-family);\n  font-weight: 700;\n}\n\na {\n  color: var(--primary);\n\n  &:hover {\n    color: var(--tertiary);\n  }\n}\n\nhtml body .d-header {\n  height: 5.25em !important;\n\n  #site-logo {\n    height: 3.3em !important;\n    max-height: 3.3em !important;\n    width: auto;\n    max-width: 100%;\n  }\n}\n\n.d-header {\n  border-bottom: 3px solid $gold;\n  box-shadow:\n    0 1px 4px rgba(0, 0, 0, 0.06),\n    0 2px 12px rgba(0, 0, 0, 0.07);\n\n  .d-header-icons .icon {\n    border-radius: 8px;\n\n    &:hover {\n      background: var(--primary-very-low);\n    }\n  }\n\n  .login-button {\n    border: 1px solid var(--primary-low-mid);\n    border-radius: 7px;\n    font-weight: 500;\n  }\n\n  .sign-up-button,\n  .btn-primary.sign-up-button {\n    background: $gold;\n    color: $navy;\n    font-weight: 700;\n    border-radius: 7px;\n\n    .d-icon {\n      color: $navy;\n    }\n\n    &:hover,\n    &:focus {\n      background: $gold-hover;\n      color: $navy;\n    }\n  }\n}\n\n.btn-primary {\n  background: $gold;\n  color: $navy;\n  font-weight: 600;\n\n  .d-icon {\n    color: $navy;\n  }\n\n  &:hover,\n  &:focus,\n  &.btn-hover {\n    background: $gold-hover;\n    color: $navy;\n\n    .d-icon {\n      color: $navy;\n    }\n  }\n}\n\nhtml body button#create-topic.btn,\nhtml body button.groups-header-new,\nhtml body #new-create-topic,\nhtml body .topic .btn.btn-icon-text.btn-primary.create {\n  background: $gold !important;\n  color: $navy !important;\n  font-weight: 700;\n  border-radius: 7px;\n\n  &:hover {\n    background: $gold-hover !important;\n  }\n}\n\nhtml body #create-topic > svg,\nhtml body #create-topic .d-icon {\n  fill: $navy !important;\n  color: $navy !important;\n}\n\n.nav-pills {\n  > li > a,\n  > li > button {\n    background: transparent;\n    color: var(--primary-medium);\n    font-weight: 500;\n    border-radius: 0;\n    border-bottom: 2px solid transparent;\n\n    &:hover {\n      background: transparent;\n      color: var(--primary);\n      border-bottom-color: var(--primary-low-mid);\n    }\n\n    &.active {\n      background: transparent;\n      color: var(--primary);\n      font-weight: 700;\n      border-bottom-color: $gold;\n    }\n  }\n\n  > li.active > a {\n    background: transparent;\n    color: var(--primary);\n    font-weight: 700;\n    border-bottom-color: $gold;\n  }\n}\n\n.topic-list {\n  th,\n  .topic-list-header th {\n    font-size: 0.75rem;\n    font-weight: 600;\n    letter-spacing: 0.06em;\n    text-transform: uppercase;\n    color: var(--primary-medium);\n  }\n\n  .topic-list-item {\n    border-bottom: 1px solid var(--primary-low);\n  }\n\n  .badge-category__name {\n    font-size: 0.7rem;\n    font-weight: 600;\n    letter-spacing: 0.06em;\n    text-transform: uppercase;\n    color: var(--primary-medium);\n  }\n\n  .num,\n  .activity,\n  .age {\n    font-size: 0.8125rem;\n    font-weight: 500;\n    color: var(--primary-medium);\n  }\n}\n\nhtml body .topic-list .main-link a.title {\n  font-family: var(--font-family);\n  font-size: 0.9375rem;\n  line-height: 1.35;\n  color: var(--primary) !important;\n  font-weight: 600 !important;\n\n  &:visited,\n  &.visited {\n    color: var(--primary) !important;\n  }\n\n  &:hover,\n  &:visited:hover,\n  &.visited:hover {\n    color: var(--tertiary) !important;\n  }\n}\n\nhtml body .topic-list-item,\nhtml body .latest-topic-list-item {\n  transition: background 0.15s;\n\n  &:hover {\n    background: var(--primary-very-low);\n  }\n\n  &.pinned:hover {\n    background: $gold-dim !important;\n  }\n}\n\n.discourse-tag.box,\n.discourse-tags .discourse-tag {\n  background: var(--primary-very-low);\n  color: var(--primary-medium);\n  border-radius: 4px;\n  font-size: 0.6875rem;\n  font-weight: 500;\n\n  &:hover {\n    background: $gold-dim;\n    color: var(--primary);\n  }\n}\n\n.badge-notification.new-topic,\n.badge-notification.unread-posts {\n  background: $gold-dim;\n  color: var(--primary);\n  border: 1px solid $gold-border;\n}\n\n.cooked,\n.d-editor-preview {\n  line-height: 1.65;\n\n  a:not(.mention):not(.hashtag-cooked):not(.lightbox),\n  a:not(.mention):not(.hashtag-cooked):not(.lightbox):visited {\n    color: var(--primary);\n    text-decoration: underline;\n    text-decoration-color: $gold;\n    text-decoration-thickness: 1.5px;\n    text-underline-offset: 2px;\n\n    &:hover {\n      color: var(--tertiary);\n    }\n  }\n\n  h1,\n  h2,\n  h3 {\n    font-family: var(--heading-font-family);\n  }\n}\n\n#topic-title h1,\n#topic-title .fancy-title {\n  font-size: 1.5rem;\n  line-height: 1.25;\n  color: var(--primary);\n}\n\n.category-boxes .category-box,\n.category-boxes-with-topics .category-box {\n  border: 1px solid var(--primary-low);\n  border-top: 3px solid $gold;\n  border-radius: $card-radius;\n  overflow: hidden;\n}\n\nbody:has(.mrf-hero) .welcome-banner {\n  display: none;\n}\n\n.mrf-hero {\n  position: relative;\n  overflow: hidden;\n  padding: 56px 1.5rem 52px;\n  text-align: center;\n  background: linear-gradient(165deg, $navy 0%, #0c1f3a 60%, #0f2848 100%);\n  border-bottom: 1px solid $gold-border;\n\n  &::before {\n    content: \"\";\n    position: absolute;\n    left: 0;\n    right: 0;\n    bottom: -1px;\n    height: 4px;\n    background: linear-gradient(90deg, transparent 0%, $gold 30%, $gold 70%, transparent 100%);\n    opacity: 0.6;\n  }\n\n  &__inner {\n    max-width: 1280px;\n    margin: 0 auto;\n  }\n\n  &__eyebrow {\n    display: inline-block;\n    margin-bottom: 1.25rem;\n    padding: 0.3rem 0.875rem;\n    font-family: $sans;\n    font-size: 0.6875rem;\n    font-weight: 600;\n    letter-spacing: 0.25em;\n    text-transform: uppercase;\n    color: $gold;\n    background: $gold-dim;\n    border: 1px solid $gold-border;\n    border-radius: 100px;\n  }\n\n  &__title {\n    max-width: 18ch;\n    margin: 0 auto 1rem;\n    font-family: $serif;\n    font-size: clamp(1.75rem, 4vw, 3rem);\n    font-weight: 700;\n    line-height: 1.1;\n    letter-spacing: -0.01em;\n    color: #fff;\n  }\n\n  &__lead {\n    max-width: 560px;\n    margin: 0 auto 2rem;\n    font-family: $sans;\n    font-size: 1.0625rem;\n    font-weight: 300;\n    line-height: 1.6;\n    color: rgba(255, 255, 255, 0.7);\n  }\n\n  &__stats {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 2.25rem;\n  }\n\n  &__stat {\n    padding: 0 1.5rem;\n    text-align: center;\n    border-right: 1px solid rgba(255, 255, 255, 0.12);\n\n    &:last-child {\n      border-right: none;\n    }\n  }\n\n  &__stat-n {\n    display: block;\n    font-family: $serif;\n    font-size: 1.5rem;\n    font-weight: 700;\n    line-height: 1.1;\n    color: $gold;\n  }\n\n  &__stat-l {\n    display: block;\n    margin-top: 2px;\n    font-family: $sans;\n    font-size: 0.75rem;\n    letter-spacing: 0.04em;\n    color: rgba(255, 255, 255, 0.6);\n  }\n\n  &__actions {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.75rem;\n    justify-content: center;\n  }\n}\n\n.mrf-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding: 0.8125rem 1.75rem;\n  font-family: $sans;\n  font-size: 0.9375rem;\n  border-radius: 9px;\n  text-decoration: none;\n  transition:\n    background 0.18s,\n    border-color 0.18s,\n    transform 0.18s;\n\n  &--gold {\n    font-weight: 700;\n    color: $navy;\n    background: $gold;\n    border: 1px solid $gold;\n\n    &:hover,\n    &:focus {\n      color: $navy;\n      background: $gold-hover;\n      transform: translateY(-1px);\n    }\n  }\n\n  &--ghost {\n    font-weight: 600;\n    color: rgba(255, 255, 255, 0.88);\n    background: rgba(255, 255, 255, 0.07);\n    border: 1px solid rgba(255, 255, 255, 0.18);\n\n    &:visited { color: rgba(255, 255, 255, 0.88); }\n\n    &:hover,\n    &:focus {\n      color: #fff;\n      background: rgba(255, 255, 255, 0.12);\n      border-color: rgba(255, 255, 255, 0.28);\n    }\n  }\n}\n\n.mrf-strata {\n  display: inline-flex;\n  flex-direction: column;\n  gap: 4px;\n  flex-shrink: 0;\n\n  &__bar {\n    display: block;\n    height: 3.5px;\n    border-radius: 2px;\n\n    &:nth-child(1) {\n      width: 36px;\n      background: rgba(255, 255, 255, 0.88);\n    }\n\n    &:nth-child(2) {\n      width: 28px;\n      background: rgba(255, 255, 255, 0.4);\n    }\n\n    &:nth-child(3) {\n      width: 40px;\n      height: 4.5px;\n      background: $gold;\n    }\n\n    &:nth-child(4) {\n      width: 22px;\n      background: rgba(255, 255, 255, 0.22);\n    }\n  }\n}\n\n.mrf-footer {\n  margin-top: 3rem;\n  padding: 3rem 1.5rem 2rem;\n  font-family: $sans;\n  background: $navy;\n  border-top: 3px solid $gold;\n\n  &__inner {\n    display: grid;\n    grid-template-columns: 1.5fr 1fr 1fr 1fr;\n    gap: 2.5rem;\n    max-width: 1280px;\n    margin: 0 auto;\n  }\n\n  &__brand {\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n  }\n\n  &__logo {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.875rem;\n    text-decoration: none;\n  }\n\n  &__logo-text {\n    display: flex;\n    flex-direction: column;\n  }\n\n  &__logo-name {\n    font-family: $serif;\n    font-size: 1.0625rem;\n    font-weight: 700;\n    line-height: 1.1;\n    color: #fff;\n  }\n\n  &__logo-sub {\n    margin-top: 2px;\n    font-size: 0.5625rem;\n    font-weight: 600;\n    letter-spacing: 0.22em;\n    text-transform: uppercase;\n    color: $gold;\n  }\n\n  &__tagline {\n    max-width: 260px;\n    margin: 0;\n    font-size: 0.875rem;\n    line-height: 1.6;\n    color: rgba(255, 255, 255, 0.6);\n  }\n\n  &__col {\n    h4 {\n      margin: 0 0 0.875rem;\n      font-family: $sans;\n      font-size: 0.6875rem;\n      font-weight: 700;\n      letter-spacing: 0.18em;\n      text-transform: uppercase;\n      color: $gold;\n    }\n\n    a,\n    a:visited {\n      display: block;\n      margin-bottom: 0.5rem;\n      font-size: 0.875rem;\n      color: rgba(255, 255, 255, 0.7);\n      text-decoration: none;\n      transition: color 0.15s;\n    }\n\n    a:hover {\n      color: #fff;\n    }\n  }\n\n  &__bottom {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    align-items: center;\n    justify-content: space-between;\n    max-width: 1280px;\n    margin: 2rem auto 0;\n    padding-top: 1.5rem;\n    font-size: 0.8125rem;\n    color: rgba(255, 255, 255, 0.45);\n    border-top: 1px solid rgba(255, 255, 255, 0.08);\n  }\n\n  &__classic,\n  &__classic:visited {\n    padding: 0.4rem 0.875rem;\n    font-weight: 600;\n    color: $gold;\n    border: 1px solid $gold-border;\n    border-radius: 7px;\n    text-decoration: none;\n  }\n\n  &__classic:hover,\n  &__classic:focus {\n    color: $navy;\n    background: $gold;\n    border-color: $gold;\n  }\n\n  &__logo:visited {\n    text-decoration: none;\n  }\n}\n\n@media (max-width: 900px) {\n  .mrf-footer__inner {\n    grid-template-columns: 1fr 1fr;\n  }\n\n  .mrf-footer__brand {\n    grid-column: 1 / -1;\n  }\n}\n\n@media (max-width: 600px) {\n  .mrf-hero {\n    padding: 2.5rem 1rem 2.25rem;\n\n    &__lead {\n      font-size: 0.95rem;\n    }\n\n    &__stat {\n      padding: 0.5rem 1rem;\n      border-right: none;\n    }\n\n    &__actions .mrf-btn {\n      justify-content: center;\n      width: 100%;\n    }\n  }\n\n  .mrf-footer {\n    padding: 2rem 1rem 1.5rem;\n\n    &__inner {\n      grid-template-columns: 1fr;\n      gap: 1.5rem;\n    }\n\n    &__bottom {\n      flex-direction: column;\n      align-items: flex-start;\n    }\n  }\n\n  #topic-title h1,\n  #topic-title .fancy-title {\n    font-size: 1.25rem;\n  }\n}\n\n.mrf-nav {\n  font-family: $sans;\n\n  &__list {\n    display: flex;\n    align-items: center;\n    gap: 0.125rem;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n  }\n\n  &__item {\n    position: relative;\n    margin: 0;\n  }\n\n  &__top {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.3rem;\n    padding: 0.5rem 0.75rem;\n    font-family: $sans;\n    font-size: 0.9375rem;\n    font-weight: 600;\n    line-height: 1.2;\n    color: rgba(10, 25, 47, 0.8);\n    white-space: nowrap;\n    background: none;\n    border: none;\n    border-radius: 6px;\n    cursor: pointer;\n    text-decoration: none;\n    transition:\n      color 0.15s,\n      background 0.15s;\n\n    &:hover,\n    &:focus-visible,\n    &:visited:hover {\n      color: $navy;\n      background: rgba(10, 25, 47, 0.06);\n    }\n\n    &:visited {\n      color: rgba(10, 25, 47, 0.8);\n    }\n  }\n\n  &__chevron {\n    width: 10px;\n    height: 10px;\n    transition: transform 0.15s;\n  }\n\n  &__dropdown {\n    position: absolute;\n    top: 100%;\n    left: 0;\n    z-index: 1100;\n    display: none;\n    min-width: 240px;\n    margin: 0;\n    padding: 0.5rem 0 0;\n    list-style: none;\n\n    &::before {\n      content: \"\";\n      position: absolute;\n      inset: 0.5rem 0 0;\n      background: #fff;\n      border: 1px solid #e6e7ea;\n      border-top: 3px solid $gold;\n      border-radius: 10px;\n      box-shadow:\n        0 1px 3px rgba(0, 0, 0, 0.06),\n        0 16px 40px rgba(15, 23, 42, 0.14);\n    }\n\n    li {\n      position: relative;\n      margin: 0;\n    }\n\n    li:first-child .mrf-nav__link {\n      margin-top: 0.4rem;\n    }\n\n    li:last-child .mrf-nav__link {\n      margin-bottom: 0.4rem;\n    }\n  }\n\n  &__link,\n  &__link:visited {\n    display: block;\n    margin: 0 0.4rem;\n    padding: 0.55rem 0.75rem;\n    font-size: 0.875rem;\n    font-weight: 500;\n    line-height: 1.3;\n    color: $navy;\n    white-space: nowrap;\n    border-radius: 6px;\n    text-decoration: none;\n  }\n\n  &__link:hover,\n  &__link:focus-visible {\n    color: $navy;\n    background: $gold-dim;\n  }\n\n  &__item.has-dropdown:hover > &__dropdown,\n  &__item.has-dropdown:focus-within > &__dropdown,\n  &__item.is-open > &__dropdown {\n    display: block;\n  }\n\n  &__item.has-dropdown:hover &__chevron,\n  &__item.is-open &__chevron {\n    transform: rotate(180deg);\n  }\n\n  &__toggle {\n    display: none;\n  }\n}\n\n.d-header .mrf-nav--header {\n  margin-left: 1.75rem;\n  margin-right: auto;\n}\n\n.d-header:has(.extra-info-wrapper) .mrf-nav--header {\n  display: none;\n}\n\n.mrf-nav--bar {\n  display: none;\n}\n\n@media (max-width: 1100px) {\n  .d-header .mrf-nav--header {\n    display: none;\n  }\n\n  .mrf-nav--bar {\n    display: block;\n    background: #fff;\n    border-bottom: 1px solid #e6e7ea;\n\n    .mrf-nav__toggle {\n      display: flex;\n      align-items: center;\n      gap: 0.6rem;\n      width: 100%;\n      padding: 0.75rem 1rem;\n      font-family: $sans;\n      font-size: 0.9375rem;\n      font-weight: 600;\n      color: $navy;\n      background: none;\n      border: none;\n      cursor: pointer;\n    }\n\n    .mrf-nav__toggle-icon {\n      display: inline-flex;\n      flex-direction: column;\n      gap: 3px;\n\n      span {\n        display: block;\n        width: 18px;\n        height: 2px;\n        background: $navy;\n        border-radius: 1px;\n\n        &:nth-child(2) {\n          background: $gold;\n        }\n      }\n    }\n\n    .mrf-nav__list {\n      display: none;\n      flex-direction: column;\n      align-items: stretch;\n      gap: 0;\n      padding: 0 0.5rem 0.75rem;\n    }\n\n    &.is-mobile-open .mrf-nav__list {\n      display: flex;\n    }\n\n    .mrf-nav__item {\n      border-top: 1px solid #f0f1f3;\n    }\n\n    .mrf-nav__top {\n      justify-content: space-between;\n      width: 100%;\n      padding: 0.8rem 0.5rem;\n      font-size: 1rem;\n      font-weight: 600;\n      color: $navy;\n      border-radius: 0;\n\n      &:hover {\n        background: none;\n      }\n    }\n\n    .mrf-nav__item.has-dropdown:not(.is-open):hover > .mrf-nav__dropdown,\n    .mrf-nav__item.has-dropdown:not(.is-open):focus-within > .mrf-nav__dropdown {\n      display: none;\n    }\n\n    .mrf-nav__item.has-dropdown:not(.is-open):hover .mrf-nav__chevron {\n      transform: none;\n    }\n\n    .mrf-nav__item.is-open > .mrf-nav__dropdown {\n      display: block;\n    }\n\n    .mrf-nav__item.is-open .mrf-nav__chevron {\n      transform: rotate(180deg);\n    }\n\n    .mrf-nav__dropdown {\n      position: static;\n      min-width: 0;\n      padding: 0 0 0.5rem;\n\n      &::before {\n        display: none;\n      }\n\n      li:first-child .mrf-nav__link,\n      li:last-child .mrf-nav__link {\n        margin-top: 0;\n        margin-bottom: 0;\n      }\n    }\n\n    .mrf-nav__link {\n      margin: 0;\n      padding: 0.6rem 0.75rem;\n      font-size: 0.9375rem;\n      white-space: normal;\n    }\n  }\n}\n\n@media (max-width: 600px) {\n  html body .d-header {\n    height: 4.5em !important;\n\n    #site-logo {\n      height: 2.75em !important;\n      max-height: 2.75em !important;\n      max-width: 100% !important;\n    }\n  }\n}\n\n@import \"house-ads\";\n\nhtml body .alert-banner {\n  margin: 0;\n  padding: 0;\n  background: $off-white;\n  border-bottom: 1px solid $gold-border;\n\n  .alert-info-banner {\n    max-width: 1280px;\n    margin: 0 auto;\n    padding: 0 1.5rem;\n  }\n\n  .rotate-banner {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    justify-content: center;\n    gap: 0.4rem 0.75rem;\n    padding: 0.6rem 0;\n    font-family: $sans;\n    font-size: 0.875rem;\n    line-height: 1.4;\n    color: rgba(10, 25, 47, 0.75);\n    text-align: center;\n    background: transparent !important;\n\n    &:has(a.sponsored)::before {\n      content: \"Sponsored\";\n      flex-shrink: 0;\n      padding: 0.15rem 0.6rem;\n      font-size: 0.625rem;\n      font-weight: 700;\n      letter-spacing: 0.16em;\n      text-transform: uppercase;\n      color: $navy;\n      background: $gold-dim;\n      border: 1px solid $gold-border;\n      border-radius: 100px;\n    }\n\n    center {\n      display: inline;\n    }\n\n    b {\n      font-weight: 500;\n    }\n\n    a,\n    a:visited {\n      font-weight: 700;\n      color: $navy;\n      text-decoration: underline;\n      text-decoration-color: $gold;\n      text-decoration-thickness: 1.5px;\n      text-underline-offset: 3px;\n    }\n\n    a:hover {\n      color: $navy-light;\n      text-decoration-color: $gold-hover;\n    }\n  }\n}\n\n@media (max-width: 600px) {\n  html body .alert-banner {\n    .alert-info-banner {\n      padding: 0 1rem;\n    }\n\n    .rotate-banner {\n      font-size: 0.8125rem;\n    }\n  }\n}\n",
+      "type_id": 1,
+      "file_path": "common/common.scss"
+    },
+    {
+      "name": "en",
+      "target": "translations",
+      "value": "en:\n  theme_metadata:\n    description: \"MineralRightsForum 2026 design: navy and gold palette, Playfair Display and Inter, homepage hero, branded footer.\"\n    settings:\n      classic_theme_id: \"Theme ID members return to with the 'Back to classic view' link. Default (Mar 2024) is 90.\"\n      nav_menu: \"Main menu in the header. Items with links show as dropdowns; an item with only a URL is a plain link.\"\n      nav_mobile_label: \"Text on the menu button on phones and tablets.\"\n      show_hero: \"Show the navy hero banner on the homepage.\"\n      hero_eyebrow: \"Small label above the hero heading.\"\n      hero_title: \"Hero heading.\"\n      hero_subtitle: \"Hero paragraph under the heading.\"\n      hero_stats: \"Stats row in the hero.\"\n      hero_primary_label: \"Gold hero button text.\"\n      hero_primary_url: \"Gold hero button link.\"\n      hero_secondary_label: \"Outline hero button text.\"\n      hero_secondary_url: \"Outline hero button link.\"\n      footer_tagline: \"Short line under the footer logo.\"\n      footer_sections: \"Footer link columns.\"\n      classic_link_label: \"Text for the footer link that switches a member back to the classic theme.\"\n",
+      "type_id": 5,
+      "file_path": "locales/en.yml"
+    },
+    {
+      "name": "discourse/api-initializers/mrf-theme.gjs",
+      "target": "extra_js",
+      "value": "import { schedule } from \"@ember/runloop\";\nimport { apiInitializer } from \"discourse/lib/api\";\nimport MrfFooter from \"../components/mrf-footer\";\nimport MrfHero from \"../components/mrf-hero\";\nimport MrfNav from \"../components/mrf-nav\";\n\nconst MrfNavHeader = <template><MrfNav @variant=\"header\" /></template>;\nconst MrfNavBar = <template><MrfNav @variant=\"bar\" /></template>;\n\nfunction placeBannerBelowHero() {\n  const banner = document.querySelector(\".alert-banner\");\n  const hero = document.querySelector(\".mrf-hero\");\n  if (!banner || !hero) {\n    return;\n  }\n\n  const bannerWrap = banner.closest(\".below-site-header-outlet\") || banner;\n  const heroWrap = hero.closest(\".below-site-header-outlet\") || hero;\n  if (\n    bannerWrap === heroWrap ||\n    bannerWrap.parentNode !== heroWrap.parentNode ||\n    heroWrap.nextElementSibling === bannerWrap\n  ) {\n    return;\n  }\n\n  heroWrap.after(bannerWrap);\n}\n\nexport default apiInitializer((api) => {\n  api.renderInOutlet(\"before-header-panel\", MrfNavHeader);\n  api.renderInOutlet(\"below-site-header\", MrfNavBar);\n  api.renderInOutlet(\"below-site-header\", MrfHero);\n  api.renderInOutlet(\"below-footer\", MrfFooter);\n\n  api.onPageChange(() => {\n    schedule(\"afterRender\", placeBannerBelowHero);\n    setTimeout(placeBannerBelowHero, 300);\n  });\n});\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/api-initializers/mrf-theme.gjs"
+    },
+    {
+      "name": "header",
+      "target": "common",
+      "value": "<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-M6JQPF\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->\n",
+      "type_id": 0,
+      "file_path": "common/header.html"
+    },
+    {
+      "name": "discourse/components/mrf-nav.gjs",
+      "target": "extra_js",
+      "value": "import Component from \"@glimmer/component\";\nimport { tracked } from \"@glimmer/tracking\";\nimport { fn } from \"@ember/helper\";\nimport { on } from \"@ember/modifier\";\nimport { action } from \"@ember/object\";\nimport { service } from \"@ember/service\";\n\nexport default class MrfNav extends Component {\n  @service router;\n\n  @tracked openIndex = null;\n  @tracked mobileOpen = false;\n\n  constructor() {\n    super(...arguments);\n    this.router.on(\"routeDidChange\", this, this.closeAll);\n    document.addEventListener(\"click\", this.onDocumentClick);\n    document.addEventListener(\"keydown\", this.onKeydown);\n  }\n\n  willDestroy() {\n    super.willDestroy(...arguments);\n    this.router.off(\"routeDidChange\", this, this.closeAll);\n    document.removeEventListener(\"click\", this.onDocumentClick);\n    document.removeEventListener(\"keydown\", this.onKeydown);\n  }\n\n  get isBar() {\n    return this.args.variant === \"bar\";\n  }\n\n  get items() {\n    return (settings.nav_menu || []).map((item, index) => {\n      const links = item.links || [];\n      return {\n        index,\n        label: item.label,\n        url: item.url,\n        links,\n        hasLinks: links.length > 0,\n        isOpen: this.openIndex === index,\n      };\n    });\n  }\n\n  @action\n  closeAll() {\n    this.openIndex = null;\n    this.mobileOpen = false;\n  }\n\n  @action\n  onDocumentClick(event) {\n    if (this.openIndex === null && !this.mobileOpen) {\n      return;\n    }\n    if (!event.target?.isConnected) {\n      return;\n    }\n    if (!event.target.closest?.(`.mrf-nav--${this.args.variant}`)) {\n      this.closeAll();\n    }\n  }\n\n  @action\n  onKeydown(event) {\n    if (event.key === \"Escape\") {\n      this.closeAll();\n    }\n  }\n\n  @action\n  toggleItem(index, event) {\n    event.preventDefault();\n    this.openIndex = this.openIndex === index ? null : index;\n  }\n\n  @action\n  toggleMobile() {\n    this.mobileOpen = !this.mobileOpen;\n    if (!this.mobileOpen) {\n      this.openIndex = null;\n    }\n  }\n\n  @action\n  onMouseLeave() {\n    if (!this.isBar) {\n      this.openIndex = null;\n    }\n  }\n\n  <template>\n    <nav\n      class=\"mrf-nav mrf-nav--{{@variant}} {{if this.mobileOpen 'is-mobile-open'}}\"\n      aria-label=\"Main menu\"\n      {{on \"mouseleave\" this.onMouseLeave}}\n    >\n      {{#if this.isBar}}\n        <button\n          type=\"button\"\n          class=\"mrf-nav__toggle\"\n          aria-expanded={{if this.mobileOpen \"true\" \"false\"}}\n          {{on \"click\" this.toggleMobile}}\n        >\n          <span class=\"mrf-nav__toggle-icon\" aria-hidden=\"true\">\n            <span></span><span></span><span></span>\n          </span>\n          {{settings.nav_mobile_label}}\n        </button>\n      {{/if}}\n\n      <ul class=\"mrf-nav__list\">\n        {{#each this.items key=\"index\" as |item|}}\n          <li\n            class=\"mrf-nav__item\n              {{if item.hasLinks 'has-dropdown'}}\n              {{if item.isOpen 'is-open'}}\"\n          >\n            {{#if item.hasLinks}}\n              <button\n                type=\"button\"\n                class=\"mrf-nav__top\"\n                aria-haspopup=\"true\"\n                aria-expanded={{if item.isOpen \"true\" \"false\"}}\n                {{on \"click\" (fn this.toggleItem item.index)}}\n              >\n                {{item.label}}\n                <svg\n                  class=\"mrf-nav__chevron\"\n                  viewBox=\"0 0 10 10\"\n                  aria-hidden=\"true\"\n                ><path\n                    d=\"M1.5 3.5 5 7l3.5-3.5\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    stroke-width=\"1.6\"\n                    stroke-linecap=\"round\"\n                    stroke-linejoin=\"round\"\n                  /></svg>\n              </button>\n              <ul class=\"mrf-nav__dropdown\">\n                {{#each item.links as |link|}}\n                  <li>\n                    <a\n                      class=\"mrf-nav__link\"\n                      href={{link.url}}\n                      target={{if link.new_tab \"_blank\"}}\n                      rel={{if link.new_tab \"noopener\"}}\n                      {{on \"click\" this.closeAll}}\n                    >{{link.text}}</a>\n                  </li>\n                {{/each}}\n              </ul>\n            {{else}}\n              <a\n                class=\"mrf-nav__top\"\n                href={{item.url}}\n                {{on \"click\" this.closeAll}}\n              >{{item.label}}</a>\n            {{/if}}\n          </li>\n        {{/each}}\n      </ul>\n    </nav>\n  </template>\n}\n",
+      "type_id": 6,
+      "file_path": "javascripts/discourse/components/mrf-nav.gjs"
+    },
+    {
+      "name": "house-ads",
+      "target": "extra_scss",
+      "value": ".category-mississippi-mineral-rights-jones-county-ms .house-ad.jones-county-ms,\n.category-mississippi-mineral-rights-jasper-county-ms .house-ad.jasper-county-ms,\n.category-texas-mineral-rights-atascosa-county-tx .house-ad.atascosa-county-tx,\n.category-texas-mineral-rights-culberson-county-tx .house-ad.culberson-county-tx,\n.category-texas-mineral-rights-dawson-county-tx .house-ad.dawson-county-tx,\n.category-texas-mineral-rights-fayette-county-tx .house-ad.fayette-county-tx,\n.category-texas-mineral-rights-gaines-county-tx .house-ad.gaines-county-tx,\n.category-texas-mineral-rights-karnes-county-tx .house-ad.karnes-county-tx,\n.category-texas-mineral-rights-la-salle-county-tx .house-ad.la-salle-county-tx,\n.category-texas-mineral-rights-lavaca-county-tx .house-ad.lavaca-county-tx,\n.category-texas-mineral-rights-permian-basin .house-ad.permian-basin,\n.category-texas-mineral-rights-glasscock-county-tx .house-ad.glasscock-county-tx,\n.category-texas-mineral-rights-howard-county-tx .house-ad.howard-county-tx,\n.category-texas-mineral-rights-loving-county-tx .house-ad.loving-county-tx,\n.category-texas-mineral-rights-martin-county-tx .house-ad.martin-county-tx,\n.category-texas-mineral-rights-midland-county-tx .house-ad.midland-county-tx,\n.category-texas-mineral-rights-pecos-county-tx .house-ad.pecos-county-tx,\n.category-texas-mineral-rights-reagan-county-tx .house-ad.reagan-county-tx,\n.category-texas-mineral-rights-reeves-county-tx .house-ad.reeves-county-tx,\n.category-texas-mineral-rights-upton-county-tx .house-ad.upton-county-tx,\n.category-texas-mineral-rights-ward-county-tx .house-ad.ward-county-tx,\n.category-texas-mineral-rights-winkler-county-tx .house-ad.winkler-county-tx,\n.category-oklahoma-mineral-rights-canadian-county-ok .house-ad.canadian-county-ok,\n.category-oklahoma-mineral-rights-cleveland-county-ok .house-ad.cleveland-county-ok,\n.category-oklahoma-mineral-rights-creek-county-ok .house-ad.creek-county-ok,\n.category-oklahoma-mineral-rights-garfield-county-ok .house-ad.garfield-county-ok,\n.category-oklahoma-mineral-rights-garvin-county-ok .house-ad.garvin-county-ok,\n.category-oklahoma-mineral-rights-grady-county-ok .house-ad.grady-county-ok,\n.category-oklahoma-mineral-rights-kay-county-ok .house-ad.kay-county-ok,\n.category-oklahoma-mineral-rights-lincoln-county-ok .house-ad.lincoln-county-ok,\n.category-oklahoma-mineral-rights-logan-county-ok .house-ad.logan-county-ok,\n.category-oklahoma-mineral-rights-love-county-ok .house-ad.love-county-ok,\n.category-oklahoma-mineral-rights-mcclain-county-ok .house-ad.mcclain-county-ok,\n.category-oklahoma-mineral-rights-noble-county-ok .house-ad.noble-county-ok,\n.category-oklahoma-mineral-rights-okfuskee-county-ok .house-ad.okfuskee-county-ok,\n.category-oklahoma-mineral-rights-oklahoma-county-ok .house-ad.oklahoma-county-ok,\n.category-oklahoma-mineral-rights-okmulgee-county-ok .house-ad.okmulgee-county-ok,\n.category-oklahoma-mineral-rights-payne-county-ok .house-ad.payne-county-ok,\n.category-oklahoma-mineral-rights-pontotoc-county-ok .house-ad.pontotoc-county-ok,\n.category-oklahoma-mineral-rights-pottowatomie-county-ok .house-ad.pottowatomie-county-ok,\n.category-oklahoma-mineral-rights-seminole-county-ok .house-ad.seminole-county-ok,\n.category-oklahoma-mineral-rights-stephens-county-ok .house-ad.stephens-county-ok,\n.category-oklahoma-mineral-rights-kingfisher-county-ok .house-ad.kingfisher-county-ok,\n.category-wyoming-mineral-rights-converse-county-wy .house-ad.converse-county-wy,\n.category-wyoming-mineral-rights-campbell-county-wy .house-ad.campbell-county-wy,\n.category-wyoming-mineral-rights-laramie-county-wy .house-ad.laramie-county-wy,\n.category-wyoming-mineral-rights-johnson-county-wy .house-ad.johnson-county-wy,\n.category-new-mexico-mineral-rights-lea-county-nm .house-ad.lea-county-nm,\n.category-new-mexico-mineral-rights-eddy-county-nm .house-ad.eddy-county-nm,\n.category-north-dakota-mineral-rights-billings-county-nd .house-ad.billings-county-nd,\n.category-north-dakota-mineral-rights-burke-county-nd .house-ad.burke-county-nd,\n.category-north-dakota-mineral-rights-divide-county-nd .house-ad.divide-county-nd,\n.category-north-dakota-mineral-rights-dunn-county-nd .house-ad.dunn-county-nd,\n.category-north-dakota-mineral-rights-mckenzie-county-nd .house-ad.mckenzie-county-nd,\n.category-north-dakota-mineral-rights-mountrail-county-nd .house-ad.mountrail-county-nd,\n.category-north-dakota-mineral-rights-williams-county-nd .house-ad.williams-county-nd,\n.category-colorado-mineral-rights-weld-county-co .house-ad.weld-county-co {\n  display: block;\n}\n\n.category-texas-mineral-rights-reeves-county-tx .house-ad.reeves-county-tx {\n  border-radius: 20px !important;\n}\n\n.house-ad {\n  display: none;\n}\n\n.house-creative.house-post-bottom {\n  margin-left: 0 !important;\n\n  a.between-posts-ad {\n    color: #08c;\n    font-weight: bold;\n\n    strong {\n      color: var(--primary);\n    }\n\n    .ad-container {\n      max-width: calc(#{$topic-avatar-width} + #{$topic-body-width} + (#{$topic-body-width-padding} * 2));\n      padding: 10px 5px;\n      text-align: center;\n      background: #d1f0ff;\n      border: 0px solid #000000;\n      border-left: 30px solid #fbfbfb;\n      border-right: 30px solid #fbfbfb;\n      box-sizing: border-box;\n\n      .ad-label {\n        display: none;\n        margin-right: 2px;\n        padding: 2px 5px;\n        color: var(--primary-very-low);\n        font-weight: bold;\n        background-color: #eac34e;\n        border-radius: 5px;\n      }\n    }\n  }\n}\n\n.category-mississippi-mineral-rights-jones-county-ms tr[data-topic-id=\"53104\"],\n.category-texas-mineral-rights-atascosa-county-tx tr[data-topic-id=\"56560\"],\n.category-texas-mineral-rights-culberson-county-tx tr[data-topic-id=\"56561\"],\n.category-texas-mineral-rights-dawson-county-tx tr[data-topic-id=\"56562\"],\n.category-texas-mineral-rights-fayette-county-tx tr[data-topic-id=\"56563\"],\n.category-texas-mineral-rights-gaines-county-tx tr[data-topic-id=\"56564\"],\n.category-texas-mineral-rights-karnes-county-tx tr[data-topic-id=\"56565\"],\n.category-texas-mineral-rights-la-salle-county-tx tr[data-topic-id=\"56568\"],\n.category-texas-mineral-rights-lavaca-county-tx tr[data-topic-id=\"56569\"],\n.category-texas-mineral-rights-permian-basin tr[data-topic-id=\"56570\"],\n.category-texas-mineral-rights-glasscock-county-tx tr[data-topic-id=\"56571\"],\n.category-texas-mineral-rights-howard-county-tx tr[data-topic-id=\"56572\"],\n.category-texas-mineral-rights-loving-county-tx tr[data-topic-id=\"56573\"],\n.category-texas-mineral-rights-martin-county-tx tr[data-topic-id=\"56574\"],\n.category-texas-mineral-rights-midland-county-tx tr[data-topic-id=\"56575\"],\n.category-texas-mineral-rights-pecos-county-tx tr[data-topic-id=\"56576\"],\n.category-texas-mineral-rights-reagan-county-tx tr[data-topic-id=\"56577\"],\n.category-texas-mineral-rights-reeves-county-tx tr[data-topic-id=\"56305\"],\n.category-texas-mineral-rights-upton-county-tx tr[data-topic-id=\"56578\"],\n.category-texas-mineral-rights-ward-county-tx tr[data-topic-id=\"56579\"],\n.category-texas-mineral-rights-winkler-county-tx tr[data-topic-id=\"56580\"],\n.category-oklahoma-mineral-rights-canadian-county-ok tr[data-topic-id=\"56590\"],\n.category-oklahoma-mineral-rights-cleveland-county-ok tr[data-topic-id=\"62816\"],\n.category-oklahoma-mineral-rights-creek-county-ok tr[data-topic-id=\"62813\"],\n.category-oklahoma-mineral-rights-garfield-county-ok tr[data-topic-id=\"56591\"],\n.category-oklahoma-mineral-rights-garvin-county-ok tr[data-topic-id=\"56592\"],\n.category-oklahoma-mineral-rights-grady-county-ok tr[data-topic-id=\"56518\"],\n.category-oklahoma-mineral-rights-kay-county-ok tr[data-topic-id=\"62819\"],\n.category-oklahoma-mineral-rights-lincoln-county-ok tr[data-topic-id=\"56593\"],\n.category-oklahoma-mineral-rights-logan-county-ok tr[data-topic-id=\"56594\"],\n.category-oklahoma-mineral-rights-love-county-ok tr[data-topic-id=\"56595\"],\n.category-oklahoma-mineral-rights-mcclain-county-ok tr[data-topic-id=\"56596\"],\n.category-oklahoma-mineral-rights-noble-county-ok tr[data-topic-id=\"62818\"],\n.category-oklahoma-mineral-rights-okfuskee-county-ok tr[data-topic-id=\"62812\"],\n.category-oklahoma-mineral-rights-oklahoma-county-ok tr[data-topic-id=\"62810\"],\n.category-oklahoma-mineral-rights-okmulgee-county-ok tr[data-topic-id=\"62814\"],\n.category-oklahoma-mineral-rights-payne-county-ok tr[data-topic-id=\"56597\"],\n.category-oklahoma-mineral-rights-pontotoc-county-ok tr[data-topic-id=\"62815\"],\n.category-oklahoma-mineral-rights-pottowatomie-county-ok tr[data-topic-id=\"62817\"],\n.category-oklahoma-mineral-rights-seminole-county-ok tr[data-topic-id=\"62811\"],\n.category-oklahoma-mineral-rights-stephens-county-ok tr[data-topic-id=\"56598\"],\n.category-oklahoma-mineral-rights-kingfisher-county-ok tr[data-topic-id=\"56599\"],\n.category-wyoming-mineral-rights-converse-county-wy tr[data-topic-id=\"56604\"],\n.category-wyoming-mineral-rights-campbell-county-wy tr[data-topic-id=\"56605\"],\n.category-wyoming-mineral-rights-laramie-county-wy tr[data-topic-id=\"56606\"],\n.category-wyoming-mineral-rights-johnson-county-wy tr[data-topic-id=\"56607\"],\n.category-new-mexico-mineral-rights-lea-county-nm tr[data-topic-id=\"56608\"],\n.category-new-mexico-mineral-rights-eddy-county-nm tr[data-topic-id=\"56609\"],\n.category-north-dakota-mineral-rights-billings-county-nd tr[data-topic-id=\"56647\"],\n.category-north-dakota-mineral-rights-burke-county-nd tr[data-topic-id=\"56648\"],\n.category-north-dakota-mineral-rights-divide-county-nd tr[data-topic-id=\"56649\"],\n.category-north-dakota-mineral-rights-dunn-county-nd tr[data-topic-id=\"56650\"],\n.category-north-dakota-mineral-rights-mckenzie-county-nd tr[data-topic-id=\"56651\"],\n.category-north-dakota-mineral-rights-mountrail-county-nd tr[data-topic-id=\"56653\"],\n.category-north-dakota-mineral-rights-williams-county-nd tr[data-topic-id=\"56654\"],\n.category-colorado-mineral-rights-weld-county-co tr[data-topic-id=\"56655\"],\n.category-mississippi-mineral-rights-jasper-county-ms tr[data-topic-id=\"56281\"] {\n  background: #fff5cd !important;\n  outline: black 1px solid !important;\n  border-bottom: 30px solid transparent;\n\n  .d-icon-heart {\n    display: none;\n  }\n\n  td:first-child {\n    padding: 15px 20px 20px;\n  }\n\n  a,\n  a:visited {\n    color: #2575ad !important;\n  }\n\n  .topic-status {\n    display: none;\n  }\n\n  .posters a,\n  .number,\n  .post-activity,\n  .relative-date {\n    visibility: hidden;\n  }\n\n  div.topic-item-stats {\n    display: none;\n  }\n\n  a.title {\n    font-size: 1.2em;\n  }\n}\n",
+      "type_id": 1,
+      "file_path": "stylesheets/house-ads.scss"
+    },
+    {
+      "name": "head_tag",
+      "target": "common",
+      "value": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap\">\n\n<!--Survser.com AppSumo Purchase Dec 2024 -->\n<script type=\"text/javascript\">\n  window.survserQueue = window.survserQueue || []; \n  function _survser() { window.survserQueue.push(arguments);}\n  _survser(\"setAPIKey\", \"6c104024-b69f-44ec-9f33-d428bc15e415\");\n  (function () { var s = document.createElement(\"script\"); \n  s.type = \"text/javascript\"; s.async = true;\n  s.src = \"https://www.survser.com/embed.min.js\";\n  var f = document.getElementsByTagName(\"script\")[0];\n  f.parentNode.insertBefore(s, f);})();\n</script>\n\n<script src=\"https://cdn.pagesense.io/js/kedinterestsllc/b1e52954ccf047e99647b1d8435b0d4c.js\"></script>\n<script>(function(f,n) { n = document.createElement('script'); n.src = 'https://fcdn.answerly.io/fn.js'; n.setAttribute('data-companyId', f); document.getElementsByTagName('html')[0].insertAdjacentElement('beforeend', n); })('8adcea11-b36c-4cbb-9184-b39328483251');</script>\n<script>\n  document.addEventListener(\"click\", function (e) {\n    var a = e.target && e.target.closest && e.target.closest('#about-us, a[href=\"/about\"], a[href$=\"mineralrightsforum.com/about\"]');\n    if (a && window.fathom && typeof window.fathom.trackEvent === \"function\") {\n      window.fathom.trackEvent(\"about click\");\n    }\n  });\n</script>\n",
+      "type_id": 0,
+      "file_path": "common/head_tag.html"
+    }
+  ],
+  "screenshot_dark_url": null,
+  "screenshot_light_url": null,
+  "system": false,
+  "only_theme_color_schemes": false,
+  "color_scheme": {
+    "id": 23,
+    "name": "MRF Navy & Gold",
+    "is_base": null,
+    "base_scheme_id": null,
+    "theme_id": 213,
+    "theme_name": "MRF 2026",
+    "user_selectable": false,
+    "is_builtin_default": null,
+    "is_dark": false,
+    "colors": [
+      {
+        "name": "primary",
+        "hex": "0a192f",
+        "default_hex": "0a192f",
+        "is_advanced": false
+      },
+      {
+        "name": "secondary",
+        "hex": "ffffff",
+        "default_hex": "ffffff",
+        "is_advanced": false
+      },
+      {
+        "name": "tertiary",
+        "hex": "1a3054",
+        "default_hex": "1a3054",
+        "is_advanced": false
+      },
+      {
+        "name": "quaternary",
+        "hex": "1a3054",
+        "default_hex": "1a3054",
+        "is_advanced": false
+      },
+      {
+        "name": "header_background",
+        "hex": "ffffff",
+        "default_hex": "ffffff",
+        "is_advanced": false
+      },
+      {
+        "name": "header_primary",
+        "hex": "0a192f",
+        "default_hex": "0a192f",
+        "is_advanced": false
+      },
+      {
+        "name": "selected",
+        "hex": "d1f0ff",
+        "default_hex": "d1f0ff",
+        "is_advanced": false
+      },
+      {
+        "name": "hover",
+        "hex": "f2f2f2",
+        "default_hex": "f2f2f2",
+        "is_advanced": false
+      },
+      {
+        "name": "highlight",
+        "hex": "d4a520",
+        "default_hex": "d4a520",
+        "is_advanced": false
+      },
+      {
+        "name": "danger",
+        "hex": "dc2626",
+        "default_hex": "dc2626",
+        "is_advanced": false
+      },
+      {
+        "name": "success",
+        "hex": "16a34a",
+        "default_hex": "16a34a",
+        "is_advanced": false
+      },
+      {
+        "name": "love",
+        "hex": "dc2626",
+        "default_hex": "dc2626",
+        "is_advanced": false
+      }
+    ]
+  },
+  "user": {
+    "id": 22528,
+    "username": "Chris_Malone",
+    "avatar_template": "/user_avatar/www.mineralrightsforum.com/chris_malone/{size}/21699_2.png",
+    "title": "Business Member"
+  },
+  "child_themes": [
+    {
+      "id": 195,
+      "name": "Business Member Signature",
+      "description": null,
+      "created_at": "2025-12-23T15:26:57.704Z",
+      "updated_at": "2025-12-23T15:26:57.704Z",
+      "component": true
+    },
+    {
+      "id": 212,
+      "name": "Industry Pros Topic Redirects",
+      "description": null,
+      "created_at": "2026-10-08T17:56:37.893Z",
+      "updated_at": "2026-10-08T17:56:37.893Z",
+      "component": true
+    },
+    {
+      "id": 133,
+      "name": "Rotate on Refresh Global Banner",
+      "description": "Put some stuff up at the top and rotate on page change",
+      "created_at": "2025-04-17T11:17:50.975Z",
+      "updated_at": "2025-04-17T12:15:06.510Z",
+      "component": true
+    }
+  ],
+  "parent_themes": [],
+  "remote_theme": null,
+  "translations": []
+}
