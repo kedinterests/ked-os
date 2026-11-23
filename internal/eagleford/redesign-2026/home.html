@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eagle Ford Shale · Home mockup (Strata)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E1F1C;        /* Lower Shale */
+  --green:#A8480C;      /* Burnt orange, text-safe on paper: 5.1:1 */
+  --orange:#E4701E;
+  --oil:#7E9A4A; --gas:#C2462B; --chalk:#CFC8B6; --buda:#8C887C;
+  --green-lt:#E4701E;   /* Eagle orange (logo), on dark only: 5.2:1 on ink */
+  --gray:#818286;       /* Upper Shale, rules only */
+  --paper:#F4EFE6;
+  --paper-2:#EAE3D6;
+  --flare:#B4471A;
+  --muted:#5A5B57;
+  --rule:#D3D0C6;
+  --wrap:1240px;
+  --gut:clamp(16px,4vw,40px);
+  --sec:96px;
+  --display:"Archivo",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--serif);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.dark a:focus-visible,.dark button:focus-visible{outline-color:var(--green-lt)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono)}
+.kicker{font:700 13px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;color:var(--green)}
+.date{font:400 13px/1.3 var(--mono);color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* utility / data strip */
+.strip{background:var(--ink);color:#E9E7E0;font:400 12.5px/1 var(--mono)}
+.strip .wrap{display:flex;align-items:center;gap:24px;min-height:40px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.strip .wrap::-webkit-scrollbar{display:none}
+.strip b{font-weight:500;color:#fff}
+.strip .lab{color:#A9AAA4;margin-right:6px}
+.strip .up{color:var(--green-lt)}
+.strip .dn{color:#F2A57A}
+.strip .end{margin-left:auto;display:flex;gap:20px}
+.strip .end a{color:#fff;padding:12px 0}
+.strip .end a:hover{color:var(--green-lt)}
+
+/* masthead */
+.mast{padding:30px 0 22px}
+.mast .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:24px}
+.brand{display:flex;align-items:center;gap:18px}
+.brand svg{width:86px;height:auto;flex:none}
+.word{white-space:nowrap;font:900 clamp(32px,4.6vw,68px)/.82 var(--display);font-stretch:125%;letter-spacing:-.025em;text-transform:uppercase}
+.tag{font:400 16px/1.2 var(--serif);font-style:italic;color:var(--muted);margin-top:10px}
+.mast .place{white-space:nowrap;justify-self:end;text-align:right;font:500 12.5px/1.6 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.mast .place strong{display:block;color:var(--ink);font-weight:500}
+.sub{display:inline-block;margin-top:10px;background:var(--green);color:#fff;font:700 14px/1 var(--display);font-stretch:90%;letter-spacing:.06em;text-transform:uppercase;padding:15px 20px}
+.sub:hover{background:var(--ink)}
+
+/* nav */
+.nav{border-top:4px solid var(--ink);border-bottom:1px solid var(--ink)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{font:700 15px/1 var(--display);font-stretch:80%;letter-spacing:.07em;text-transform:uppercase;padding:16px 14px;white-space:nowrap;min-height:48px;display:flex;align-items:center}
+.nav a:first-child{padding-left:0}
+.nav a[aria-current]{color:var(--green)}
+.nav a:hover{color:var(--green)}
+.nav .push{margin-left:auto;color:var(--muted)}
+
+.note{font:400 12.5px/1.4 var(--mono);color:var(--flare);padding:12px 0 0}
+
+/* front page */
+.front{padding:44px 0 var(--sec)}
+.front .wrap{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:56px}
+.lead h1{font:700 clamp(40px,5.6vw,76px)/1.02 var(--serif);letter-spacing:-.022em;margin:16px 0 18px;text-wrap:balance}
+.lead h1 a:hover{color:var(--green)}
+.lead .date{font-size:14px}
+.seconds{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;padding-top:26px;border-top:1px solid var(--ink)}
+.seconds h2{font:600 27px/1.15 var(--serif);letter-spacing:-.01em;margin:12px 0 12px;text-wrap:balance}
+.seconds h2 a:hover{color:var(--green)}
+.rail{border-left:1px solid var(--rule);padding-left:32px}
+.rail h3{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0 0 6px;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail li{padding:16px 0;border-bottom:1px solid var(--rule)}
+.rail li a{display:block;font:600 19px/1.25 var(--serif);margin:7px 0 7px}
+.rail li a:hover{color:var(--green)}
+.letter{margin-top:28px;background:var(--paper-2);padding:22px}
+.letter h4{font:800 22px/1.05 var(--display);font-stretch:110%;margin:0 0 8px;text-transform:uppercase;letter-spacing:-.01em}
+.letter p{font-size:16px;line-height:1.45;margin:0 0 14px;color:var(--muted)}
+.letter form{display:flex}
+.letter input{flex:1;min-width:0;border:1px solid var(--ink);border-right:0;background:#fff;font:400 15px var(--serif);padding:0 12px;height:48px}
+.letter button{border:0;background:var(--ink);color:#fff;font:700 13px/1 var(--display);letter-spacing:.07em;text-transform:uppercase;padding:0 16px;height:48px;cursor:pointer}
+.letter button:hover{background:var(--green)}
+.ad{display:grid;place-items:center;background:repeating-linear-gradient(135deg,transparent 0 9px,rgba(30,31,28,.05) 9px 10px);border:1px solid var(--rule);font:400 11.5px/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center}
+.ad.mr{width:100%;max-width:300px;aspect-ratio:300/250;margin-top:28px;position:sticky;top:24px}
+.thirds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:36px;padding-top:22px;border-top:1px solid var(--rule)}
+.thirds h3{font:600 20px/1.22 var(--serif);margin:10px 0 10px;text-wrap:balance}
+.thirds h3 a:hover{color:var(--green)}
+.letter.wide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px 32px;align-items:center;margin-top:44px;padding:28px 30px;border-top:4px solid var(--green)}
+.letter.wide h4{font-size:28px;grid-column:1}
+.letter.wide p{grid-column:1;margin:0}
+.letter.wide form{grid-column:2;grid-row:1/3}
+@media (max-width:700px){.letter.wide{grid-template-columns:minmax(0,1fr)}.letter.wide form{grid-column:1;grid-row:auto;margin-top:8px}}
+.ad.lb{max-width:728px;height:90px;margin-top:44px}
+.morenews{display:inline-block;margin-top:28px;font:700 14px/1 var(--display);font-stretch:85%;letter-spacing:.07em;text-transform:uppercase;color:var(--green);padding:12px 0;border-bottom:2px solid currentColor}
+.morenews:hover{color:var(--ink)}
+.leader{padding:0 0 var(--sec)}
+.leader .ad{max-width:728px;height:90px;margin:0 auto}
+
+/* strata band */
+.strata{display:block;width:100%;height:clamp(44px,6.5vw,96px)}
+
+/* numbers */
+.numbers{padding:var(--sec) 0}
+.numbers .top{display:flex;justify-content:space-between;align-items:baseline;gap:24px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.numbers h2{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0}
+.big{font:900 clamp(60px,11vw,160px)/.8 var(--display);font-stretch:118%;letter-spacing:-.045em;margin:40px 0 0;font-variant-numeric:tabular-nums;margin-left:-.04em}
+.bigrow{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:end}
+.unit{font:800 clamp(22px,2.6vw,34px)/1 var(--display);font-stretch:100%;text-transform:uppercase;padding-bottom:.35em}
+.unit .delta{display:block;font:500 15px/1.4 var(--mono);color:var(--green);text-transform:none;margin-top:10px}
+.cap{font:400 13px/1.5 var(--mono);color:var(--muted);margin:18px 0 0}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:3px solid var(--ink)}
+.minis div{padding:22px 28px 0 0}
+.minis div+div{padding-left:28px;border-left:1px solid var(--rule)}
+.minis b{display:block;font:900 clamp(44px,5vw,64px)/.9 var(--display);font-stretch:112%;letter-spacing:-.03em}
+.minis span{display:block;font-size:17px;line-height:1.4;margin-top:10px}
+.minis .date{margin-top:6px}
+
+
+/* live rig panel */
+.rigs{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-top:64px}
+.rigs h3{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0 0 4px;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.rigs ol{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:120px 1fr 28px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.bars b{font:700 16px/1.2 var(--display);font-stretch:90%}
+.bars i{display:block;height:14px;background:var(--green)}
+.bars span{font:500 14px/1 var(--mono);text-align:right}
+.ops li,.spuds li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--rule);font:600 17px/1.25 var(--serif)}
+.ops li span,.spuds li span{font:400 13px/1.3 var(--mono);color:var(--muted);white-space:nowrap}
+.spuds li{display:block}
+.spuds li span{display:block;margin-top:4px;white-space:normal}
+.state li i em{font-style:normal;color:var(--green);font-weight:500}
+@media (max-width:1000px){.rigs{grid-template-columns:1fr;gap:40px}}
+
+/* cross-section */
+.xsec{padding-top:var(--sec)}
+.xsec .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:end;padding-bottom:48px}
+.xsec h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0;text-wrap:balance}
+.xsec .head p{margin:0;font-size:18px}
+.xsec .head a{color:var(--green);font-weight:600;border-bottom:1px solid currentColor}
+.layer{position:relative}
+.layer .wrap{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:center;padding-top:34px;padding-bottom:34px}
+.layer .name{font:500 12.5px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.layer .fig{font:900 clamp(40px,5vw,68px)/.9 var(--display);font-stretch:115%;letter-spacing:-.03em}
+.layer p{margin:0;font-size:17px;line-height:1.5}
+.l1{background:#D9D9D6}
+.l2{background:var(--green);color:#fff}
+.l2 .wrap{padding-top:64px;padding-bottom:64px}
+.l1 .wrap,.l3 .wrap{padding-top:26px;padding-bottom:26px}
+.l2 .name{color:#E3F0DE}
+.l3{background:var(--ink);color:#EDEBE4}
+.l3 .name{color:#A9AAA4}
+.l4{background:repeating-linear-gradient(0deg,#CFC9B8 0 2px,#DCD7C8 2px 9px);}
+.l4 .name{color:var(--ink)}
+.map{margin:0;justify-self:end}
+.map img{display:block;width:100%;max-width:300px;mix-blend-mode:multiply;border:1px solid var(--rule)}
+.map figcaption{font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:8px}
+
+/* counties */
+.counties{padding:var(--sec) 0}
+.counties .head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:40px}
+.counties h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.counties .head p{max-width:420px;margin:0;font-size:17px;color:var(--muted)}
+.states{display:grid;grid-template-columns:16fr 11fr;gap:56px}
+.state h3{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid var(--ink);margin:0 0 4px;padding-bottom:10px;font:900 clamp(28px,3vw,40px)/1 var(--display);font-stretch:120%;text-transform:uppercase;letter-spacing:-.02em}
+.state h3 span{font:500 13px/1 var(--mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.state ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+.state.mt ul{grid-template-columns:minmax(0,1fr)}
+@media (min-width:1100px){.state.mt ul{grid-template-columns:repeat(2,minmax(0,1fr))}.state.nd ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.state li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);min-height:52px;padding:14px 0}
+.state li b{font:700 18px/1.15 var(--display);font-stretch:90%}
+.state li i{font:normal 400 12px/1.35 var(--mono);color:var(--muted);text-align:right}
+.state li a:hover b{color:var(--green)}
+.dirlinks{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:36px;font:700 14px/1 var(--display);font-stretch:85%;letter-spacing:.07em;text-transform:uppercase}
+.dirlinks a{color:var(--green);padding:12px 0;border-bottom:2px solid currentColor}
+.dirlinks a:hover{color:var(--ink)}
+
+/* jobs */
+.jobs{background:var(--ink);color:#EDEBE4;padding:var(--sec) 0}
+.jobs .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:end;margin-bottom:48px}
+.jobs .kicker{color:var(--green-lt)}
+.jobs h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0;color:#fff}
+.price{border-left:3px solid var(--green-lt);padding-left:20px}
+.price p{margin:0 0 16px;font-size:20px;color:#fff}
+.btn{display:inline-block;background:var(--green-lt);color:var(--ink);font:800 14px/1 var(--display);font-stretch:90%;letter-spacing:.07em;text-transform:uppercase;padding:16px 22px}
+.btn:hover{background:#fff}
+.cols{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:48px}
+.cols h3{font:500 12.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#A9AAA4;margin:0 0 6px;padding-bottom:12px;border-bottom:1px solid #4A4B46}
+.cols ul{list-style:none;margin:0;padding:0}
+.cols li a{display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid #3A3B37;font:600 21px/1.2 var(--serif)}
+.cols li a span{font:500 12px/1 var(--mono);color:var(--green-lt);white-space:nowrap;padding-left:12px}
+.cols li a:hover{color:var(--green-lt)}
+.cols .first li a{font-size:25px;min-height:64px}
+
+/* footer */
+footer{background:var(--paper-2);padding:56px 0 40px}
+footer .wrap{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:40px}
+footer .word{font-size:34px}
+footer h4{font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:6px 0 14px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li a{display:block;padding:6px 0;font:600 16px/1.3 var(--display);font-stretch:90%}
+footer li a:hover{color:var(--green)}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px;margin-top:12px;font:400 12.5px/1.5 var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* responsive */
+@media (max-width:1000px){
+  :root{--sec:72px}
+  .mast .wrap{grid-template-columns:minmax(0,1fr)}
+  .mast .word{font-size:clamp(30px,6vw,56px)}
+  .mast .place{justify-self:start;text-align:left}
+  .front .wrap{grid-template-columns:minmax(0,1fr);gap:48px}
+  .rail{border-left:0;padding-left:0}
+  .xsec .head,.jobs .head{grid-template-columns:1fr;gap:28px}
+  .map{justify-self:start}
+  .layer .wrap{grid-template-columns:150px minmax(0,1fr);gap:12px 28px}
+  .layer p{grid-column:2}
+  .states{grid-template-columns:1fr;gap:48px}
+  .cols{grid-template-columns:1fr;gap:40px}
+  footer .wrap{grid-template-columns:1fr 1fr}
+  footer .wrap>div:first-child{grid-column:1/-1}
+}
+@media (max-width:700px){
+  :root{--sec:64px}
+  body{font-size:17px}
+  .brand svg{width:56px}
+  .mast .word{white-space:normal;font-size:clamp(40px,12vw,60px)}
+  .seconds,.thirds{grid-template-columns:1fr;gap:28px}
+  .ad.lb{height:auto;aspect-ratio:320/50;max-width:320px}
+  .bigrow{grid-template-columns:1fr;gap:12px}
+  .minis{grid-template-columns:1fr}
+  .minis div,.minis div+div{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule)}
+  .layer .wrap{grid-template-columns:1fr;gap:10px}
+  .layer p{grid-column:1}
+  .counties .head{flex-direction:column;align-items:start}
+  .state ul,.state.mt ul{grid-template-columns:1fr}
+  .leader .ad{height:auto;aspect-ratio:320/50;max-width:320px}
+}
+
+/* ===== Eagle Ford modules ===== */
+
+/* cross-section with the three windows */
+.efx{background:var(--ink);color:#EDEBE4;padding:var(--sec) 0}
+.efx .head{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:40px}
+.efx .kicker{color:var(--green-lt)}
+.efx h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0;color:#fff;text-wrap:balance}
+.efx .head p{margin:0 0 12px;font-size:18px;color:#D8D5CC}
+.efx .head p:last-child{margin:0}
+.efx .head a{color:var(--green-lt);font-weight:600;border-bottom:1px solid currentColor}
+.efx svg{display:block;width:100%;height:auto}
+.efx svg text{font-family:var(--mono);font-size:13px;fill:#A9AAA4}
+.efx svg .win{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;fill:#fff;font-stretch:90%}
+.efx svg .fm{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.06em;fill:var(--ink);font-stretch:90%}
+.efx .facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid #EDEBE4;margin-top:40px}
+.efx .facts div{padding:22px 28px 0 0}
+.efx .facts div+div{padding-left:28px;border-left:1px solid #3A3B37}
+.efx .facts b{display:block;font:900 clamp(34px,3.6vw,52px)/.95 var(--display);font-stretch:112%;letter-spacing:-.03em;color:#fff}
+.efx .facts span{display:block;font-size:17px;line-height:1.4;margin-top:10px}
+.efx .facts .date{color:#A9AAA4}
+.swipe{display:none;font:400 12px/1.4 var(--mono);color:#A9AAA4;margin-top:10px}
+
+/* lodging */
+.lodging{background:var(--paper-2);padding:var(--sec) 0}
+.lodging .head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:28px}
+.lodging h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.lodging .head .btn{background:var(--ink);color:#fff}
+.lodging .head .btn:hover{background:var(--green)}
+.lodging ul{list-style:none;margin:0;padding:0;border-top:3px solid var(--ink)}
+.lodging li a{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid #CFC7B5}
+.lodging li b{font:900 clamp(30px,4vw,56px)/.95 var(--display);font-stretch:78%;letter-spacing:-.01em;text-transform:uppercase}
+.lodging li span{font:400 14px/1.4 var(--mono);color:var(--muted)}
+.lodging li em{font:normal 700 14px/1 var(--display);font-stretch:85%;letter-spacing:.07em;text-transform:uppercase;color:var(--green)}
+.lodging li a:hover b{color:var(--green)}
+
+/* Texas counties, one state */
+.tx ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:40px;border-top:3px solid var(--ink)}
+.tx li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);min-height:52px;padding:14px 0}
+.tx li b{font:700 18px/1.15 var(--display);font-stretch:90%}
+.tx li i{font:normal 400 12px/1.35 var(--mono);color:var(--muted);text-align:right}
+.tx li a:hover b{color:var(--green)}
+.tx .count{display:flex;align-items:baseline;gap:16px;margin:0 0 14px}
+.tx .count b{font:900 clamp(56px,7vw,96px)/.85 var(--display);font-stretch:118%;letter-spacing:-.04em}
+.tx .count span{font:500 13px/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
+@media (max-width:1000px){
+  .efx .head{grid-template-columns:1fr;gap:24px}
+  .efx .facts{grid-template-columns:1fr}
+  .efx .facts div,.efx .facts div+div{padding:20px 0;border-left:0;border-bottom:1px solid #3A3B37}
+  .xwrap{overflow-x:auto}
+  .xwrap svg{min-width:760px}
+  .swipe{display:block}
+  .tx ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lodging li a{grid-template-columns:minmax(0,1fr) auto}
+  .lodging li span{grid-column:1;grid-row:2}
+}
+@media (max-width:700px){
+  .tx ul{grid-template-columns:minmax(0,1fr)}
+  .lodging .head{flex-direction:column;align-items:start}
+}
+</style>
+</head>
+<body>
+
+<!-- Mockup: Strata network system, Eagle Ford edition. Rationale: redesign-2026/direction.md -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="band" d="M0 14 C240 -2,480 -2,720 14 S1200 30,1440 14 L1440 34 C1200 50,960 50,720 34 S240 18,0 34 Z"/>
+    <path id="bandS" d="M0 12 C20 3,40 3,60 12 S100 21,120 12 L120 28 C100 37,80 37,60 28 S20 19,0 28 Z"/>
+  </defs>
+</svg>
+
+<div class="strip" role="region" aria-label="Basin data">
+  <div class="wrap">
+    <span data-k="today">Thu, Oct 8, 2026</span>
+    <!-- Live: data.json, written by refresh-data.py (FRED, EIA). Rig count is entered weekly from Baker Hughes. Values below are the fallback. -->
+    <span><span class="lab">WTI</span><b data-k="wti">$96.24</b> <span data-k="wti-chg" class="up">▲ 0.11</span></span>
+    <span><span class="lab">HENRY HUB</span><b data-k="hh">$3.03</b> <span data-k="hh-chg" class="up">▲ 0.07</span></span>
+    <span><span class="lab">EAGLE FORD RIGS</span><b data-k="rigs">49</b> <span data-k="rigs-chg" class="dn">▼ 1</span></span>
+    <span><span class="lab" data-k="oil-lab">EF OIL · SEP</span><b data-k="oil">1,105,000</b> b/d</span>
+    <span><span class="lab" data-k="tx-lab">TX CRUDE · JUL</span><b data-k="tx">5,768,000</b> b/d</span>
+    <span class="end"><a href="#letter">Newsletter</a><a href="#">Advertise</a><a href="https://www.mineralrightsforum.com/">Forum</a></span>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Eagle Ford Shale home">
+      <svg viewBox="0 -2 120 76" aria-hidden="true">
+        <use href="#bandS" fill="#818286"/>
+        <use href="#bandS" fill="#E4701E" y="22"/>
+        <use href="#bandS" fill="#1E1F1C" y="44"/>
+      </svg>
+      <span>
+        <span class="word">Eagle Ford Shale</span>
+        <span class="tag" style="display:block">News, MarketPlace, Jobs™</span>
+      </span>
+    </a>
+    <span></span>
+    <div class="place">
+      <strong>South Texas</strong>
+      30 counties · Laredo to Brenham<br>
+      <a class="sub" href="#letter">Get the newsletter</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#" aria-current="page">News</a>
+    <a href="#">Jobs</a>
+    <a href="#lodging">Lodging</a>
+    <a href="#">Maps</a>
+    <a href="#">Companies</a>
+    <a href="#counties">Counties</a>
+    <a href="https://www.ccus.com/">Carbon Capture</a>
+    <a href="#">Advertise</a>
+    <a class="push" href="#">Search</a>
+  </div>
+</nav>
+
+<div class="wrap"><p class="note">Mockup note: headlines are the site's most recent real posts (2013 to 2019), shown with their real dates as stand-ins for a current feed.</p></div>
+
+<main>
+<section class="front">
+  <div class="wrap">
+    <div class="lead">
+      <span class="kicker">EFS News</span>
+      <h1><a href="#">Eagle Ford Shale Gets New Frac Sand Source</a></h1>
+      <span class="date">Mar 5, 2018</span>
+
+      <div class="seconds">
+        <article>
+          <span class="kicker">EFS News</span>
+          <h2><a href="#">Texas Oil and Gas Production for 2017</a></h2>
+          <span class="date">Feb 28, 2018</span>
+        </article>
+        <article>
+          <span class="kicker">Drilling Rig Count</span>
+          <h2><a href="#">Eagle Ford Rig Count Increases with All Horizontal Drilling</a></h2>
+          <span class="date">Mar 11, 2018</span>
+        </article>
+      </div>
+
+      <div class="thirds">
+        <article><span class="kicker">EFS News</span><h3><a href="#">RRC: 1,036 New Well Permits Issued in Texas</a></h3><span class="date">Feb 12, 2018</span></article>
+        <article><span class="kicker">EFS News</span><h3><a href="#">Eagle Ford Laboratory Will Test New Drilling Solutions</a></h3><span class="date">Feb 1, 2018</span></article>
+        <article><span class="kicker">Task Force News</span><h3><a href="#">Eagle Ford Shale Task Force Report</a></h3><span class="date">Apr 9, 2013</span></article>
+      </div>
+
+      <div class="letter wide" id="letter">
+        <!-- New element: drafted copy. VERIFY newsletter cadence with Kenny. -->
+        <h4>The Eagle Ford, weekly</h4>
+        <p>Rig count, production and the week's headlines from South Texas, in one email.</p>
+        <form onsubmit="return false">
+          <label class="sr" for="em">Email address</label>
+          <input id="em" type="email" placeholder="you@example.com">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="ad lb">Advertisement · 728 × 90</div>
+      <a class="morenews" href="#">All News Categories →</a>
+    </div>
+
+    <aside class="rail" aria-label="Latest">
+      <h3>Latest</h3>
+      <ol>
+        <li><span class="kicker">Press Releases</span><a href="#">HSE On Demand Introduces a complete Virtual HSE management system to Oil and Gas Industry</a><span class="date">Feb 6, 2019</span></li>
+        <li><span class="kicker">Drilling Rig Count</span><a href="#">Eagle Ford Shale Rig Count Unchanged at 86</a><span class="date">Mar 4, 2018</span></li>
+        <li><span class="kicker">Drilling Rig Count</span><a href="#">Eagle Ford Operators Increase Horizontal Drilling; Rig Count Unchanged</a><span class="date">Feb 24, 2018</span></li>
+        <li><span class="kicker">EFS News</span><a href="#">Crude Oil Prices Slip in February</a><span class="date">Feb 19, 2018</span></li>
+        <li><span class="kicker">Drilling Rig Count</span><a href="#">Eagle Ford Rig Count Up by Two</a><span class="date">Feb 18, 2018</span></li>
+      </ol>
+      <div class="ad mr">Advertisement<br>300 × 250</div>
+    </aside>
+  </div>
+</section>
+
+<svg class="strata" viewBox="0 -2 1440 76" preserveAspectRatio="none" aria-hidden="true">
+  <use href="#band" fill="#818286"/>
+  <use href="#band" fill="#E4701E" y="22"/>
+  <use href="#band" fill="#1E1F1C" y="44"/>
+</svg>
+
+<section class="numbers" aria-labelledby="num-h">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="num-h">The play, by the numbers</h2>
+      <a class="date" href="https://rigcount.bakerhughes.com/na-rig-count">Baker Hughes rig count →</a>
+    </div>
+    <div class="bigrow">
+      <p class="big" data-k="oil">1,105,000</p>
+      <p class="unit">barrels a day<span class="delta" data-k="oil-cap">Eagle Ford region crude oil · September 2026 · EIA estimate</span></p>
+    </div>
+    <p class="cap">Production: U.S. Energy Information Administration, Short-Term Energy Outlook, Eagle Ford region. Rigs: Baker Hughes, weekly. Prices: FRED, daily spot. <span data-k="fetched"></span></p>
+
+    <div class="minis">
+      <div><b data-k="rigs">49</b><span>rigs drilling in the Eagle Ford</span><span class="date" data-k="rigs-date">Week of Oct 2, 2026 · 45 a year ago</span></div>
+      <div><b data-k="gas">8.07</b><span>billion cubic feet of gas a day</span><span class="date" data-k="gas-date">September 2026 · EIA estimate</span></div>
+      <div><b>30</b><span>counties across South Texas sit on the play</span><span class="date">Webb to Washington</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="efx" aria-labelledby="x-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">Geology</span>
+        <h2 id="x-h">One formation, three windows, dipping toward the Gulf</h2>
+      </div>
+      <div>
+        <p>The Eagle Ford is a geological formation directly beneath the Austin Chalk. It is considered to be the "source rock", or the original source of hydrocarbons that are contained in the Austin Chalk above it.</p>
+        <p>The formation is best known for producing variable amounts of dry gas, wet gas, NGLs, condensate and oil. <a href="#">Eagle Ford Shale Geology</a></p>
+      </div>
+    </div>
+
+    <!-- Schematic. VERIFY window arrangement (oil updip to the northwest, dry gas downdip toward the Gulf) against an RRC or EIA map before launch. -->
+    <div class="xwrap">
+    <svg viewBox="0 0 1200 510" role="img" aria-labelledby="xs-t">
+      <title id="xs-t">Schematic cross-section: the Eagle Ford Shale between the Austin Chalk above and the Buda Lime below, deepening from about 4,000 feet updip to 14,000 feet toward the Gulf, with the oil, wet gas and condensate, and dry gas windows from northwest to southeast.</title>
+      <!-- depth axis -->
+      <g stroke="#3A3B37">
+        <line x1="90" y1="60" x2="1180" y2="60" stroke="#EDEBE4" stroke-width="2"/>
+        <line x1="70" y1="174" x2="1180" y2="174" stroke-dasharray="3 6"/>
+        <line x1="70" y1="460" x2="1180" y2="460" stroke-dasharray="3 6"/>
+      </g>
+      <g text-anchor="end">
+        <text x="62" y="64">0 ft</text><text x="62" y="121">2,000</text><text x="62" y="178" style="fill:#fff">4,000</text>
+        <text x="62" y="235">6,000</text><text x="62" y="293">8,000</text><text x="62" y="350">10,000</text>
+        <text x="62" y="407">12,000</text><text x="62" y="464" style="fill:#fff">14,000</text>
+      </g>
+      <text x="90" y="84">Updip · northwest</text>
+      <text x="1180" y="84" text-anchor="end">Downdip · toward the Gulf of Mexico →</text>
+
+      <!-- windows -->
+      <g>
+        <rect x="90" y="18" width="12" height="12" fill="var(--oil)"/><text class="win" x="110" y="30">OIL</text>
+        <rect x="460" y="18" width="12" height="12" fill="var(--orange)"/><text class="win" x="480" y="30">WET GAS · CONDENSATE</text>
+        <rect x="820" y="18" width="12" height="12" fill="var(--gas)"/><text class="win" x="840" y="30">DRY GAS</text>
+        <g stroke="#55564F" stroke-dasharray="2 5"><line x1="460" y1="40" x2="460" y2="254"/><line x1="820" y1="40" x2="820" y2="345"/></g>
+      </g>
+
+      <!-- formations -->
+      <polygon points="90,126 1180,403 1180,437 90,160" fill="var(--chalk)"/>
+      <polygon points="90,160 460,254 460,280 90,186" fill="var(--oil)"/>
+      <polygon points="460,254 820,345.5 820,371.5 460,280" fill="var(--orange)"/>
+      <polygon points="820,345.5 1180,437 1180,463 820,371.5" fill="var(--gas)"/>
+      <polygon points="90,186 1180,463 1180,485 90,208" fill="var(--buda)"/>
+      <text class="fm" x="200" y="176" transform="rotate(14.26 200 176)">AUSTIN CHALK</text>
+      <text class="fm" x="540" y="297" transform="rotate(14.26 540 297)">EAGLE FORD SHALE</text>
+      <text class="fm" x="300" y="255" transform="rotate(14.26 300 255)" style="font-size:13px">BUDA LIME</text>
+    </svg>
+    </div>
+    <p class="swipe">Swipe the cross-section to see the full dip. Schematic; thickness exaggerated.</p>
+
+    <div class="facts">
+      <div><b>14,000 ft</b><span>at its deepest, rising to about 4,000 feet updip</span><span class="date">eaglefordshale.com geology</span></div>
+      <div><b>400 × 50</b><span>miles, roughly, the length and width of the play</span><span class="date">Texas Railroad Commission</span></div>
+      <div><b>250 ft</b><span>average thickness across the play, up to 400 feet in some areas</span><span class="date">eaglefordshale.com geology</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="lodging" id="lodging" aria-labelledby="l-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">EFS Lodging</span>
+        <h2 id="l-h">Where crews stay in South Texas</h2>
+      </div>
+      <a class="btn" href="#">List your property</a>
+    </div>
+    <!-- Towns come from the current lodging listings, which expired in 2015 and 2016. Refresh before launch. -->
+    <ul>
+      <li><a href="#"><b>Extended Stay / Man Camps</b><span>Carrizo Springs · Cotulla · Dilley</span><em>Browse →</em></a></li>
+      <li><a href="#"><b>Hotels</b><span>San Antonio · Cotulla · Cuero · Yorktown</span><em>Browse →</em></a></li>
+      <li><a href="#"><b>Apartments / Condos</b><span>Dilley · Floresville · Kenedy</span><em>Browse →</em></a></li>
+      <li><a href="#"><b>RV Parks</b><span>Pleasanton</span><em>Browse →</em></a></li>
+      <li><a href="#"><b>Home Builders</b><span>Builders and developers across the region</span><em>Browse →</em></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="counties tx" id="counties" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">Directory</span>
+        <h2 id="c-h">Eagle Ford Shale Counties</h2>
+      </div>
+      <p>Courthouses, tax offices and chambers of commerce for every county on the play. Pick a county.</p>
+    </div>
+    <div class="count"><b>30</b><span>Texas counties<br>with county seats</span></div>
+    <ul>
+      <li><a href="#"><b>Atascosa</b><i>Jourdanton</i></a></li>
+      <li><a href="#"><b>Austin</b><i>Bellville</i></a></li>
+      <li><a href="#"><b>Bastrop</b><i>Bastrop</i></a></li>
+      <li><a href="#"><b>Bee</b><i>Beeville</i></a></li>
+      <li><a href="#"><b>Brazos</b><i>Bryan</i></a></li>
+      <li><a href="#"><b>Burleson</b><i>Caldwell</i></a></li>
+      <li><a href="#"><b>Colorado</b><i>Columbus</i></a></li>
+      <li><a href="#"><b>DeWitt</b><i>Cuero</i></a></li>
+      <li><a href="#"><b>Dimmit</b><i>Carrizo Springs</i></a></li>
+      <li><a href="#"><b>Duval</b><i>San Diego</i></a></li>
+      <li><a href="#"><b>Fayette</b><i>La Grange</i></a></li>
+      <li><a href="#"><b>Frio</b><i>Pearsall</i></a></li>
+      <li><a href="#"><b>Goliad</b><i>Goliad</i></a></li>
+      <li><a href="#"><b>Gonzales</b><i>Gonzales</i></a></li>
+      <li><a href="#"><b>Grimes</b><i>Anderson</i></a></li>
+      <li><a href="#"><b>Karnes</b><i>Karnes City</i></a></li>
+      <li><a href="#"><b>La Salle</b><i>Cotulla</i></a></li>
+      <li><a href="#"><b>Lavaca</b><i>Hallettsville</i></a></li>
+      <li><a href="#"><b>Lee</b><i>Giddings</i></a></li>
+      <li><a href="#"><b>Leon</b><i>Centerville</i></a></li>
+      <li><a href="#"><b>Live Oak</b><i>George West</i></a></li>
+      <li><a href="#"><b>Madison</b><i>Madisonville</i></a></li>
+      <li><a href="#"><b>Maverick</b><i>Eagle Pass</i></a></li>
+      <li><a href="#"><b>McMullen</b><i>Tilden</i></a></li>
+      <li><a href="#"><b>Milam</b><i>Cameron</i></a></li>
+      <li><a href="#"><b>Robertson</b><i>Franklin</i></a></li>
+      <li><a href="#"><b>Washington</b><i>Brenham</i></a></li>
+      <li><a href="#"><b>Webb</b><i>Laredo</i></a></li>
+      <li><a href="#"><b>Wilson</b><i>Floresville</i></a></li>
+      <li><a href="#"><b>Zavala</b><i>Crystal City</i></a></li>
+    </ul>
+    <div class="dirlinks">
+      <a href="#">Courthouse Directory</a>
+      <a href="#">Tax Office Directory</a>
+      <a href="#">Chamber of Commerce Directory</a>
+      <a href="#">EFS Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="jobs dark" aria-labelledby="j-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">Jobs</span>
+        <h2 id="j-h">Who's hiring in the Eagle Ford</h2>
+      </div>
+      <div class="price">
+        <p>Standard listings are free, upgrades are available.</p>
+        <a class="btn" href="#">List your company</a>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="first">
+        <h3>Operator Job Listings</h3>
+        <ul>
+          <!-- Current operators; VERIFY each still lists an Eagle Ford careers page -->
+          <li><a href="#">EOG Resources <span>Careers →</span></a></li>
+          <li><a href="#">ConocoPhillips <span>Careers →</span></a></li>
+          <li><a href="#">Devon Energy <span>Careers →</span></a></li>
+          <li><a href="#">SM Energy <span>Careers →</span></a></li>
+          <li><a href="#">Murphy Oil <span>Careers →</span></a></li>
+          <li><a href="#">Crescent Energy <span>Careers →</span></a></li>
+          <li><a href="#">Lewis Energy Group <span>Careers →</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>By company</h3>
+        <ul>
+          <li><a href="#">Oilfield Service Jobs <span>→</span></a></li>
+          <li><a href="#">Midstream Jobs <span>→</span></a></li>
+          <li><a href="#">Training &amp; Education <span>→</span></a></li>
+          <li><a href="#">All Operator Job Listings <span>→</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Jobs News</h3>
+        <ul>
+          <li><a href="#">Alamo Colleges &amp; Weatherford Get $1.5 Million to Train Eagle Ford Oilfield Workers <span>→</span></a></li>
+          <li><a href="#">All Jobs News <span>→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<svg class="strata" viewBox="0 -2 1440 76" preserveAspectRatio="none" aria-hidden="true" style="background:var(--ink);margin-bottom:-1px">
+  <use href="#band" fill="#818286"/>
+  <use href="#band" fill="#E4701E" y="22"/>
+  <path fill="#EAE3D6" transform="translate(0 44)" d="M0 14 C240 -2,480 -2,720 14 S1200 30,1440 14 L1440 40 L0 40 Z"/>
+</svg>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="word">Eagle Ford Shale</div>
+      <p class="tag">News, MarketPlace, Jobs™</p>
+    </div>
+    <div><h4>News</h4><ul><li><a href="#">EFS News</a></li><li><a href="#">Drilling Rig Count</a></li><li><a href="#">Pipeline-Midstream</a></li><li><a href="#">Task Force News</a></li></ul></div>
+    <div><h4>Directory</h4><ul><li><a href="#">All Companies</a></li><li><a href="#">Royalty Owners</a></li><li><a href="#">All Counties</a></li><li><a href="#">EFS Lodging</a></li></ul></div>
+    <div><h4>Network</h4><ul><li><a href="#">Bakken News</a></li><li><a href="#">MineralWise</a></li><li><a href="https://www.mineralrightsforum.com/">MineralRightsForum</a></li><li><a href="https://www.ccus.com/">Carbon Capture</a></li></ul></div>
+    <div><h4>More</h4><ul><li><a href="#">Advertise With Us</a></li><li><a href="#">Safety</a></li><li><a href="#">Water</a></li><li><a href="#">Archive</a></li></ul></div>
+    <div class="fine"><span>© Copyright 2009-2026 KED Interests, LLC</span><span>Production data: U.S. Energy Information Administration</span></div>
+  </div>
+</footer>
+
+<script>
+// Fills every [data-k] slot from data.json (written by refresh-data.py). The markup holds the fallback values.
+(function(){
+  const $$=(k)=>document.querySelectorAll('[data-k="'+k+'"]');
+  const set=(k,v)=>$$(k).forEach(e=>e.textContent=v);
+  const fmt=(n)=>Math.round(n).toLocaleString('en-US');
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const LONG=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const day=(iso)=>{const d=new Date(iso+'T12:00:00');return MON[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()};
+  const per=(p)=>{const [y,m]=p.split('-');return {short:MON[+m-1].toUpperCase(),long:LONG[+m-1]+' '+y}};
+  const chg=(k,v,dp)=>$$(k).forEach(e=>{e.textContent=(v>=0?'▲ ':'▼ ')+Math.abs(v).toFixed(dp);e.className=v>=0?'up':'dn'});
+  const SNAPSHOT={"fetched":"2026-10-08T15:59","manual":{"ef_rigs":{"value":49,"week_of":"2026-10-02","prior_week":50,"year_ago":45,"source":"Baker Hughes North America Rotary Rig Count"}},"wti":{"date":"2026-10-06","value":96.24,"change":0.11},"henry_hub":{"date":"2026-10-06","value":3.03,"change":0.07},"ef_oil":{"period":"2026-09","value":1.105315598,"units":"million barrels per day","year_ago":1.144734239},"ef_gas":{"period":"2026-09","value":8.069557972,"units":"billion cubic feet per day","year_ago":7.623852551},"tx_crude":{"period":"2026-07","bbl_d":5768000,"change":36000}};
+  fetch('data.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>SNAPSHOT).then(d=>{
+    set('today',new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}));
+    if(d.wti){set('wti','$'+d.wti.value.toFixed(2));chg('wti-chg',d.wti.change,2)}
+    if(d.henry_hub){set('hh','$'+d.henry_hub.value.toFixed(2));chg('hh-chg',d.henry_hub.change,2)}
+    const r=d.manual&&d.manual.ef_rigs;
+    if(r){set('rigs',r.value);chg('rigs-chg',r.value-r.prior_week,0);set('rigs-date','Week of '+day(r.week_of)+' · '+r.year_ago+' a year ago')}
+    if(d.ef_oil){const p=per(d.ef_oil.period);set('oil',fmt(Math.round(d.ef_oil.value*1000)*1000));set('oil-lab','EF OIL · '+p.short);set('oil-cap','Eagle Ford region crude oil · '+p.long+' · EIA estimate')}
+    if(d.ef_gas){set('gas',d.ef_gas.value.toFixed(2));set('gas-date',per(d.ef_gas.period).long+' · EIA estimate')}
+    if(d.tx_crude){set('tx',fmt(d.tx_crude.bbl_d));set('tx-lab','TX CRUDE · '+per(d.tx_crude.period).short)}
+    if(d.fetched) set('fetched','Last refreshed '+day(d.fetched.slice(0,10))+'.');
+  });
+})();
+</script>
+</body>
+
+</html>

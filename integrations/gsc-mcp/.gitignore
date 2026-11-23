@@ -1,0 +1,4 @@
+.env
+ga-adc.json
+.venv/
+__pycache__/

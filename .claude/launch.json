@@ -1,6 +1,54 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "dubose-design-hub", "runtimeExecutable": "npx", "runtimeArgs": ["wrangler", "pages", "dev", "public", "--d1", "DB", "--r2", "BUCKET", "-b", "DEV_MODE=true", "--port", "8788", "--cwd", "/Users/chrismalone/dubose-design-hub"], "port": 8788 }
+    {
+      "name": "dubose-design-hub",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "wrangler",
+        "pages",
+        "dev",
+        "public",
+        "--d1",
+        "DB",
+        "--r2",
+        "BUCKET",
+        "-b",
+        "DEV_MODE=true",
+        "--port",
+        "8788",
+        "--cwd",
+        "/Users/chrismalone/dubose-design-hub"
+      ],
+      "port": 8788
+    },
+    {
+      "name": "mrf-reports",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8797",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/chrismalone/mrf-reports/public"
+      ],
+      "port": 8797
+    },
+    {
+      "name": "bakken-redesign",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8799",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/chrismalone/os-systems/ked-os/internal/bakken/redesign-2026"
+      ],
+      "port": 8799
+    }
   ]
 }

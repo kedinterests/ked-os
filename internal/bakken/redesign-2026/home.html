@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bakken Shale · Home mockup (Strata)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E1F1C;        /* Lower Shale */
+  --green:#387C2C;      /* Dolomite */
+  --green-lt:#7DBA6A;   /* Dolomite on dark */
+  --gray:#818286;       /* Upper Shale, rules only */
+  --paper:#F4F2EC;
+  --paper-2:#EBE8DF;
+  --flare:#B4471A;
+  --muted:#5A5B57;
+  --rule:#D3D0C6;
+  --wrap:1240px;
+  --gut:clamp(16px,4vw,40px);
+  --sec:96px;
+  --display:"Archivo",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--serif);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.dark a:focus-visible,.dark button:focus-visible{outline-color:var(--green-lt)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono)}
+.kicker{font:700 13px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;color:var(--green)}
+.date{font:400 13px/1.3 var(--mono);color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* utility / data strip */
+.strip{background:var(--ink);color:#E9E7E0;font:400 12.5px/1 var(--mono)}
+.strip .wrap{display:flex;align-items:center;gap:24px;min-height:40px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.strip .wrap::-webkit-scrollbar{display:none}
+.strip b{font-weight:500;color:#fff}
+.strip .lab{color:#A9AAA4;margin-right:6px}
+.strip .up{color:var(--green-lt)}
+.strip .dn{color:#F08A5D}
+.strip .end{margin-left:auto;display:flex;gap:20px}
+.strip .end a{color:#fff;padding:12px 0}
+.strip .end a:hover{color:var(--green-lt)}
+
+/* masthead */
+.mast{padding:30px 0 22px}
+.mast .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:24px}
+.brand{display:flex;align-items:center;gap:18px}
+.brand svg{width:86px;height:auto;flex:none}
+.word{white-space:nowrap;font:900 clamp(34px,6.2vw,88px)/.82 var(--display);font-stretch:125%;letter-spacing:-.025em;text-transform:uppercase}
+.tag{font:400 16px/1.2 var(--serif);font-style:italic;color:var(--muted);margin-top:10px}
+.mast .place{white-space:nowrap;justify-self:end;text-align:right;font:500 12.5px/1.6 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.mast .place strong{display:block;color:var(--ink);font-weight:500}
+.sub{display:inline-block;margin-top:10px;background:var(--green);color:#fff;font:700 14px/1 var(--display);font-stretch:90%;letter-spacing:.06em;text-transform:uppercase;padding:15px 20px}
+.sub:hover{background:var(--ink)}
+
+/* nav */
+.nav{border-top:4px solid var(--ink);border-bottom:1px solid var(--ink)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{font:700 15px/1 var(--display);font-stretch:80%;letter-spacing:.07em;text-transform:uppercase;padding:16px 14px;white-space:nowrap;min-height:48px;display:flex;align-items:center}
+.nav a:first-child{padding-left:0}
+.nav a[aria-current]{color:var(--green)}
+.nav a:hover{color:var(--green)}
+.nav .push{margin-left:auto;color:var(--muted)}
+
+.note{font:400 12.5px/1.4 var(--mono);color:var(--flare);padding:12px 0 0}
+
+/* front page */
+.front{padding:44px 0 var(--sec)}
+.front .wrap{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:56px}
+.lead h1{font:700 clamp(40px,5.6vw,76px)/1.02 var(--serif);letter-spacing:-.022em;margin:16px 0 18px;text-wrap:balance}
+.lead h1 a:hover{color:var(--green)}
+.lead .date{font-size:14px}
+.seconds{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;padding-top:26px;border-top:1px solid var(--ink)}
+.seconds h2{font:600 27px/1.15 var(--serif);letter-spacing:-.01em;margin:12px 0 12px;text-wrap:balance}
+.seconds h2 a:hover{color:var(--green)}
+.rail{border-left:1px solid var(--rule);padding-left:32px}
+.rail h3{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0 0 6px;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail li{padding:16px 0;border-bottom:1px solid var(--rule)}
+.rail li a{display:block;font:600 19px/1.25 var(--serif);margin:7px 0 7px}
+.rail li a:hover{color:var(--green)}
+.letter{margin-top:28px;background:var(--paper-2);padding:22px}
+.letter h4{font:800 22px/1.05 var(--display);font-stretch:110%;margin:0 0 8px;text-transform:uppercase;letter-spacing:-.01em}
+.letter p{font-size:16px;line-height:1.45;margin:0 0 14px;color:var(--muted)}
+.letter form{display:flex}
+.letter input{flex:1;min-width:0;border:1px solid var(--ink);border-right:0;background:#fff;font:400 15px var(--serif);padding:0 12px;height:48px}
+.letter button{border:0;background:var(--ink);color:#fff;font:700 13px/1 var(--display);letter-spacing:.07em;text-transform:uppercase;padding:0 16px;height:48px;cursor:pointer}
+.letter button:hover{background:var(--green)}
+.ad{display:grid;place-items:center;background:repeating-linear-gradient(135deg,transparent 0 9px,rgba(30,31,28,.05) 9px 10px);border:1px solid var(--rule);font:400 11.5px/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center}
+.ad.mr{width:100%;max-width:300px;aspect-ratio:300/250;margin-top:28px;position:sticky;top:24px}
+.thirds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:36px;padding-top:22px;border-top:1px solid var(--rule)}
+.thirds h3{font:600 20px/1.22 var(--serif);margin:10px 0 10px;text-wrap:balance}
+.thirds h3 a:hover{color:var(--green)}
+.letter.wide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px 32px;align-items:center;margin-top:44px;padding:28px 30px;border-top:4px solid var(--green)}
+.letter.wide h4{font-size:28px;grid-column:1}
+.letter.wide p{grid-column:1;margin:0}
+.letter.wide form{grid-column:2;grid-row:1/3}
+@media (max-width:700px){.letter.wide{grid-template-columns:minmax(0,1fr)}.letter.wide form{grid-column:1;grid-row:auto;margin-top:8px}}
+.ad.lb{max-width:728px;height:90px;margin-top:44px}
+.morenews{display:inline-block;margin-top:28px;font:700 14px/1 var(--display);font-stretch:85%;letter-spacing:.07em;text-transform:uppercase;color:var(--green);padding:12px 0;border-bottom:2px solid currentColor}
+.morenews:hover{color:var(--ink)}
+.leader{padding:0 0 var(--sec)}
+.leader .ad{max-width:728px;height:90px;margin:0 auto}
+
+/* strata band */
+.strata{display:block;width:100%;height:clamp(44px,6.5vw,96px)}
+
+/* numbers */
+.numbers{padding:var(--sec) 0}
+.numbers .top{display:flex;justify-content:space-between;align-items:baseline;gap:24px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.numbers h2{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0}
+.big{font:900 clamp(60px,11vw,160px)/.8 var(--display);font-stretch:118%;letter-spacing:-.045em;margin:40px 0 0;font-variant-numeric:tabular-nums;margin-left:-.04em}
+.bigrow{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:end}
+.unit{font:800 clamp(22px,2.6vw,34px)/1 var(--display);font-stretch:100%;text-transform:uppercase;padding-bottom:.35em}
+.unit .delta{display:block;font:500 15px/1.4 var(--mono);color:var(--green);text-transform:none;margin-top:10px}
+.cap{font:400 13px/1.5 var(--mono);color:var(--muted);margin:18px 0 0}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:3px solid var(--ink)}
+.minis div{padding:22px 28px 0 0}
+.minis div+div{padding-left:28px;border-left:1px solid var(--rule)}
+.minis b{display:block;font:900 clamp(44px,5vw,64px)/.9 var(--display);font-stretch:112%;letter-spacing:-.03em}
+.minis span{display:block;font-size:17px;line-height:1.4;margin-top:10px}
+.minis .date{margin-top:6px}
+
+
+/* live rig panel */
+.rigs{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-top:64px}
+.rigs h3{font:800 15px/1 var(--display);font-stretch:85%;letter-spacing:.09em;text-transform:uppercase;margin:0 0 4px;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.rigs ol{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:120px 1fr 28px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.bars b{font:700 16px/1.2 var(--display);font-stretch:90%}
+.bars i{display:block;height:14px;background:var(--green)}
+.bars span{font:500 14px/1 var(--mono);text-align:right}
+.ops li,.spuds li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--rule);font:600 17px/1.25 var(--serif)}
+.ops li span,.spuds li span{font:400 13px/1.3 var(--mono);color:var(--muted);white-space:nowrap}
+.spuds li{display:block}
+.spuds li span{display:block;margin-top:4px;white-space:normal}
+.state li i em{font-style:normal;color:var(--green);font-weight:500}
+@media (max-width:1000px){.rigs{grid-template-columns:1fr;gap:40px}}
+
+/* cross-section */
+.xsec{padding-top:var(--sec)}
+.xsec .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:end;padding-bottom:48px}
+.xsec h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0;text-wrap:balance}
+.xsec .head p{margin:0;font-size:18px}
+.xsec .head a{color:var(--green);font-weight:600;border-bottom:1px solid currentColor}
+.layer{position:relative}
+.layer .wrap{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:center;padding-top:34px;padding-bottom:34px}
+.layer .name{font:500 12.5px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.layer .fig{font:900 clamp(40px,5vw,68px)/.9 var(--display);font-stretch:115%;letter-spacing:-.03em}
+.layer p{margin:0;font-size:17px;line-height:1.5}
+.l1{background:#D9D9D6}
+.l2{background:var(--green);color:#fff}
+.l2 .wrap{padding-top:64px;padding-bottom:64px}
+.l1 .wrap,.l3 .wrap{padding-top:26px;padding-bottom:26px}
+.l2 .name{color:#E3F0DE}
+.l3{background:var(--ink);color:#EDEBE4}
+.l3 .name{color:#A9AAA4}
+.l4{background:repeating-linear-gradient(0deg,#CFC9B8 0 2px,#DCD7C8 2px 9px);}
+.l4 .name{color:var(--ink)}
+.map{margin:0;justify-self:end}
+.map img{display:block;width:100%;max-width:300px;mix-blend-mode:multiply;border:1px solid var(--rule)}
+.map figcaption{font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:8px}
+
+/* counties */
+.counties{padding:var(--sec) 0}
+.counties .head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:40px}
+.counties h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.counties .head p{max-width:420px;margin:0;font-size:17px;color:var(--muted)}
+.states{display:grid;grid-template-columns:16fr 11fr;gap:56px}
+.state h3{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid var(--ink);margin:0 0 4px;padding-bottom:10px;font:900 clamp(28px,3vw,40px)/1 var(--display);font-stretch:120%;text-transform:uppercase;letter-spacing:-.02em}
+.state h3 span{font:500 13px/1 var(--mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.state ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+.state.mt ul{grid-template-columns:minmax(0,1fr)}
+@media (min-width:1100px){.state.mt ul{grid-template-columns:repeat(2,minmax(0,1fr))}.state.nd ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.state li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);min-height:52px;padding:14px 0}
+.state li b{font:700 18px/1.15 var(--display);font-stretch:90%}
+.state li i{font:normal 400 12px/1.35 var(--mono);color:var(--muted);text-align:right}
+.state li a:hover b{color:var(--green)}
+.dirlinks{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:36px;font:700 14px/1 var(--display);font-stretch:85%;letter-spacing:.07em;text-transform:uppercase}
+.dirlinks a{color:var(--green);padding:12px 0;border-bottom:2px solid currentColor}
+.dirlinks a:hover{color:var(--ink)}
+
+/* jobs */
+.jobs{background:var(--ink);color:#EDEBE4;padding:var(--sec) 0}
+.jobs .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:end;margin-bottom:48px}
+.jobs .kicker{color:var(--green-lt)}
+.jobs h2{font:700 clamp(36px,4.6vw,60px)/1.02 var(--serif);letter-spacing:-.02em;margin:14px 0 0;color:#fff}
+.price{border-left:3px solid var(--green-lt);padding-left:20px}
+.price p{margin:0 0 16px;font-size:20px;color:#fff}
+.btn{display:inline-block;background:var(--green-lt);color:var(--ink);font:800 14px/1 var(--display);font-stretch:90%;letter-spacing:.07em;text-transform:uppercase;padding:16px 22px}
+.btn:hover{background:#fff}
+.cols{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:48px}
+.cols h3{font:500 12.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#A9AAA4;margin:0 0 6px;padding-bottom:12px;border-bottom:1px solid #4A4B46}
+.cols ul{list-style:none;margin:0;padding:0}
+.cols li a{display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid #3A3B37;font:600 21px/1.2 var(--serif)}
+.cols li a span{font:500 12px/1 var(--mono);color:var(--green-lt);white-space:nowrap;padding-left:12px}
+.cols li a:hover{color:var(--green-lt)}
+.cols .first li a{font-size:25px;min-height:64px}
+
+/* footer */
+footer{background:var(--paper-2);padding:56px 0 40px}
+footer .wrap{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:40px}
+footer .word{font-size:34px}
+footer h4{font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:6px 0 14px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li a{display:block;padding:6px 0;font:600 16px/1.3 var(--display);font-stretch:90%}
+footer li a:hover{color:var(--green)}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px;margin-top:12px;font:400 12.5px/1.5 var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* responsive */
+@media (max-width:1000px){
+  :root{--sec:72px}
+  .mast .wrap{grid-template-columns:minmax(0,1fr)}
+  .mast .place{justify-self:start;text-align:left}
+  .front .wrap{grid-template-columns:minmax(0,1fr);gap:48px}
+  .rail{border-left:0;padding-left:0}
+  .xsec .head,.jobs .head{grid-template-columns:1fr;gap:28px}
+  .map{justify-self:start}
+  .layer .wrap{grid-template-columns:150px minmax(0,1fr);gap:12px 28px}
+  .layer p{grid-column:2}
+  .states{grid-template-columns:1fr;gap:48px}
+  .cols{grid-template-columns:1fr;gap:40px}
+  footer .wrap{grid-template-columns:1fr 1fr}
+  footer .wrap>div:first-child{grid-column:1/-1}
+}
+@media (max-width:700px){
+  :root{--sec:64px}
+  body{font-size:17px}
+  .brand svg{width:56px}
+  .mast .word{white-space:normal;font-size:clamp(44px,13vw,64px)}
+  .seconds,.thirds{grid-template-columns:1fr;gap:28px}
+  .ad.lb{height:auto;aspect-ratio:320/50;max-width:320px}
+  .bigrow{grid-template-columns:1fr;gap:12px}
+  .minis{grid-template-columns:1fr}
+  .minis div,.minis div+div{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule)}
+  .layer .wrap{grid-template-columns:1fr;gap:10px}
+  .layer p{grid-column:1}
+  .counties .head{flex-direction:column;align-items:start}
+  .state ul,.state.mt ul{grid-template-columns:1fr}
+  .leader .ad{height:auto;aspect-ratio:320/50;max-width:320px}
+}
+</style>
+</head>
+<body>
+
+<!-- Mockup: Strata direction, home page. Design rationale: redesign-2026/direction.md -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- One band of the logo's waving flag. Three of these, gray / green / black, are the formation's three layers. -->
+    <path id="band" d="M0 14 C240 -2,480 -2,720 14 S1200 30,1440 14 L1440 34 C1200 50,960 50,720 34 S240 18,0 34 Z"/>
+    <path id="bandS" d="M0 12 C20 3,40 3,60 12 S100 21,120 12 L120 28 C100 37,80 37,60 28 S20 19,0 28 Z"/>
+  </defs>
+</svg>
+
+<div class="strip" role="region" aria-label="Basin data">
+  <div class="wrap">
+    <span data-k="today">Thu, Oct 8, 2026</span>
+    <!-- Live: data.json, written by refresh-data.py (FRED, EIA, NDIC). Values below are the fallback. -->
+    <span><span class="lab">WTI</span><b data-k="wti">$96.24</b> <span data-k="wti-chg" class="up">▲ 0.11</span></span>
+    <span><span class="lab">HENRY HUB</span><b data-k="hh">$3.03</b> <span data-k="hh-chg" class="up">▲ 0.07</span></span>
+    <span><span class="lab">ND RIGS TODAY</span><b data-k="rigs">33</b></span>
+    <span><span class="lab" data-k="crude-lab">ND CRUDE · JUL</span><b data-k="crude">1,158,000</b> bbl/d</span>
+    <span class="end"><a href="#letter">Newsletter</a><a href="#">Advertise</a><a href="https://www.mineralrightsforum.com/">Forum</a></span>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Bakken Shale home">
+      <svg viewBox="0 -2 120 76" aria-hidden="true">
+        <use href="#bandS" fill="#818286"/>
+        <use href="#bandS" fill="#387C2C" y="22"/>
+        <use href="#bandS" fill="#1E1F1C" y="44"/>
+      </svg>
+      <span>
+        <span class="word">Bakken Shale</span>
+        <span class="tag" style="display:block">News, MarketPlace, Jobs™</span>
+      </span>
+    </a>
+    <span></span>
+    <div class="place">
+      <strong>The Williston Basin</strong>
+      North Dakota · Montana<br>
+      <a class="sub" href="#letter">Get the newsletter</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#" aria-current="page">News</a>
+    <a href="#">Jobs</a>
+    <a href="#">Maps</a>
+    <a href="#">Companies</a>
+    <a href="#counties">Counties</a>
+    <a href="https://www.ccus.com/">Carbon Capture</a>
+    <a href="https://www.mineralrightsforum.com/">Forum</a>
+    <a href="#">Advertise</a>
+    <a class="push" href="#">Search</a>
+  </div>
+</nav>
+
+<div class="wrap"><p class="note">Mockup note: headlines are the site's most recent real posts (2017 and 2018), shown with their real dates as stand-ins for a current feed.</p></div>
+
+<main>
+<section class="front" style="padding-bottom:var(--sec)">
+  <div class="wrap">
+    <div class="lead">
+      <span class="kicker">Bakken Shale News</span>
+      <h1><a href="#">Mineral Rights in Bakken Under Question</a></h1>
+      <span class="date">Dec 20, 2017</span>
+
+      <div class="seconds">
+        <article>
+          <span class="kicker">Bakken Shale News</span>
+          <h2><a href="#">Whiting Sells Bakken Assets for $500 Million</a></h2>
+          <span class="date">Sep 10, 2017</span>
+        </article>
+        <article>
+          <span class="kicker">Drilling</span>
+          <h2><a href="#">Bakken Shale Rig Count Increases to 51</a></h2>
+          <span class="date">Mar 11, 2018</span>
+        </article>
+      </div>
+
+      <div class="thirds">
+        <article><span class="kicker">Drilling</span><h3><a href="#">Bakken Shale Rig Count Hits 50</a></h3><span class="date">Feb 10, 2018</span></article>
+        <article><span class="kicker">Pipeline &amp; Midstream</span><h3><a href="#">Enbridge's Sandpiper Pipeline Delayed</a></h3><span class="date">Oct 2, 2014</span></article>
+        <article><span class="kicker">Jobs News</span><h3><a href="#">Bakken Job Fair Planned In Minot on June 26, 2013</a></h3><span class="date">May 14, 2013</span></article>
+      </div>
+
+      <div class="letter wide" id="letter">
+        <!-- New element: drafted copy. VERIFY newsletter cadence with Kenny. -->
+        <h4>The Bakken, weekly</h4>
+        <p>Rig count, NDIC production and the week's headlines from the basin, in one email.</p>
+        <form onsubmit="return false">
+          <label class="sr" for="em">Email address</label>
+          <input id="em" type="email" placeholder="you@example.com">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="ad lb">Advertisement · 728 × 90</div>
+      <a class="morenews" href="#">All Bakken Shale News →</a>
+    </div>
+
+    <aside class="rail" aria-label="Latest">
+      <h3>Latest</h3>
+      <ol>
+        <li><span class="kicker">Drilling</span><a href="#">Bakken Shale Rig Count Slips to 48</a><span class="date">Mar 4, 2018</span></li>
+        <li><span class="kicker">Bakken Shale News</span><a href="#">Continental Touts Bakken Innovation</a><span class="date">Aug 10, 2017</span></li>
+        <li><span class="kicker">Bakken Shale News</span><a href="#">Hess Cuts Budget for Remainder of 2017</a><span class="date">Aug 2, 2017</span></li>
+        <li><span class="kicker">Bakken Shale News</span><a href="#">North Dakota Owed Millions in Royalties</a><span class="date">Jul 25, 2017</span></li>
+        <li><span class="kicker">Pipeline &amp; Midstream</span><a href="#">Tesoro Buys QEP's Bakken Pipeline Assets - $2.5 Billion</a><span class="date">Oct 21, 2014</span></li>
+      </ol>
+
+      <div class="ad mr">Advertisement<br>300 × 250</div>
+    </aside>
+  </div>
+</section>
+
+<svg class="strata" viewBox="0 -2 1440 76" preserveAspectRatio="none" aria-hidden="true">
+  <use href="#band" fill="#818286"/>
+  <use href="#band" fill="#387C2C" y="22"/>
+  <use href="#band" fill="#1E1F1C" y="44"/>
+</svg>
+
+<section class="numbers" aria-labelledby="num-h">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="num-h">The basin, by the numbers</h2>
+      <a class="date" href="https://www.dmr.nd.gov/oilgas/riglist.asp">NDIC rig list →</a>
+    </div>
+    <div class="bigrow">
+      <p class="big" data-k="crude">1,158,000</p>
+      <p class="unit">barrels a day<span class="delta" data-k="crude-cap">North Dakota crude · July 2026</span></p>
+    </div>
+    <p class="cap">Production: U.S. Energy Information Administration, monthly. Rigs: NDIC Department of Mineral Resources active rig list, updated daily. Prices: FRED, daily spot. <span data-k="fetched"></span></p>
+
+    <div class="minis">
+      <!-- VERIFY: peak 218 date (DMR slides print 2012 and 2018) -->
+      <div><b data-k="rigs">33</b><span>rigs drilling in North Dakota right now</span><span class="date" data-k="rigs-date">Oct 8, 2026</span></div>
+      <div><b>218</b><span>rigs at the all-time peak</span><span class="date">May 29, 2012</span></div>
+      <div><b>27</b><span>counties across two states sit on the play</span><span class="date">16 ND · 11 MT</span></div>
+    </div>
+
+    <div class="rigs">
+      <div>
+        <h3>Where the rigs are</h3>
+        <ol class="bars" data-k="by-county"></ol>
+      </div>
+      <div>
+        <h3>Who's drilling</h3>
+        <ol class="ops" data-k="by-op"></ol>
+      </div>
+      <div>
+        <h3>Newest spuds</h3>
+        <ol class="spuds" data-k="latest"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="xsec" aria-labelledby="x-h">
+  <div class="wrap head">
+    <div>
+      <span class="kicker">Geology</span>
+      <h2 id="x-h">Three layers under the Williston Basin</h2>
+    </div>
+    <div>
+      <p>The Bakken Shale is a rock formation that was deposited in the late Devonian, early Mississippian age. The formation consists of three layers: an upper shale layer, middle dolomite, and a lower layer of shale. <a href="#">Bakken Geology</a></p>
+    </div>
+  </div>
+
+  <div class="layer l1"><div class="wrap">
+    <span class="name">Upper shale</span>
+    <span class="fig">1951</span>
+    <p>Oil was initially discovered in the Bakken play in 1951. The name comes from Henry Bakken, the North Dakota farmer who owned the land where the first well encountered the formation.</p>
+  </div></div>
+  <div class="layer l2"><div class="wrap">
+    <span class="name">Middle dolomite</span>
+    <span class="fig">400B</span>
+    <p>Barrels of oil equivalent estimated in place. Current recovery estimates range from 3 to 10 percent.</p>
+  </div></div>
+  <div class="layer l3"><div class="wrap">
+    <span class="name">Lower shale</span>
+    <span class="fig">2006</span>
+    <p>The Elm Coulee was proven economic in 2003, and operators began expanding into North Dakota after EOG's Parshall discovery in 2006.</p>
+  </div></div>
+  <div class="layer l4"><div class="wrap">
+    <span class="name">Three Forks, below</span>
+    <span class="fig">+2B</span>
+    <p>Barrels the underlying Three Forks formation could yield, per a 2010 NDIC study.</p>
+  </div></div>
+</section>
+
+<section class="counties" id="counties" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">Directory</span>
+        <h2 id="c-h">Bakken Shale Counties</h2>
+      </div>
+      <p>Courthouses, tax offices and chambers of commerce for every county on the play. Pick a county.</p>
+    </div>
+
+    <div class="states">
+      <div class="state nd">
+        <h3>North Dakota <span>16 counties</span></h3>
+        <ul>
+          <li data-county="Billings"><a href="#"><b>Billings</b><i>Medora</i></a></li>
+          <li data-county="Bottineau"><a href="#"><b>Bottineau</b><i>Bottineau</i></a></li>
+          <li data-county="Bowman"><a href="#"><b>Bowman</b><i>Bowman</i></a></li>
+          <li data-county="Burke"><a href="#"><b>Burke</b><i>Bowbells</i></a></li>
+          <li data-county="Divide"><a href="#"><b>Divide</b><i>Crosby</i></a></li>
+          <li data-county="Dunn"><a href="#"><b>Dunn</b><i>Manning</i></a></li>
+          <li data-county="Golden Valley"><a href="#"><b>Golden Valley</b><i>Beach</i></a></li>
+          <li data-county="McHenry"><a href="#"><b>McHenry</b><i>Towner</i></a></li>
+          <li data-county="McKenzie"><a href="#"><b>McKenzie</b><i>Watford City</i></a></li>
+          <li data-county="McLean"><a href="#"><b>McLean</b><i>Washburn</i></a></li>
+          <li data-county="Mountrail"><a href="#"><b>Mountrail</b><i>Stanley</i></a></li>
+          <li data-county="Renville"><a href="#"><b>Renville</b><i>Mohall</i></a></li>
+          <li data-county="Slope"><a href="#"><b>Slope</b><i>Amidon</i></a></li>
+          <li data-county="Stark"><a href="#"><b>Stark</b><i>Dickinson</i></a></li>
+          <li data-county="Ward"><a href="#"><b>Ward</b><i>Minot</i></a></li>
+          <li data-county="Williams"><a href="#"><b>Williams</b><i>Williston</i></a></li>
+        </ul>
+      </div>
+      <div class="state mt">
+        <h3>Montana <span>11 counties</span></h3>
+        <ul>
+          <li><a href="#"><b>Daniels</b><i>Scobey</i></a></li>
+          <li><a href="#"><b>Dawson</b><i>Glendive</i></a></li>
+          <li><a href="#"><b>Fallon</b><i>Baker</i></a></li>
+          <li><a href="#"><b>Garfield</b><i>Jordan</i></a></li>
+          <li><a href="#"><b>McCone</b><i>Circle</i></a></li>
+          <li><a href="#"><b>Prairie</b><i>Terry</i></a></li>
+          <li><a href="#"><b>Richland</b><i>Sidney</i></a></li>
+          <li><a href="#"><b>Roosevelt</b><i>Wolf Point</i></a></li>
+          <li><a href="#"><b>Sheridan</b><i>Plentywood</i></a></li>
+          <li><a href="#"><b>Valley</b><i>Glasgow</i></a></li>
+          <li><a href="#"><b>Wibaux</b><i>Wibaux</i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dirlinks">
+      <a href="#">Bakken Shale Area Courthouses</a>
+      <a href="#">Tax Office Directory</a>
+      <a href="#">Chambers of Commerce</a>
+      <a href="#">Bakken Shale Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="jobs dark" aria-labelledby="j-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker">Jobs</span>
+        <h2 id="j-h">Who's hiring in the Bakken</h2>
+      </div>
+      <div class="price">
+        <p>Standard listings are just $49/yr.</p>
+        <a class="btn" href="#">List your company</a>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="first">
+        <h3>Operator Jobs Listings</h3>
+        <ul>
+          <li><a href="#">Continental Resources <span>Careers →</span></a></li>
+          <li><a href="#">EOG Resources <span>Careers →</span></a></li>
+          <li><a href="#">ConocoPhillips <span>Careers →</span></a></li>
+          <li><a href="#">ExxonMobil / XTO Energy <span>Careers →</span></a></li>
+          <li><a href="#">Northern Oil &amp; Gas <span>Careers →</span></a></li>
+          <li><a href="#">Slawson Exploration Co. <span>Careers →</span></a></li>
+          <li><a href="#">Petro-Hunt LLC <span>Careers →</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>By company</h3>
+        <ul>
+          <li><a href="#">Oilfield Services Jobs by Company <span>→</span></a></li>
+          <li><a href="#">Pipeline &amp; Midstream Jobs by Company <span>→</span></a></li>
+          <li><a href="#">All Operator Jobs Listings <span>→</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Jobs News</h3>
+        <ul>
+          <li><a href="#">Bakken Job Fair Planned In Minot on June 26, 2013 <span>→</span></a></li>
+          <li><a href="#">All Bakken Jobs News <span>→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<svg class="strata" viewBox="0 -2 1440 76" preserveAspectRatio="none" aria-hidden="true" style="background:var(--ink);margin-bottom:-1px">
+  <use href="#band" fill="#818286"/>
+  <use href="#band" fill="#387C2C" y="22"/>
+  <path fill="#EBE8DF" transform="translate(0 44)" d="M0 14 C240 -2,480 -2,720 14 S1200 30,1440 14 L1440 40 L0 40 Z"/>
+</svg>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="word">Bakken Shale</div>
+      <p class="tag">News, MarketPlace, Jobs™</p>
+    </div>
+    <div><h4>News</h4><ul><li><a href="#">Bakken Shale News</a></li><li><a href="#">Bakken Drilling News</a></li><li><a href="#">Pipeline &amp; Midstream</a></li><li><a href="#">Archive</a></li></ul></div>
+    <div><h4>Directory</h4><ul><li><a href="#">Bakken Companies</a></li><li><a href="#">Bakken Shale Counties</a></li><li><a href="#">Bakken Shale Maps</a></li><li><a href="#">Geology</a></li></ul></div>
+    <div><h4>Network</h4><ul><li><a href="https://www.mineralrightsforum.com/">Forum</a></li><li><a href="https://www.ccus.com/">Carbon Capture</a></li><li><a href="#">Eagle Ford Shale</a></li></ul></div>
+    <div><h4>More</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Advertise</a></li><li><a href="#">Safety</a></li></ul></div>
+    <div class="fine"><span>© 2026 BakkenShale.com</span><span>Production data: NDIC Department of Mineral Resources</span></div>
+  </div>
+</footer>
+
+
+<script>
+// Fills every [data-k] slot from data.json (written by refresh-data.py). The markup holds the fallback values.
+(function(){
+  const $$=(k)=>document.querySelectorAll('[data-k="'+k+'"]');
+  const set=(k,v)=>$$(k).forEach(e=>e.textContent=v);
+  const fmt=(n)=>n.toLocaleString('en-US');
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const day=(iso)=>{const d=new Date(iso+'T12:00:00');return MON[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()};
+  const chg=(k,v,unit)=>$$(k).forEach(e=>{e.textContent=(v>=0?'▲ ':'▼ ')+Math.abs(v).toFixed(2);e.className=v>=0?'up':'dn'});
+  // NDIC lists legal entity names; trim them to the names readers know
+  const op=(n)=>n.replace(/,?\s+(L\.?L\.?C\.?|INC\.?|LP|CORPORATION|COMPANY|OPERATING|OIL & GAS|INVESTMENTS II|RESOURCES USA)\b\.?/gi,'').replace(/,\s*$/,'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()).replace(/^Eog/,'EOG').replace(/^Xto/,'XTO').trim();
+  // Snapshot from the last refresh, used when data.json can't be fetched (e.g. the file opened directly)
+  const SNAPSHOT={"fetched":"2026-10-08T15:40","wti":{"date":"2026-10-06","value":96.24,"change":0.11,"series":[83.9,83.46,84.81,84.57,87.03,91.48,92.15,92.55,92.69,94.21,97.26,103.57,101.27,102.42,107.02,103.62,103.21,101.44,96.97,96.41,93.38,95.88,85.23,99.37,96.16,97.18,99.77,97.89,96.13,96.24]},"henry_hub":{"date":"2026-10-06","value":3.03,"change":0.07,"series":[2.7,2.81,2.89,2.82,2.9,2.9,2.88,2.95,2.92,2.9,2.81,2.76,2.71,2.85,2.97,3.0,2.9,2.97,2.93,2.9,3.06,3.0,3.21,3.13,3.18,3.02,3.0,2.9,2.96,3.03]},"nd_crude":{"period":"2026-07","bbl_d":1158000,"change":-1000},"rigs":{"date":"2026-10-08","count":33,"by_county":{"Billings":1,"Burke":1,"Divide":6,"Dunn":3,"McKenzie":10,"Mountrail":3,"Williams":9},"by_operator":[["HESS BAKKEN INVESTMENTS II, LLC",4],["Phoenix Operating LLC",3],["BURLINGTON RESOURCES OIL & GAS COMPANY LP",3],["DEVON ENERGY WILLISTON, L.L.C.",3],["KODA RESOURCES OPERATING, LLC",2],["ENERPLUS RESOURCES USA CORPORATION",2],["WHITING OIL AND GAS CORPORATION",2],["CONTINENTAL RESOURCES, INC.",2]],"latest":[{"rig":"PATTERSON 268","operator":"Phoenix Operating LLC","well":"BRYNN FERRARI 15-10-3 3H","county":"DIV","spud":"2026-10-07"},{"rig":"NABORS B 12","operator":"KRAKEN OPERATING, LLC","well":"Holmes 5800-8-29 #3H","county":"WIL","spud":"2026-10-05"},{"rig":"NABORS B27","operator":"Silver Hill Energy Operating, LLC","well":"OLIVER W 159-93-20-32-2MBHX","county":"BRK","spud":"2026-10-04"},{"rig":"NABORS B23","operator":"FORMENTERA OPERATIONS, LLC","well":"TORO CANYON-16-32-DIV S517HF","county":"DIV","spud":"2026-10-02"},{"rig":"PATTERSON 280","operator":"Phoenix Operating LLC","well":"AKEMI FERRARI 14-11-2 2H","county":"DIV","spud":"2026-10-01"}]}};
+  fetch('data.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>SNAPSHOT).then(d=>{
+    const now=new Date(); set('today',now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}));
+    if(d.wti){set('wti','$'+d.wti.value.toFixed(2));chg('wti-chg',d.wti.change)}
+    if(d.henry_hub){set('hh','$'+d.henry_hub.value.toFixed(2));chg('hh-chg',d.henry_hub.change)}
+    if(d.nd_crude){const [y,m]=d.nd_crude.period.split('-');const mon=MON[+m-1];
+      set('crude',fmt(d.nd_crude.bbl_d));set('crude-lab','ND CRUDE · '+mon.toUpperCase());
+      set('crude-cap','North Dakota crude · '+new Date(y,m-1).toLocaleString('en-US',{month:'long'})+' '+y)}
+    if(d.rigs){
+      set('rigs',d.rigs.count);set('rigs-date','NDIC active rig list, '+day(d.rigs.date));
+      const bc=Object.entries(d.rigs.by_county).sort((a,b)=>b[1]-a[1]);const max=bc[0][1];
+      $$('by-county').forEach(ol=>ol.innerHTML=bc.map(([c,n])=>`<li><b>${c}</b><i style="width:${(n/max*100).toFixed(0)}%"></i><span>${n}</span></li>`).join(''));
+      $$('by-op').forEach(ol=>ol.innerHTML=d.rigs.by_operator.slice(0,7).map(([o,n])=>`<li>${op(o)}<span>${n} rig${n>1?'s':''}</span></li>`).join(''));
+      $$('latest').forEach(ol=>ol.innerHTML=d.rigs.latest.slice(0,4).map(r=>`<li>${op(r.operator)}<span>${r.rig} · ${r.well} · spud ${day(r.spud)}</span></li>`).join(''));
+      document.querySelectorAll('[data-county]').forEach(li=>{const n=d.rigs.by_county[li.dataset.county];if(n){const i=li.querySelector('i');i.innerHTML=i.textContent+' · <em>'+n+' rig'+(n>1?'s':'')+'</em>'}});
+    }
+    if(d.fetched) set('fetched','Last refreshed '+day(d.fetched.slice(0,10))+'.');
+  }).catch(()=>{});
+})();
+</script>
+</body>
+</html>

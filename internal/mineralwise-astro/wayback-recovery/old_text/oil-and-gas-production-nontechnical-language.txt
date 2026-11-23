@@ -1,0 +1,34 @@
+URL: https://www.mineralwise.com/oil-and-gas-production-nontechnical-language
+SNAPSHOT: 20250418000115
+TITLE: Understanding Oil and Production: A Guide for Mineral Rights Owners
+H1: Understanding Oil and Gas Production for Mineral Owners
+
+Understanding Oil and Gas Production for Mineral Owners
+Oil and gas production in the U.S. directly benefits millions of everyday Americans. This article, Oil and Gas Production 101 is written in non-technical language and addresses the oil and gas production process for mineral rights owners. For context, we'll begin just before the actual production phase with what is known as completing the well, this occurs just after the drilling process. Additional topics we cover include the following: well testing, pipelines, title issues, and actual production.
+
+Oil or Gas Well Completion
+Following the drilling process, a critical decision must be made – whether to complete a well. This is the decision that says, yes, we’re pretty sure we’ve got a productive well here, and will move ahead in purchasing casing, tubing, surface equipment, and possibly constructing a pipeline. Or, the alternative, to plug and abandon (P&A) the well, declaring it a dry hole. While sometimes a very simple decision, at other times this can elicit differing judgment calls from reasonable minds. Let me pause here and emphasize that there is nothing non technical at all about this decision - in fact it's one of the most technically important decisions ever made in the life of an oil or gas well. The completion process typically takes from a few weeks to a few months, sometimes longer.
+Well Testing
+Now that a well is completed, it is beneficial for an Operator to determine its producing characteristics. Of interest will be 
+oil & gas production
+ metrics such as flow rates of crude oil, natural gas, water (also known as brine) and condensate, the flowing and shut-in tubing pressures, and the physical and chemical properties of the production. All of this falls under the heading of well testing. Assuming all goes well, this can take a few days up to a couple of months.
+Pipeline Outlet
+With the exception of an oil (only) well where the oil will be trucked from the location, an off-take pipeline must be layed from the drilling location to a transmission pipeline. This could be as simple as an in-field gathering line connecting to an existing outlet (often the case in mature oil and gas fields), or a much more complex situation involving laying miles of pipeline. Laying pipelines over long distances can be quite time consuming. In order to provide protection to the mineral rights owner typical oil and gas leases contain language known as a shut in royalty provision. The intent of this provision is to provide interem payment to the lessor (the royalty owner) from a well that is capable of production but is not yet producing due to lack of an off-take pipeline.
+Mineral Title Curative
+Simultaneous with the decision to complete and produce a well comes the mineral title curative process. It’s now time for the oil company to dot the I’s and cross the T’s regarding mineral and royalty ownership, thus determining exactly who gets paid and how much. All sorts of issues can arise in mineral title curative process – contested wills, intestate deaths, divorce decrees, questionable deeds, etc.
+Division Orders
+While the curative process moves forward, as the oil company title attorneys nail down each specific owners interest, the company prepares and sends them a legal document called a Division Order. This document states the decimal ownership interest that the company believes (according to its division order title opinion) is attributable to a specific owner, and requests the owner’s concurrence by signing and returning the document.
+Oil & Gas Production Phase
+After the flurry of activity surrounding drilling, completing, testing and getting the ownership and payment paperwork in order, finally comes what both oil company and mineral owner look forward to - the production phase. Crude oil, natural gas, condensate, (and err...usually some salt water) begin to flow. Or, in a less desirable scenario, must be pumped or compressed. Either way, whatever has been tapped into begins to be produced, thus also begins its depletion.
+
+Additional Reading
+Oil & Gas 101: Oil and Gas Basics for the Mineral Owner
+ - Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing.
+Royalty Management
+ – Explains how to manage oil and gas royalties. Covers topics like mineral rights fragmentation and estate cleanup.
+Use of this site constitutes acceptance of our 
+Terms & Conditions
+ and 
+Privacy Policy
+.
+© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED

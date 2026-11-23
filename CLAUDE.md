@@ -120,3 +120,7 @@ KED-OS is isolated from:
 - **Brilliant OS** does not know about KED-OS (from Brilliant OS perspective)
 
 **Hard boundary, no exceptions (Always Active): KED work never writes to brilliant-os, ever.** brilliant-os is Nathan's shared business repo. Every file write and git commit for a KED task — this project, KED Interests, any Kenny Dubose project including personal ones like Dubose Design Hub — belongs in `~/os-systems/ked-os/` or a standalone repo under Chris's own accounts, never in `~/os-systems/brilliant-os/`, regardless of which repo a session happens to be rooted in. A KED preview-server config once leaked into brilliant-os's `.claude/launch.json` and was pushed to `nathaningram/brilliant-os` — Nathan's repo ended up with a commit referencing Kenny Dubose's personal home remodel project. Chris was explicit and repeated: this cannot happen again, ever. If unsure which OS a task belongs to, ask before writing anything.
+
+## Earpiece Call Filing (Chris, 2026-11-12)
+
+Earpiece (the live call listener, skill `earpiece`) can run on a KED call. Its skill was written for brilliant-os, so its filing step does not apply here: a KED or other non-BWW call file never goes into brilliant-os, not even under `clients/`. File the transcript in this repo under the KED project folder it belongs to, labeled as a live Earpiece transcript with Me and Them speaker labels. If the project is unclear, ask before filing. Live call audio and raw transcripts stay in `~/Library/Application Support/live-call-prompter/calls/` until filed.

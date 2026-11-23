@@ -1,0 +1,63 @@
+URL: https://www.mineralwise.com/oil-and-gas-royalty-statement
+SNAPSHOT: 20250424073850
+TITLE: How to Read and Understand Your Oil and Gas Royalty Statement – A Complete Guide
+H1: How to Read Your Oil and Gas Royalty Statement
+
+How to Read Your Oil and Gas Royalty Statement
+Royalty Statement Basics
+ Royalty statements are the basic accounting documentation mailed to royalty rights holders, usually on a monthly basis. Royalty statements are often the only connection between a mineral owner and the oil company.  The phrase oil company as used in this article can be interchangeable with Operator and Producer. Also, revenue checks are sometimes sent by the First Purchaser. In cases where the amount owed the royalty owner is relatively small, revenue distributors are obligated to mail a check only when the amount reaches a minimum threshold.
+There is no standard format for 
+royalty statements
+. However, there are a handful of basic data elements that are (or should be) present on all statements. In creating royalty statements, reputable revenue distributors, of which most certainly are, are guided by good accounting practices, and often influenced by state government statutes. When reading your statement, gross values are generally shown toward the left side of the statement, with the owner's net values toward the right hand side. The following subheadings represent items you'll likely see on your royalty statement.
+
+Producing Property Identification
+For each producing property, there will be identifying numbers, codes, tract numbers, lease names, well names, county and state names - or some combination of these, all of which serve simply to identify the producing entity. Often owners will have an interest in multiple properties, each of which should be readily identifiable on the statement.
+
+Product Code 
+This column identifies which product you're being paid for. Possibilities here include crude oil, natural gas, condensate, and plant products such as NGL's, sulphur, CO2 etc. Since each of these are priced independently, each product will be shown as a separate line item. The actual product name may be spelled out, or identified by a code # or letter, with an associated legend at the bottom of the page.
+
+Production Month
+This column shows the month and year that the product for which you are being paid was actually produced from the well(s). Oil is often paid 2 months in arrears, while natural gas (and products) generally are paid 3 months in arrears. Oil & gas royalties are paid monthly, consistent with the normal accounting cycle of the producer, unless the obligation does not meet the minimum check requirement for that particular state. These laws are generally known as aggregate pay laws, usually set at either $25 or $100. If your interest is very small, you'll be paid at a minimum of each year.
+
+Oil and Gas Price
+This is the price per unit, paid in dollars and cents, upon which your check is calculated. Oil is priced in $/bbl, natural gas in $/Mcf, and plant products (NGL's) in $/Gal. Over the past 15 years or so, the marketing and pricing of oil and gas has moved toward a 30 day pricing model, and away from traditional fixed pricing for longer terms. The advent of natural gas deregulation combined with the growth of a highly liquid oil and gas futures market has moved the industry in this direction.
+
+Royalty Interest Type
+For purposes of this article, only two types of interests will be addressed - the royalty interest (RI) and the overriding royalty interest (ORRI), also called an override. It's likely you know which you own. The royalty interest comes about as a result of and through mineral ownership, while the override is created, or carved out of, the oil and gas lease itself. Either will be treated the same with respect to the revenue statement.
+
+Quantity
+For the month of production listed, this is the amount of product produced, measured in the appropriate unit of measurement. It will vary each month (err... generally downward). The reality is that almost every well , from the first day of production, begins its progress on a downward sloping decline curve.
+
+Gross Value
+Again, for the month of production listed, this is the amount of product produced, multiplied by the price received.
+
+API Well Number
+The API number is a unique identifying number for oil and gas wells. These numbers can be as long as 14 digits. The first digits in the API number refer to the specific geographical location of a well while the last digits record the wells operations. When read from left to right the numbers start with the two digit state code, followed by a three digit county code, followed by the five digit unique well identifying number. The 11th and 12th digits represent the sidetrack codes. The original well is usually 00. The 13th and 14th digits represent separate operations from a singe bore hole.
+
+Decimal Interest
+This number represents your ownership interest expressed as a decimal, usually carried out to the eighth decimal place. This decimal interest multiplied by the gross quantity produced results in the amount of production attributable to you. This decimal is calculated based upon the following variables: Your land tract size, your mineral interest percentage, your lease royalty fraction, and the size of the producing unit.
+
+Taxes
+How do I tax thee? Let me count the ways. Severance tax, conservation tax, oil field cleanup tax, emergency fund tax; each state is free to design their own scheme regarding oil and gas taxation. Each state varies in their approach, but it's safe to say that the overall take usually runs in the 5-8% range, regardless of how it is derived. Severance tax is usually the dominant tax, with lesser taxes often pointed toward environmental cleanup type programs. Many states offer tax breaks based upon variables such as low rate wells (stripper wells), enhanced oil recovery wells, or reactivated wells.
+
+Royalty Statement Deductions
+Why are there deductions from my royalty statement? It's a question we often hear. Making the product marketable - that's the issue at play here. Crude oil and natural gas, as it's produced in it's raw form, is rarely of sufficient quality that it can be marketed for immediate use. That's why you may see deductions for marketing. The theory behind this is that the product has no value at all until it is made marketable.
+Common line items you may notice on your royalty check stubs include:
+
+compression deduction - a charge for compression of gas to a sufficient pressure to enter into a gathering or transportation pipeline
+dehydration deduction - a charge for dehydration of gas, meaning the removal of water vapor from natural gas
+gathering deduction - a charge for pipeline gathering of a product to a common sales point
+processing deduction - a charge for expenses related to further refinement of high BTU natural gas
+treating deduction - a charge for removing impurities such as co2, nitrogen, or hydrogen sulfide from a hydrocarbon stream
+
+Additional Reading
+Oil & Gas 101: Oil and Gas Basics for the Mineral Owner
+ - Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing.
+Oil & Gas Production 101
+ – Free article explaining the drilling, completing, and testing of oil and gas wells in nontechnical language. Valuable insight for mineral rights owners.
+Use of this site constitutes acceptance of our 
+Terms & Conditions
+ and 
+Privacy Policy
+.
+© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED

@@ -46,19 +46,26 @@ traffic.
 - 2026-06-11 to 06-13: Search Console Validate Fix run, failed
 - 2026-08-20: diagnosis showed 235 still-broken URLs, avg position 34.8
 - 2026-08-27: redirect layer rebuilt on branch `seo-redirect-remediation`
+- 2026-09-17: redirect rebuild merged and deployed to production, spot checks pass; KED Google connectors scaffolded
+- 2026-09-17: glossary rebuilt as 21 letter pages (199 terms), 199 single-term URLs retired with one hop redirects, deployed (main 1139d52)
 
 ## Next Steps
 
-1. Verify the Pages preview build, then merge `seo-redirect-remediation`
-2. Spot-check redirects live, request indexing, then run Validate Fix in GSC
+1. Finish the KED Google connector login (`integrations/gsc-mcp/SETUP.md`)
+2. GSC: Request Indexing on the top 15-20 pages, then Validate Fix on Not found (404)
 3. GA4 hygiene (see `notes/2026-08-27-seo-remediation.md`)
-4. Content depth on the 40-60 glossary terms that draw real impressions
+4. Standalone articles for the 10-15 glossary terms with real search demand (pick from GSC data), linked from their letter page entries
+5. Move the repo out of iCloud-synced `~/Documents` (iCloud file eviction is why git and `astro build` hang)
 
 ---
 
 ## Notes
 
 - `notes/2026-08-27-seo-remediation.md`
+- `notes/2026-09-17-status-and-ked-connectors.md`
+- `notes/2026-09-17-glossary-letter-pages.md`
+- `notes/2026-09-17-wayback-content-recovery.md` and `wayback-recovery/` (recovered Squarespace and Brizy text)
+- Search Console and GA4 are owned by chris@kedinterests.com; connector at `integrations/gsc-mcp/`
 - `POST-MORTEM.md` in the repo is the full incident record
 
 ## Contact

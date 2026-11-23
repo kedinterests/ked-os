@@ -1,0 +1,39 @@
+{
+  "fetched": "2026-10-08T15:59",
+  "manual": {
+    "ef_rigs": {
+      "value": 49,
+      "week_of": "2026-10-02",
+      "prior_week": 50,
+      "year_ago": 45,
+      "source": "Baker Hughes North America Rotary Rig Count"
+    }
+  },
+  "wti": {
+    "date": "2026-10-06",
+    "value": 96.24,
+    "change": 0.11
+  },
+  "henry_hub": {
+    "date": "2026-10-06",
+    "value": 3.03,
+    "change": 0.07
+  },
+  "ef_oil": {
+    "period": "2026-09",
+    "value": 1.105315598,
+    "units": "million barrels per day",
+    "year_ago": 1.144734239
+  },
+  "ef_gas": {
+    "period": "2026-09",
+    "value": 8.069557972,
+    "units": "billion cubic feet per day",
+    "year_ago": 7.623852551
+  },
+  "tx_crude": {
+    "period": "2026-07",
+    "bbl_d": 5768000,
+    "change": 36000
+  }
+}

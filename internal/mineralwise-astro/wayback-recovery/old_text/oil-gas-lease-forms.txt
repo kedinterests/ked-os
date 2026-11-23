@@ -1,0 +1,47 @@
+URL: https://mineralwise.com/oil-gas-lease-forms
+SNAPSHOT: 20230329080730
+TITLE: Oil & Gas Lease Forms - Is there a standard? — MineralWise
+H1: 
+
+Oil & Gas Lease Forms - Is there a standard?
+In a word, no.  At one time, the “Producers 88” form was considered a standard lease, but today, there are numerous types of lease forms used by the various oil and gas companies.  If you are in a situation where you are negotiating with a land agent and he or she says, “It's a standard form,” ask them to clarify. The company they represent may have a “standard template” they use to generate the lease that is presented to you, but each mineral lease has variable characteristics and clauses, thus each one usually differs from the next.
+Types of Oil & Gas Lease Forms 
+
+At a broad level, there are generally two types of oil & gas lease forms, the difference based upon the timing of the lease bonus payment(s). The type used most often by oil and gas companies today is known as the “Paid-Up” lease.  In this type of lease form, no bonus payments are due from the company after the lease is signed... you get 100% of your lease bonus money combined with the annual rental payments up front.
+The “Rental Lease” is the other type, and is not as commonly used today.  In this type, the lease, can lapse if the rentals are not paid in a timely manner by the company (usually on the anniversary of the lease), therefore terminating the lease.
+Before the boom in shale gas began around 2005, rental leases were more common.  With oil and gas companies less certain of the likelihood of finding hydrocarbons, land could be leased relatively inexpensively.  Bonus amounts were often $5 - $10 per acre per year, with a lease term of five to ten years and royalty percentage set at 12.5%.  Today, with improvements in technology spreading across the country allowing for more determinable results, oil and gas companies are more convinced as to what  a property is likely of producing (and so are mineral owners).
+Now lease bonuses tend to range anywhere from $100 - $5000 per acre and sometimes more, based primarily upon competition between companies. The value can rise quickly if a shale formation in the area has been proven to produce at substantial rates.  The length of the primary term in leases has gotten shorter as well, averaging 3-5 years.
+Primary Elements of an Oil & Gas Lease Form 
+As mentioned earlier, there is no standard form for a mineral lease, but most leases have similar elements:
+Date of the lease
+- Also called the effective date, will typically be at the top. Note that this can differ from the date on which the lease is actually signed.
+Consideration
+ - All contracts, to be legitimate, must contain a form of consideration. Consideration in the oil and gas industry is usually referred to as the lease bonus. (Generically, you can think of consideration as compensation). At times the oil and gas company will pay the lessor a small portion of the bonus at the time the lease is signed, and the remaining balance to be paid after full title examination has been completed, generally from 60 - 120 days later. These types of payments are sometimes referred to as 
+Bank Sight Drafts or Oil & Gas Bank Drafts
+.
+Leasing clause
+ - The leasing clause grants the oil and gas company the right to explore, develop and produce oil and gas on the leasehold. Sometimes this clause also contains the right to store gas on the property, build roads, do further geophysical testing, etc., so read it carefully. If there is an item listed that you as the lessor do not want to grant the oil and gas company, negotiate with the landman to amend or negate those terms.
+
+Description
+ - The description is the legally written “address” of your property – its legal description. The description might included townships and ranges (Oklahoma) or metes and bounds (Texas). States have different ways of describing property locations, but a description is always included in a mineral lease. No two tracts of land in the U.S. have the same legal description. A mineral lease, which is a contract, must give clear understanding of what geographic foot print is being leased in order to make the property identifiable for enforcement by a court of law should the need ever arise.
+Term
+ - The term states how long the lease will remain in force and the factor(s) that apply. For example, a lease may read that it will stay in effect for a term of five years if any of the following is satisfied: operations conducted, a well is deemed capable of production, oil or gas is produced, leasehold is used for storage and/or protection of oil and gas, etc. Again, as a mineral owner, read this clause carefully and express any questions or concerns you may have with the land agent.
+Royalty
+ - The royalty clause establishes the percentage of the revenue from production that the mineral owner is to receive if and when a well produces. The “base” royalty for most leases is a fraction of revenue from the products produced. A 1/8 or 12.5% share is most common in older leases, but if a lessor is in a proven production area for oil and gas, the royalty percentage is often greater. Many of the modern shale play developments have average royalties of 18-20%. Sometimes there is a delay between when a well is capable of producing oil or gas, and actually getting the product to market. There is usually a shut-in royalty clause that provides for those events whereby the oil and gas company pays the mineral owner a shut-in royalty to keep the lease in effect during this time.
+There are usually several additional secondary clauses in most oil and gas lease forms, and a mineral owner that has done his or her research will sometimes have those clauses, (not listed here), added to their lease.  We will go into what some of the secondary clauses are in an upcoming article.
+
+What Happens After a Lease Form is Signed? 
+
+After the lease is signed and before a well is drilled on the tract of land, a full title examination must be performed. Running title is necessary to confirm the specific owners who actually own the minerals under a particular tract of land. This is usually done by landmen who work on behalf of the oil and gas company. In earlier times, one individual often handled the leasing process from cradle to grave, but more recently land companies assign a group of landmen to do the leasing, another group that performs title checks, a different group that negotiates surface agreements, and so on.
+
+It sounds simple, but running a title chain can be complicated - sometimes very complicated. The landman looks to see if the property was deeded correctly from the time the land was conveyed to the first owner, all the way forward in time to present day. He will make sure there are no liens, no inheritance or family issues, no lawsuits, no other disputes, no past due taxes, etc. Once this process is complete, the oil and gas company can move forward with drilling. Before you begin receiving royalty checks, you'll get a document detailing your ownership in the proposed unit. You can learn more in the article: 
+Understanding Oil & Gas Division Orders
+.
+As you can see there is 
+no “standard” form for an oil and gas lease form
+. Each lease differs in clauses contained, duration, acreage, royalty percentage and so on. With due diligence on your part as a lessor and communication with the land agent, you can sign a lease that will please you. Hopefully, a well is drilled ,and provides extra income for  you and yours for years to come.
+Additional Reading
+Volume Verification
+ – Short article explaining how oil and gas royalty owners can verify their oil and gas production. Includes links to free state verification.
+Production 101
+ – Free article explaining the drilling, completing, and testing of oil and gas wells in nontechnical language. Valuable insight for mineral rights owners.

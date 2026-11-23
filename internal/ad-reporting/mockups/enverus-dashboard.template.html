@@ -1,0 +1,672 @@
+<title>Enverus on MRF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f3f2ec; --surface:#fbfaf7; --surface-2:#eeede6; --ink:#141a16; --ink-2:#565d57; --muted:#858b85;
+  --grid:#e4e3dc; --axis:#c9c8c0; --line:rgba(20,26,22,.10); --line-strong:rgba(20,26,22,.18);
+  --accent:#3f8f1f; --accent-soft:#e6f2da; --accent-ink:#ffffff;
+  --s1:#3f8f1f; --s2:#2a78d6; --s3:#eb6834;
+  --good:#006300; --bad:#b3261e; --live-bg:#e6f2da; --live-ink:#1f5a0f;
+  --tip-bg:#141a16; --tip-ink:#f1f2ee;
+  --font-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:"Manrope","IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111311; --surface:#1c1e1c; --surface-2:#252825; --ink:#f1f2ee; --ink-2:#b6bcb4; --muted:#8a908a;
+    --grid:#2a2d2a; --axis:#3b3f3b; --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
+    --accent:#5eb236; --accent-soft:#213418; --accent-ink:#0f1a08;
+    --s1:#52a82a; --s2:#3987e5; --s3:#d95926;
+    --good:#6ccf3f; --bad:#ff7b72; --live-bg:#213418; --live-ink:#a5e07a;
+    --tip-bg:#f1f2ee; --tip-ink:#141a16;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111311; --surface:#1c1e1c; --surface-2:#252825; --ink:#f1f2ee; --ink-2:#b6bcb4; --muted:#8a908a;
+  --grid:#2a2d2a; --axis:#3b3f3b; --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
+  --accent:#5eb236; --accent-soft:#213418; --accent-ink:#0f1a08;
+  --s1:#52a82a; --s2:#3987e5; --s3:#d95926;
+  --good:#6ccf3f; --bad:#ff7b72; --live-bg:#213418; --live-ink:#a5e07a;
+  --tip-bg:#f1f2ee; --tip-ink:#141a16;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-inline:clamp(16px,3vw,32px);display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;font-family:var(--font-display);text-wrap:balance}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--accent)}
+button,select,input{font:inherit;color:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line-strong)}
+.brand{display:flex;align-items:center;gap:22px;min-width:0}
+.logo{display:block;width:168px;height:48px;color:var(--ink);flex:none}
+.logo svg{width:100%;height:100%;display:block}
+.brand-text{display:flex;flex-direction:column;gap:4px;padding-left:22px;border-left:1px solid var(--line-strong);min-width:0}
+.brand-text h1{font-size:clamp(18px,2.2vw,24px);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.top-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.chip-live{background:var(--live-bg);color:var(--live-ink)}
+.chip-live::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 25%,transparent)}
+.meta{color:var(--ink-2);font-size:13px}
+.meta strong{color:var(--ink);font-weight:600}
+
+/* filters */
+.filters{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.filters .spacer{flex:1}
+.ctl{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);cursor:pointer;white-space:nowrap}
+.ctl:hover{border-color:var(--accent)}
+.ctl .lbl{color:var(--muted);font-size:12px}
+.ctl select{border:0;background:transparent;padding:0;cursor:pointer;font-weight:500;max-width:52vw}
+.ctl svg{width:14px;height:14px;flex:none}
+.ctl-primary{font-weight:600}
+.ctl-primary .cal{color:var(--accent)}
+.toggle{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2);cursor:pointer;user-select:none}
+.toggle input{width:16px;height:16px;accent-color:var(--accent);margin:0}
+.range-note{flex-basis:100%;color:var(--muted);font-size:12px;font-family:var(--font-mono)}
+
+.daterange{position:relative}
+.popover{position:absolute;top:calc(100% + 6px);left:0;z-index:20;width:300px;background:var(--surface);border:1px solid var(--line-strong);border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.14);padding:6px;display:flex;flex-direction:column}
+.popover .preset{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:9px 10px;border:0;background:transparent;border-radius:6px;cursor:pointer}
+.popover .preset:hover{background:var(--surface-2)}
+.popover .preset .sub{color:var(--muted);font-size:12px;font-family:var(--font-mono)}
+.popover .preset .chk{width:16px;height:16px;visibility:hidden;color:var(--accent)}
+.popover .preset[aria-checked="true"] .chk{visibility:visible}
+.popover .preset[aria-checked="true"]{font-weight:600}
+.popover .custom{margin-top:6px;padding:10px 10px 6px;border-top:1px solid var(--line)}
+.popover .custom .row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.popover .custom input[type=date]{flex:1;min-width:0;height:34px;padding:0 8px;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface)}
+.popover .custom .apply{height:34px;padding:0 12px;border:0;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-weight:600;cursor:pointer}
+
+/* KPI tiles */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .k-label{font-size:12.5px;color:var(--ink-2);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.kpi .k-label .dot{width:8px;height:8px;border-radius:2px;flex:none}
+.kpi .k-val{font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.kpi .k-val small{font-size:.55em;font-weight:700;color:var(--ink-2);margin-left:2px}
+.kpi .k-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;min-height:30px}
+.kpi .delta{font-size:12px;font-weight:600;white-space:nowrap}
+.kpi .delta.up{color:var(--good)} .kpi .delta.down{color:var(--bad)} .kpi .delta.flat{color:var(--muted);font-weight:500}
+.kpi .delta .vs{color:var(--muted);font-weight:400}
+.kpi .spark{width:96px;height:30px;flex:none}
+.kpi.hero{grid-column:span 1}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative}
+.card-wide{grid-column:span 12}
+.c6{grid-column:span 6} .c4{grid-column:span 4} .c8{grid-column:span 8} .c12{grid-column:span 12}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.card-head h2{font-size:15px;font-weight:700}
+.card-head .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.card-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:7px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:5px 10px;font-size:12.5px;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--surface-2);color:var(--ink);font-weight:600}
+.tbtn{border:1px solid var(--line-strong);background:transparent;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;color:var(--ink-2);display:inline-flex;align-items:center;gap:5px}
+.tbtn[aria-pressed="true"]{background:var(--surface-2);color:var(--ink)}
+.tbtn svg{width:13px;height:13px}
+.scope{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--axis);border-radius:5px;padding:2px 6px}
+.chart{position:relative;min-width:0}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--font-ui);font-size:11px;fill:var(--muted)}
+.chart .lbl-strong{fill:var(--ink);font-weight:600}
+.tip{position:absolute;pointer-events:none;background:var(--tip-bg);color:var(--tip-ink);border-radius:7px;padding:8px 10px;font-size:12px;line-height:1.35;min-width:130px;box-shadow:0 6px 18px rgba(0,0,0,.18);z-index:5;transform:translate(-50%,0)}
+.tip .t-date{font-family:var(--font-mono);font-size:11px;opacity:.75;margin-bottom:4px}
+.tip .t-row{display:flex;align-items:center;gap:7px;justify-content:space-between}
+.tip .t-row .key{display:inline-block;width:12px;height:2px;border-radius:1px}
+.tip .t-row b{font-weight:700;font-size:13px}
+.tip .t-row span.n{opacity:.8}
+
+/* bar lists */
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar-row{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) auto;align-items:center;gap:10px;font-size:13px}
+.bar-row .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-row .name small{display:block;color:var(--muted);font-size:11px;font-family:var(--font-mono);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-row .track{height:14px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar-row .fill{height:100%;border-radius:3px;background:var(--s1);min-width:2px;transition:width .35s ease}
+.bar-row .val{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bar-row .val small{color:var(--muted);font-size:11.5px;margin-left:6px}
+@media (prefers-reduced-motion: reduce){.bar-row .fill{transition:none}}
+
+/* heat strip */
+.heat{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:2px}
+.heat .cell{aspect-ratio:1/1.4;border-radius:3px;background:var(--s1);position:relative}
+.heat .cell:hover,.heat .cell:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.heat-axis{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));font-size:11px;color:var(--muted);margin-top:4px}
+.heat-axis span:nth-child(6n+1){visibility:visible} .heat-axis span{visibility:hidden;white-space:nowrap}
+.heat-note{font-size:12.5px;color:var(--ink-2)}
+.heat-note b{color:var(--ink)}
+.legend-seq{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+.legend-seq .ramp{width:80px;height:8px;border-radius:2px;background:linear-gradient(90deg,color-mix(in srgb,var(--s1) 12%,var(--surface)),var(--s1))}
+
+/* creatives */
+.creatives{display:flex;flex-direction:column;gap:14px}
+.creative{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.creative .ad{display:block;max-width:100%;height:auto;border-radius:4px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.creative .ad-wrap{min-width:0;overflow:hidden}
+.creative .cstats{display:grid;grid-template-columns:repeat(3,auto);gap:4px 16px;font-size:12.5px;text-align:right;white-space:nowrap}
+.creative .cstats .lab{color:var(--muted);font-size:11px;font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase}
+.creative .cstats .num{font-family:var(--font-display);font-weight:700;font-size:15px}
+.creative .ctitle{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.creative .ctitle b{color:var(--ink);font-weight:600}
+.creative .ctitle .size{font-family:var(--font-mono);color:var(--muted)}
+.share{height:6px;background:var(--surface);border-radius:3px;overflow:hidden;grid-column:1/-1}
+.share i{display:block;height:100%;background:var(--s1)}
+
+/* details */
+.dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px 16px;margin:0;font-size:13px}
+.dl dt{color:var(--muted);white-space:nowrap}
+.dl dd{margin:0;overflow-wrap:anywhere}
+.dl dd code{font-family:var(--font-mono);font-size:12px;background:var(--surface-2);padding:1px 5px;border-radius:4px}
+.li-list{display:flex;flex-direction:column;gap:10px}
+.li{padding:10px 12px;border:1px solid var(--line);border-radius:9px;display:flex;flex-direction:column;gap:6px}
+.li .li-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.li .li-top b{font-weight:600}
+.li .li-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--ink-2)}
+.li .li-meta span b{color:var(--ink);font-weight:500}
+.li .mini{display:flex;align-items:flex-end;gap:2px;height:22px;width:84px}
+.li .mini i{flex:1;background:var(--s1);border-radius:1px 1px 0 0;min-height:2px}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;max-height:420px;overflow-y:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+th{position:sticky;top:0;background:var(--surface-2);font-weight:600;color:var(--ink-2);font-size:11.5px;z-index:1}
+th:first-child{z-index:2}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+tfoot td{font-weight:700;background:var(--surface-2);position:sticky;bottom:0}
+.geo-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.geo-cols h3{font-size:12px;color:var(--muted);font-weight:600;font-family:var(--font-ui);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.mini-table td,.mini-table th{padding:5px 8px}
+.foot{color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:6px 18px;padding-top:6px;border-top:1px solid var(--line)}
+.copied{color:var(--good);font-weight:600}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.empty{color:var(--muted);font-size:13px;padding:24px 0;text-align:center}
+
+@media (max-width: 980px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c6,.c4,.c8{grid-column:span 12}
+}
+@media (max-width: 560px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpi .spark{width:70px}
+  .brand{flex-direction:column;align-items:flex-start;gap:12px}
+  .brand-text{padding-left:0;border-left:0}
+  .top-meta{align-items:flex-start;text-align:left}
+  .bar-row{grid-template-columns:minmax(0,110px) minmax(0,1fr) auto}
+  .geo-cols{grid-template-columns:1fr}
+  .creative{grid-template-columns:1fr}
+  .creative .cstats{text-align:left}
+  .popover{width:min(300px,calc(100vw - 40px))}
+}
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="brand">
+      <span class="logo" role="img" aria-label="Enverus">__LOGO__</span>
+      <div class="brand-text">
+        <span class="eyebrow">Ad performance report</span>
+        <h1>Minerals Marketplace campaign on The Mineral Rights Forum</h1>
+      </div>
+    </div>
+    <div class="top-meta">
+      <span class="chip chip-live" id="status-chip">Delivering</span>
+      <span class="meta">Order <strong>MRF Enverus 2026/06</strong> &middot; Prepared by KED Interests</span>
+    </div>
+  </header>
+
+  <div class="filters" id="filters">
+    <div class="daterange">
+      <button class="ctl ctl-primary" id="dr-btn" aria-haspopup="dialog" aria-expanded="false">
+        <svg class="cal" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 7h12M5 1.5v3M11 1.5v3"/></svg>
+        <span id="dr-label">Campaign to date</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="popover" id="dr-pop" role="dialog" aria-label="Date range" hidden></div>
+    </div>
+    <label class="ctl"><span class="lbl">Placement</span>
+      <select id="f-li">
+        <option value="all">All placements</option>
+      </select>
+    </label>
+    <label class="toggle"><input type="checkbox" id="f-cmp" checked> Compare to prior period</label>
+    <span class="range-note" id="range-note"></span>
+  </div>
+
+  <section class="kpis" id="kpis" aria-label="Key metrics"></section>
+
+  <section class="card card-wide">
+    <div class="card-head">
+      <div><h2>Daily delivery</h2><div class="sub" id="daily-sub"></div></div>
+      <div class="card-tools">
+        <div class="seg" id="daily-seg" role="group" aria-label="Metric">
+          <button data-m="imp" aria-pressed="true">Impressions</button>
+          <button data-m="clk" aria-pressed="false">Clicks</button>
+          <button data-m="ctr" aria-pressed="false">CTR</button>
+          <button data-m="vr" aria-pressed="false">Viewable rate</button>
+        </div>
+        <button class="tbtn" data-table="daily" aria-pressed="false">Table</button>
+      </div>
+    </div>
+    <div class="legend" id="daily-legend"></div>
+    <div class="chart" id="daily-chart"></div>
+    <div class="tbl-wrap" id="daily-table" hidden></div>
+  </section>
+
+  <div class="grid">
+    <section class="card c6">
+      <div class="card-head"><div><h2>Placements</h2><div class="sub">Line items and the ad unit each one serves</div></div><button class="tbtn" data-table="li" aria-pressed="false">Table</button></div>
+      <div id="li-chart" class="li-list"></div>
+      <div class="tbl-wrap" id="li-table" hidden></div>
+    </section>
+
+    <section class="card c6">
+      <div class="card-head"><div><h2>Creatives</h2><div class="sub">Both sizes rotate evenly on every placement</div></div><button class="tbtn" data-table="cr" aria-pressed="false">Table</button></div>
+      <div id="cr-chart" class="creatives"></div>
+      <div class="tbl-wrap" id="cr-table" hidden></div>
+    </section>
+
+    <section class="card c6">
+      <div class="card-head"><div><h2>Viewability</h2><div class="sub">Active View, share of measurable impressions that were viewable</div></div><button class="tbtn" data-table="vw" aria-pressed="false">Table</button></div>
+      <div class="chart" id="vw-chart"></div>
+      <div id="vw-foot" class="heat-note"></div>
+      <div class="tbl-wrap" id="vw-table" hidden></div>
+    </section>
+
+    <section class="card c6">
+      <div class="card-head"><div><h2>Devices</h2><div class="sub">Impressions by device category</div></div><div class="card-tools"><span class="scope" id="dev-scope" hidden>All placements</span><button class="tbtn" data-table="dev" aria-pressed="false">Table</button></div></div>
+      <div id="dev-chart" class="bars"></div>
+      <div class="tbl-wrap" id="dev-table" hidden></div>
+    </section>
+
+    <section class="card c8">
+      <div class="card-head"><div><h2>Time of day</h2><div class="sub">Impressions by hour, Central time</div></div><div class="card-tools"><span class="scope" id="hour-scope" hidden>All placements</span><button class="tbtn" data-table="hour" aria-pressed="false">Table</button></div></div>
+      <div id="hour-chart"></div>
+      <div class="tbl-wrap" id="hour-table" hidden></div>
+    </section>
+
+    <section class="card c4">
+      <div class="card-head"><div><h2>Day of week</h2><div class="sub">Average impressions per day</div></div><button class="tbtn" data-table="dow" aria-pressed="false">Table</button></div>
+      <div id="dow-chart" class="bars"></div>
+      <div class="tbl-wrap" id="dow-table" hidden></div>
+    </section>
+
+    <section class="card c6">
+      <div class="card-head"><div><h2>Geography</h2><div class="sub" id="geo-sub"></div></div><div class="card-tools"><span class="scope" id="geo-scope" hidden>All placements</span><button class="tbtn" data-table="geo" aria-pressed="false">Table</button></div></div>
+      <div id="geo-chart" class="geo-cols"></div>
+      <div class="tbl-wrap" id="geo-table" hidden></div>
+    </section>
+
+    <section class="card c6">
+      <div class="card-head"><div><h2>Campaign details</h2><div class="sub">As trafficked in Google Ad Manager</div></div></div>
+      <dl class="dl" id="details"></dl>
+    </section>
+
+    <section class="card c12">
+      <div class="card-head"><div><h2>Daily data</h2><div class="sub">Every day in the selected range, by placement</div></div><div class="card-tools"><button class="tbtn" id="copy-csv">Copy as CSV</button></div></div>
+      <div class="tbl-wrap" id="full-table"></div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <span>Source: Google Ad Manager, network 6933594 (KED Interests, LLC)</span>
+    <span>Times in America/Chicago</span>
+    <span>Data through Sep 24, 2026</span>
+    <span>Mockup built on live report data; production version would refresh nightly</span>
+  </footer>
+</div>
+
+<script>
+const D = __DATA__;
+const CREATIVE_IMG = __CREATIVES__;
+const T0 = Date.UTC(2026, 5, 12);
+const N = Math.round((Date.UTC(2026, 8, 24) - T0) / 864e5) + 1;
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const LI = {
+  'MRF Enverus Pvt ROS': { au: 'mrf topic above suggested', label: 'Topic page, above Suggested Topics', unit: '23328696162' },
+  'MRF Enverus Pvt h/p ked': { au: 'mrf topic above post stream', label: 'Topic page, above post stream', unit: '23328694827' },
+};
+const AU_LABEL = { 'mrf topic above suggested': 'Above Suggested Topics', 'mrf topic above post stream': 'Above post stream' };
+const METRIC = {
+  imp: { name: 'Impressions', color: 'var(--s1)', fmt: v => fmtInt(v), tick: v => fmtK(v) },
+  clk: { name: 'Clicks', color: 'var(--s2)', fmt: v => fmtInt(v), tick: v => fmtK(v) },
+  ctr: { name: 'CTR', color: 'var(--s3)', fmt: v => fmtPct(v), tick: v => fmtPct(v, 1) },
+  vr:  { name: 'Viewable rate', color: 'var(--s3)', fmt: v => fmtPct(v, 0), tick: v => fmtPct(v, 0) },
+};
+
+const dateOf = i => new Date(T0 + i * 864e5);
+const fmtD = (i, y) => { const d = dateOf(i); return MON[d.getUTCMonth()] + ' ' + d.getUTCDate() + (y ? ', ' + d.getUTCFullYear() : ''); };
+const iso = i => dateOf(i).toISOString().slice(0, 10);
+const idxOfIso = s => Math.round((Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10)) - T0) / 864e5);
+const fmtInt = v => Math.round(v).toLocaleString('en-US');
+const fmtK = v => v >= 1000 ? (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'k' : String(Math.round(v));
+const fmtPct = (v, d = 2) => (v == null || isNaN(v)) ? '—' : (v * 100).toFixed(d) + '%';
+const fmtSec = v => (v == null || isNaN(v)) ? '—' : v.toFixed(1) + 's';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const rangeLabel = (s, e) => fmtD(s) + ' to ' + fmtD(e, true);
+
+/* ---------- state ---------- */
+const state = { s: 0, e: N - 1, preset: 'all', li: 'all', cmp: true, metric: 'imp' };
+
+/* ---------- aggregation ---------- */
+function add(map, key, imp, clk) { const o = map[key] || (map[key] = { imp: 0, clk: 0 }); o.imp += imp; o.clk += clk; }
+function agg(s, e, li) {
+  if (e < 0 || s > N - 1 || s > e) return null;
+  s = clamp(s, 0, N - 1); e = clamp(e, 0, N - 1);
+  const days = []; for (let i = s; i <= e; i++) days.push({ i, imp: 0, clk: 0, vw: 0, ms: 0, vt: 0 });
+  const dd = i => days[i - s];
+  const inR = i => i >= s && i <= e;
+  const liOk = l => li === 'all' || l === li;
+  const auOk = au => li === 'all' || LI[li].au === au;
+  const byLi = {}, byAu = {}, byCr = {}, byDev = {}, byCountry = {}, byState = {};
+  const byHour = Array.from({ length: 24 }, () => ({ imp: 0, clk: 0 }));
+  const byDow = Array.from({ length: 7 }, () => ({ imp: 0, clk: 0, days: 0 }));
+  for (let i = s; i <= e; i++) byDow[dateOf(i).getUTCDay()].days++;
+  for (const [i, l, au, imp, clk] of D.daily) {
+    if (!inR(i) || !liOk(l)) continue;
+    const d = dd(i); d.imp += imp; d.clk += clk;
+    add(byLi, l, imp, clk); add(byAu, au, imp, clk);
+    const w = byDow[dateOf(i).getUTCDay()]; w.imp += imp; w.clk += clk;
+  }
+  for (const [i, l, vw, ms, vt] of D.viewLi) {
+    if (!inR(i) || !liOk(l)) continue;
+    const d = dd(i); d.vw += vw; d.ms += ms; d.vt += vt * vw;
+  }
+  for (const [i, cr, au, imp, clk] of D.creative) { if (!inR(i) || !auOk(au)) continue; add(byCr, cr, imp, clk); }
+  for (const [i, dev, imp, clk] of D.device) { if (!inR(i)) continue; add(byDev, dev, imp, clk); }
+  for (const [i, h, imp, clk] of D.hour) { if (!inR(i)) continue; byHour[h].imp += imp; byHour[h].clk += clk; }
+  for (const [i, c, r, imp, clk] of D.geo) {
+    if (!inR(i)) continue;
+    add(byCountry, c, imp, clk);
+    if (c === 'United States') add(byState, r || 'Unknown', imp, clk);
+  }
+  const t = days.reduce((a, d) => (a.imp += d.imp, a.clk += d.clk, a.vw += d.vw, a.ms += d.ms, a.vt += d.vt, a), { imp: 0, clk: 0, vw: 0, ms: 0, vt: 0 });
+  const nDays = days.length;
+  const active = days.filter(d => d.imp > 0).length;
+  return {
+    s, e, days, nDays, active, byLi, byAu, byCr, byDev, byHour, byDow, byCountry, byState,
+    imp: t.imp, clk: t.clk, vw: t.vw, ms: t.ms, ctr: t.imp ? t.clk / t.imp : null,
+    vr: t.ms ? t.vw / t.ms : null, mr: t.imp ? t.ms / t.imp : null, vt: t.vw ? t.vt / t.vw : null,
+    avgDay: nDays ? t.imp / nDays : 0,
+  };
+}
+function priorOf(s, e) { const len = e - s + 1; return agg(s - len, s - 1, state.li); }
+
+/* ---------- date picker ---------- */
+const TODAY = N - 1;
+const PRESETS = [
+  { id: 'l7', name: 'Last 7 days', s: () => TODAY - 6, e: () => TODAY },
+  { id: 'l14', name: 'Last 14 days', s: () => TODAY - 13, e: () => TODAY },
+  { id: 'l30', name: 'Last 30 days', s: () => TODAY - 29, e: () => TODAY },
+  { id: 'mtd', name: 'Month to date', s: () => idxOfIso('2026-09-01'), e: () => TODAY },
+  { id: 'pm', name: 'Last month', s: () => idxOfIso('2026-08-01'), e: () => idxOfIso('2026-08-31') },
+  { id: 'l90', name: 'Last 90 days', s: () => TODAY - 89, e: () => TODAY },
+  { id: 'all', name: 'Campaign to date', s: () => 0, e: () => TODAY },
+];
+const drBtn = document.getElementById('dr-btn'), drPop = document.getElementById('dr-pop'), drLabel = document.getElementById('dr-label');
+function buildPopover() {
+  const chk = '<svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+  drPop.innerHTML = PRESETS.map(p => `<button class="preset" role="menuitemradio" data-id="${p.id}" aria-checked="${state.preset === p.id}"><span>${p.name}</span><span class="sub">${rangeLabel(p.s(), p.e())}</span>${chk}</button>`).join('') +
+    `<div class="custom"><div class="eyebrow">Custom range</div><div class="row"><input type="date" id="dr-s" min="${iso(0)}" max="${iso(TODAY)}" value="${iso(state.s)}"><span class="lbl">to</span><input type="date" id="dr-e" min="${iso(0)}" max="${iso(TODAY)}" value="${iso(state.e)}"><button class="apply" id="dr-apply">Apply</button></div></div>`;
+  drPop.querySelectorAll('.preset').forEach(b => b.addEventListener('click', () => { const p = PRESETS.find(x => x.id === b.dataset.id); setRange(p.s(), p.e(), p.id); closePop(); }));
+  drPop.querySelector('#dr-apply').addEventListener('click', () => {
+    const a = drPop.querySelector('#dr-s').value, b = drPop.querySelector('#dr-e').value; if (!a || !b) return;
+    let s = clamp(idxOfIso(a), 0, TODAY), e = clamp(idxOfIso(b), 0, TODAY); if (s > e) [s, e] = [e, s];
+    setRange(s, e, 'custom'); closePop();
+  });
+}
+function openPop() { buildPopover(); drPop.hidden = false; drBtn.setAttribute('aria-expanded', 'true'); drPop.querySelector('[aria-checked="true"]')?.focus(); }
+function closePop() { drPop.hidden = true; drBtn.setAttribute('aria-expanded', 'false'); }
+drBtn.addEventListener('click', () => drPop.hidden ? openPop() : closePop());
+document.addEventListener('click', ev => { if (!drPop.hidden && !drPop.contains(ev.target) && !drBtn.contains(ev.target)) closePop(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !drPop.hidden) { closePop(); drBtn.focus(); } });
+function setRange(s, e, preset) { state.s = s; state.e = e; state.preset = preset; render(); }
+
+/* ---------- filters ---------- */
+const liSel = document.getElementById('f-li');
+for (const k of Object.keys(LI)) { const o = document.createElement('option'); o.value = k; o.textContent = LI[k].label; liSel.appendChild(o); }
+liSel.addEventListener('change', () => { state.li = liSel.value; render(); });
+document.getElementById('f-cmp').addEventListener('change', ev => { state.cmp = ev.target.checked; render(); });
+document.getElementById('daily-seg').addEventListener('click', ev => {
+  const b = ev.target.closest('button'); if (!b) return;
+  state.metric = b.dataset.m;
+  document.querySelectorAll('#daily-seg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  renderDaily(CUR, PRI);
+});
+document.querySelectorAll('[data-table]').forEach(b => b.addEventListener('click', () => {
+  const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on));
+  const id = b.dataset.table; const t = document.getElementById(id + '-table');
+  const chart = document.getElementById(id + '-chart'); const extra = document.getElementById(id + '-foot') || document.getElementById(id + '-legend');
+  t.hidden = !on; chart.hidden = on; if (extra) extra.hidden = on;
+}));
+
+/* ---------- components ---------- */
+function deltaHtml(cur, prev, higherGood = true, fmt = v => v, kind = 'pct') {
+  if (!state.cmp || prev == null || cur == null) return '<span class="delta flat">' + (state.cmp ? 'No prior data' : '&nbsp;') + '</span>';
+  let diff, txt;
+  if (kind === 'pp') { diff = cur - prev; txt = (diff >= 0 ? '+' : '−') + (Math.abs(diff) * 100).toFixed(1) + ' pts'; }
+  else { if (!prev) return '<span class="delta flat">No prior data</span>'; diff = (cur - prev) / prev; txt = (diff >= 0 ? '+' : '−') + Math.abs(diff * 100).toFixed(diff < 0.1 ? 1 : 0) + '%'; }
+  const zero = /^[+−]0(\.0)?( pts|%)$/.test(txt);
+  if (zero) return '<span class="delta flat">No change <span class="vs">vs prior</span></span>';
+  const good = (diff > 0) === higherGood ? 'up' : 'down';
+  const arrow = diff > 0 ? '↑ ' : '↓ ';
+  return `<span class="delta ${good}">${arrow}${txt} <span class="vs">vs prior</span></span>`;
+}
+function spark(vals, color) {
+  const w = 96, h = 30, n = vals.length; if (n < 2) return '';
+  const mx = Math.max(...vals, 1e-9), mn = 0;
+  const pts = vals.map((v, i) => [(i / (n - 1)) * (w - 2) + 1, h - 2 - ((v - mn) / (mx - mn || 1)) * (h - 6)]);
+  const line = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('');
+  const area = line + `L${pts[n - 1][0].toFixed(1)},${h}L${pts[0][0].toFixed(1)},${h}Z`;
+  const last = pts[n - 1];
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${area}" fill="${color}" opacity=".12"/><path d="${line}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5" fill="${color}"/></svg>`;
+}
+function kpi(label, val, unit, delta, sparkHtml, color) {
+  return `<div class="kpi"><div class="k-label"><span>${label}</span>${color ? `<span class="dot" style="background:${color}"></span>` : ''}</div><div class="k-val">${val}${unit ? `<small>${unit}</small>` : ''}</div><div class="k-foot">${delta}${sparkHtml}</div></div>`;
+}
+function niceMax(v) { if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))); const f = v / p; const n = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 4 ? 4 : f <= 5 ? 5 : f <= 8 ? 8 : 10; return n * p; }
+
+function lineChart(el, opts) {
+  const { vals, prior, color, fmt, tick, s, height = 250, area = true, priorLabel } = opts;
+  const W = Math.max(320, el.clientWidth || 640), H = height, m = { t: 18, r: 18, b: 26, l: 46 };
+  const n = vals.length;
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const all = vals.concat(prior || []).filter(v => v != null && !isNaN(v));
+  const ymax = niceMax(Math.max(...all, 0)) || 1;
+  const x = i => m.l + (n === 1 ? iw / 2 : (i / (n - 1)) * iw);
+  const y = v => m.t + ih - (v / ymax) * ih;
+  const path = (arr, close) => {
+    let d = '', started = false, first = null, last = null;
+    arr.forEach((v, i) => { if (v == null || isNaN(v)) { return; } const px = x(i), py = y(v); d += (started ? 'L' : 'M') + px.toFixed(1) + ',' + py.toFixed(1); started = true; if (first == null) first = px; last = px; });
+    if (close && started) d += `L${last.toFixed(1)},${(m.t + ih).toFixed(1)}L${first.toFixed(1)},${(m.t + ih).toFixed(1)}Z`;
+    return d;
+  };
+  let g = '';
+  const ticks = 4;
+  for (let k = 0; k <= ticks; k++) { const v = ymax * k / ticks, py = y(v); g += `<line x1="${m.l}" x2="${W - m.r}" y1="${py.toFixed(1)}" y2="${py.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/><text x="${m.l - 8}" y="${(py + 4).toFixed(1)}" text-anchor="end">${tick(v)}</text>`; }
+  const step = Math.max(1, Math.ceil(n / Math.max(3, Math.floor(iw / 90))));
+  for (let i = 0; i < n; i += step) { if (i !== 0 && step > 1 && x(n - 1) - x(i) < 56) break; g += `<text x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="${i === 0 ? 'start' : 'middle'}">${fmtD(s + i)}</text>`; }
+  if (step > 1) g += `<text x="${x(n - 1).toFixed(1)}" y="${H - 8}" text-anchor="end">${fmtD(s + n - 1)}</text>`;
+  g += `<line x1="${m.l}" x2="${W - m.r}" y1="${(m.t + ih).toFixed(1)}" y2="${(m.t + ih).toFixed(1)}" stroke="var(--axis)" stroke-width="1"/>`;
+  if (prior && prior.some(v => v != null)) g += `<path d="${path(prior)}" fill="none" stroke="var(--axis)" stroke-width="1.5" stroke-linejoin="round"/>`;
+  if (area) g += `<path d="${path(vals, true)}" fill="${color}" opacity=".10"/>`;
+  g += `<path d="${path(vals)}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  let maxI = -1, maxV = -Infinity; vals.forEach((v, i) => { if (v != null && v > maxV) { maxV = v; maxI = i; } });
+  const lastI = (() => { for (let i = n - 1; i >= 0; i--) if (vals[i] != null && !isNaN(vals[i])) return i; return -1; })();
+  if (maxI >= 0 && maxI !== lastI) g += `<circle cx="${x(maxI).toFixed(1)}" cy="${y(maxV).toFixed(1)}" r="3.5" fill="${color}" stroke="var(--surface)" stroke-width="2"/><text class="lbl-strong" x="${x(maxI).toFixed(1)}" y="${(y(maxV) - 9).toFixed(1)}" text-anchor="${maxI > n * 0.85 ? 'end' : maxI < n * 0.1 ? 'start' : 'middle'}">${fmt(maxV)}</text>`;
+  if (lastI >= 0) g += `<circle cx="${x(lastI).toFixed(1)}" cy="${y(vals[lastI]).toFixed(1)}" r="4" fill="${color}" stroke="var(--surface)" stroke-width="2"/>`;
+  g += `<g id="xh" hidden><line y1="${m.t}" y2="${m.t + ih}" stroke="var(--ink)" stroke-width="1" opacity=".5"/><circle r="4.5" fill="${color}" stroke="var(--surface)" stroke-width="2"/></g>`;
+  g += `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="hit" tabindex="0" role="img" aria-label="${esc(opts.aria || 'Line chart')}"/>`;
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}</svg><div class="tip" hidden></div>`;
+  const svg = el.querySelector('svg'), tip = el.querySelector('.tip'), xh = el.querySelector('#xh'), hit = el.querySelector('#hit');
+  const show = i => {
+    if (vals[i] == null || isNaN(vals[i])) { xh.hidden = true; tip.hidden = true; return; }
+    const px = x(i), py = y(vals[i]);
+    xh.hidden = false; xh.querySelector('line').setAttribute('x1', px); xh.querySelector('line').setAttribute('x2', px);
+    xh.querySelector('circle').setAttribute('cx', px); xh.querySelector('circle').setAttribute('cy', py);
+    tip.innerHTML = '';
+    const d = document.createElement('div'); d.className = 't-date'; d.textContent = fmtD(s + i, true); tip.appendChild(d);
+    const r = document.createElement('div'); r.className = 't-row'; r.innerHTML = `<span><span class="key" style="background:${color}"></span> <span class="n"></span></span><b></b>`; r.querySelector('.n').textContent = opts.name; r.querySelector('b').textContent = fmt(vals[i]); tip.appendChild(r);
+    if (prior && prior[i] != null && !isNaN(prior[i])) { const r2 = document.createElement('div'); r2.className = 't-row'; r2.innerHTML = `<span><span class="key" style="background:var(--axis)"></span> <span class="n"></span></span><b></b>`; r2.querySelector('.n').textContent = priorLabel ? priorLabel(i) : 'Prior'; r2.querySelector('b').textContent = fmt(prior[i]); tip.appendChild(r2); }
+    tip.hidden = false;
+    const rect = el.getBoundingClientRect(), sc = rect.width / W;
+    let left = px * sc; left = clamp(left, 70, rect.width - 70);
+    tip.style.left = left + 'px'; tip.style.top = Math.max(0, py * sc - tip.offsetHeight - 14) + 'px';
+  };
+  hit.addEventListener('pointermove', ev => { const rect = svg.getBoundingClientRect(); const px = (ev.clientX - rect.left) * (W / rect.width); const i = clamp(Math.round(((px - m.l) / iw) * (n - 1)), 0, n - 1); show(i); });
+  hit.addEventListener('pointerleave', () => { xh.hidden = true; tip.hidden = true; });
+  let fi = lastI; hit.addEventListener('focus', () => show(fi)); hit.addEventListener('blur', () => { xh.hidden = true; tip.hidden = true; });
+  hit.addEventListener('keydown', ev => { if (ev.key === 'ArrowLeft') { fi = clamp(fi - 1, 0, n - 1); show(fi); ev.preventDefault(); } if (ev.key === 'ArrowRight') { fi = clamp(fi + 1, 0, n - 1); show(fi); ev.preventDefault(); } });
+}
+function barRow(name, sub, v, max, valHtml, color) {
+  return `<div class="bar-row"><div class="name" title="${esc(name)}">${esc(name)}${sub ? `<small>${esc(sub)}</small>` : ''}</div><div class="track"><div class="fill" style="width:${max ? (v / max * 100).toFixed(1) : 0}%;${color ? `background:${color}` : ''}"></div></div><div class="val">${valHtml}</div></div>`;
+}
+function table(cols, rows, foot) {
+  return `<table><thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>${foot ? `<tfoot><tr>${foot.map(c => `<td>${c}</td>`).join('')}</tr></tfoot>` : ''}</table>`;
+}
+const sortDesc = m => Object.entries(m).sort((a, b) => b[1].imp - a[1].imp);
+const ctrOf = o => o.imp ? o.clk / o.imp : null;
+
+/* ---------- render ---------- */
+let CUR = null, PRI = null;
+function render() {
+  CUR = agg(state.s, state.e, state.li); PRI = state.cmp ? priorOf(state.s, state.e) : null;
+  const c = CUR, p = PRI;
+  const preset = PRESETS.find(x => x.id === state.preset);
+  drLabel.textContent = preset ? preset.name : rangeLabel(state.s, state.e);
+  document.getElementById('range-note').textContent = rangeLabel(state.s, state.e) + ' \u00b7 ' + c.nDays + (c.nDays === 1 ? ' day' : ' days') + (p ? ' \u00b7 prior: ' + rangeLabel(p.s, p.e) + (p.nDays < c.nDays ? ' (partial)' : '') : (state.cmp ? ' \u00b7 no prior period before campaign start' : ''));
+  const scoped = state.li !== 'all';
+  ['dev', 'hour', 'geo'].forEach(id => document.getElementById(id + '-scope').hidden = !scoped);
+
+  // KPIs
+  const dv = c.days.map(d => d.imp), dc = c.days.map(d => d.clk), dr = c.days.map(d => d.imp ? d.clk / d.imp : 0), dvr = c.days.map(d => d.ms ? d.vw / d.ms : 0);
+  document.getElementById('kpis').innerHTML = [
+    kpi('Impressions', fmtInt(c.imp), '', deltaHtml(c.imp, p && p.imp), spark(dv, 'var(--s1)'), 'var(--s1)'),
+    kpi('Clicks', fmtInt(c.clk), '', deltaHtml(c.clk, p && p.clk), spark(dc, 'var(--s2)'), 'var(--s2)'),
+    kpi('Click-through rate', fmtPct(c.ctr), '', deltaHtml(c.ctr, p && p.ctr, true, null, 'pp'), spark(dr, 'var(--s3)'), 'var(--s3)'),
+    kpi('Viewable rate', fmtPct(c.vr, 1), '', deltaHtml(c.vr, p && p.vr, true, null, 'pp'), spark(dvr, 'var(--s3)'), 'var(--s3)'),
+    kpi('Avg. viewable time', c.vt == null ? '—' : c.vt.toFixed(1), c.vt == null ? '' : 'sec', deltaHtml(c.vt, p && p.vt), '', null),
+    kpi('Measurable rate', fmtPct(c.mr, 1), '', deltaHtml(c.mr, p && p.mr, true, null, 'pp'), '', null),
+    kpi('Avg. impressions per day', fmtInt(c.avgDay), '', deltaHtml(c.avgDay, p && p.avgDay), '', null),
+    kpi('Days serving', fmtInt(c.active), `of ${c.nDays}`, deltaHtml(c.active, p && p.active), '', null),
+  ].join('');
+
+  renderDaily(c, p);
+
+  // Placements
+  const lis = D.lineItems.filter(l => state.li === 'all' || l.name === state.li);
+  const liMax = Math.max(...lis.map(l => (c.byLi[l.name] || { imp: 0 }).imp), 1);
+  document.getElementById('li-chart').innerHTML = lis.map(l => {
+    const o = c.byLi[l.name] || { imp: 0, clk: 0 }; const info = LI[l.name];
+    const mini = l.last7.map(v => `<i style="height:${(v / Math.max(...l.last7, 1) * 100).toFixed(0)}%" title="${v}"></i>`).join('');
+    return `<div class="li"><div class="li-top"><b>${esc(info.label)}</b><span class="chip chip-live">${esc(l.status.toLowerCase())}</span></div>
+      ${barRow(l.name, info.au, o.imp, liMax, `${fmtInt(o.imp)}<small>${fmtInt(o.clk)} clicks \u00b7 ${fmtPct(ctrOf(o))}</small>`)}
+      <div class="li-meta"><span>Type <b>${esc(l.type.toLowerCase())}</b></span><span>Priority <b>${l.priority}</b></span><span>Since <b>${fmtD(idxOfIso(l.start), true)}</b></span><span>Sizes <b>${l.sizes.join(', ')}</b></span><span>Rotation <b>${esc(l.rotation.toLowerCase())}</b></span><span style="display:inline-flex;align-items:center;gap:8px">Last 7 days <span class="mini" title="Daily impressions, last 7 days">${mini}</span></span></div></div>`;
+  }).join('');
+  document.getElementById('li-table').innerHTML = table(['Line item', 'Ad unit', 'Impressions', 'Clicks', 'CTR', 'Status'], lis.map(l => { const o = c.byLi[l.name] || { imp: 0, clk: 0 }; return [esc(l.name), esc(LI[l.name].au), fmtInt(o.imp), fmtInt(o.clk), fmtPct(ctrOf(o)), esc(l.status)]; }));
+
+  // Creatives
+  const crs = sortDesc(c.byCr); const crMax = Math.max(...crs.map(x => x[1].imp), 1);
+  document.getElementById('cr-chart').innerHTML = crs.length ? crs.map(([name, o]) => {
+    const size = name.includes('728') ? '728x90' : '320x50'; const img = CREATIVE_IMG[size];
+    return `<div class="creative"><div class="ctitle"><b>${esc(name)}</b><span class="size">${size} \u00b7 leaderboard${size === '320x50' ? ' (mobile)' : ''}</span></div>
+      <div class="ad-wrap"><img class="ad" src="${img}" width="${size === '728x90' ? 728 : 320}" height="${size === '728x90' ? 90 : 50}" alt="${esc(name)} banner: Thinking about selling minerals? List for free and connect with active buyers."></div>
+      <div class="cstats"><span class="lab">Impressions</span><span class="lab">Clicks</span><span class="lab">CTR</span><span class="num">${fmtInt(o.imp)}</span><span class="num">${fmtInt(o.clk)}</span><span class="num">${fmtPct(ctrOf(o))}</span></div>
+      <div class="share" title="Share of impressions"><i style="width:${(o.imp / c.imp * 100 || 0).toFixed(1)}%"></i></div></div>`;
+  }).join('') : '<div class="empty">No creative delivery in this range</div>';
+  document.getElementById('cr-table').innerHTML = table(['Creative', 'Size', 'Impressions', 'Share', 'Clicks', 'CTR'], crs.map(([n, o]) => [esc(n), n.includes('728') ? '728x90' : '320x50', fmtInt(o.imp), fmtPct(o.imp / c.imp, 1), fmtInt(o.clk), fmtPct(ctrOf(o))]));
+
+  // Viewability
+  const vwVals = c.days.map(d => d.ms ? d.vw / d.ms : null), vwPri = p ? alignPrior(c, p, d => d.ms ? d.vw / d.ms : null) : null;
+  const vwEl = document.getElementById('vw-chart'); vwEl.dataset.render = '1';
+  lineChart(vwEl, { vals: vwVals, prior: vwPri, color: 'var(--s3)', fmt: v => fmtPct(v, 1), tick: v => fmtPct(v, 0), s: c.s, height: 200, name: 'Viewable rate', priorLabel: i => 'Prior, ' + fmtD(p.s + i), aria: 'Daily viewable rate' });
+  document.getElementById('vw-foot').innerHTML = `<b>${fmtInt(c.vw)}</b> viewable of <b>${fmtInt(c.ms)}</b> measurable impressions (${fmtPct(c.mr, 1)} of ${fmtInt(c.imp)} served were measurable). Viewable impressions stayed on screen <b>${fmtSec(c.vt)}</b> on average.`;
+  document.getElementById('vw-table').innerHTML = table(['Date', 'Impressions', 'Measurable', 'Viewable', 'Viewable rate', 'Avg. viewable time'], c.days.map(d => [fmtD(d.i, true), fmtInt(d.imp), fmtInt(d.ms), fmtInt(d.vw), fmtPct(d.ms ? d.vw / d.ms : null, 1), fmtSec(d.vw ? d.vt / d.vw : null)]), ['Total', fmtInt(c.imp), fmtInt(c.ms), fmtInt(c.vw), fmtPct(c.vr, 1), fmtSec(c.vt)]);
+
+  // Devices
+  const devs = sortDesc(c.byDev); const devTot = devs.reduce((a, x) => a + x[1].imp, 0); const devMax = Math.max(...devs.map(x => x[1].imp), 1);
+  document.getElementById('dev-chart').innerHTML = devs.map(([n, o]) => barRow(n, null, o.imp, devMax, `${fmtInt(o.imp)}<small>${fmtPct(o.imp / devTot, 1)} \u00b7 ${fmtInt(o.clk)} clicks</small>`)).join('') || '<div class="empty">No delivery in this range</div>';
+  document.getElementById('dev-table').innerHTML = table(['Device', 'Impressions', 'Share', 'Clicks', 'CTR'], devs.map(([n, o]) => [esc(n), fmtInt(o.imp), fmtPct(o.imp / devTot, 1), fmtInt(o.clk), fmtPct(ctrOf(o))]));
+
+  // Hour
+  const hMax = Math.max(...c.byHour.map(h => h.imp), 1); const hTot = c.byHour.reduce((a, h) => a + h.imp, 0);
+  const hl = h => (h % 12 === 0 ? 12 : h % 12) + (h < 12 ? 'a' : 'p');
+  let peak = 0; c.byHour.forEach((h, i) => { if (h.imp > c.byHour[peak].imp) peak = i; });
+  const busy = [...c.byHour.keys()].sort((a, b) => c.byHour[b].imp - c.byHour[a].imp).slice(0, 6).sort((a, b) => a - b);
+  const bizHours = c.byHour.slice(8, 18).reduce((a, h) => a + h.imp, 0);
+  document.getElementById('hour-chart').innerHTML = `<div class="heat" role="img" aria-label="Impressions by hour of day">${c.byHour.map((h, i) => `<div class="cell" tabindex="0" style="opacity:${(0.12 + 0.88 * h.imp / hMax).toFixed(2)}" title="${hl(i)}: ${fmtInt(h.imp)} impressions, ${fmtInt(h.clk)} clicks"></div>`).join('')}</div>
+    <div class="heat-axis">${c.byHour.map((_, i) => `<span>${hl(i)}</span>`).join('')}</div>
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px"><div class="heat-note">Peak hour <b>${hl(peak)}</b> (${fmtInt(c.byHour[peak].imp)} impressions). <b>${fmtPct(hTot ? bizHours / hTot : 0, 0)}</b> of impressions land between 8am and 6pm.</div><div class="legend-seq">fewer <span class="ramp"></span> more</div></div>`;
+  document.getElementById('hour-table').innerHTML = table(['Hour', 'Impressions', 'Share', 'Clicks'], c.byHour.map((h, i) => [hl(i), fmtInt(h.imp), fmtPct(hTot ? h.imp / hTot : 0, 1), fmtInt(h.clk)]));
+
+  // DOW
+  const order = [1, 2, 3, 4, 5, 6, 0]; const dowAvg = order.map(k => ({ k, avg: c.byDow[k].days ? c.byDow[k].imp / c.byDow[k].days : 0, o: c.byDow[k] }));
+  const dMax = Math.max(...dowAvg.map(x => x.avg), 1);
+  document.getElementById('dow-chart').innerHTML = dowAvg.map(x => barRow(DOW[x.k], null, x.avg, dMax, `${fmtInt(x.avg)}<small>${x.o.days}d</small>`)).join('');
+  document.getElementById('dow-table').innerHTML = table(['Day', 'Days in range', 'Impressions', 'Avg. per day', 'Clicks'], dowAvg.map(x => [DOW[x.k], x.o.days, fmtInt(x.o.imp), fmtInt(x.avg), fmtInt(x.o.clk)]));
+
+  // Geo
+  const countries = sortDesc(c.byCountry), states = sortDesc(c.byState); const gTot = countries.reduce((a, x) => a + x[1].imp, 0);
+  const us = c.byCountry['United States'] || { imp: 0, clk: 0 }; const sMax = Math.max(...states.slice(0, 8).map(x => x[1].imp), 1);
+  document.getElementById('geo-sub').textContent = `${fmtPct(gTot ? us.imp / gTot : 0, 1)} of impressions in the United States, ${countries.length} ${countries.length === 1 ? 'country' : 'countries'} total`;
+  document.getElementById('geo-chart').innerHTML = `<div><h3>Top US states</h3><div class="bars">${states.slice(0, 8).map(([n, o]) => barRow(n, null, o.imp, sMax, `${fmtInt(o.imp)}<small>${fmtInt(o.clk)} clk</small>`)).join('')}</div></div>
+    <div><h3>Countries</h3><table class="mini-table"><thead><tr><th>Country</th><th>Impr.</th><th>Share</th></tr></thead><tbody>${countries.slice(0, 8).map(([n, o]) => `<tr><td>${esc(n)}</td><td>${fmtInt(o.imp)}</td><td>${fmtPct(gTot ? o.imp / gTot : 0, 1)}</td></tr>`).join('')}${countries.length > 8 ? `<tr><td>${countries.length - 8} more</td><td>${fmtInt(countries.slice(8).reduce((a, x) => a + x[1].imp, 0))}</td><td>${fmtPct(gTot ? countries.slice(8).reduce((a, x) => a + x[1].imp, 0) / gTot : 0, 1)}</td></tr>` : ''}</tbody></table></div>`;
+  document.getElementById('geo-table').innerHTML = table(['Region', 'Impressions', 'Share', 'Clicks'], states.map(([n, o]) => [esc(n) + ', US', fmtInt(o.imp), fmtPct(gTot ? o.imp / gTot : 0, 2), fmtInt(o.clk)]).concat(countries.filter(x => x[0] !== 'United States').map(([n, o]) => [esc(n), fmtInt(o.imp), fmtPct(gTot ? o.imp / gTot : 0, 2), fmtInt(o.clk)])));
+
+  // Details
+  const o = D.order;
+  document.getElementById('details').innerHTML = [
+    ['Advertiser', 'Enverus'], ['Order', `${esc(o.name)} <code>${o.id}</code>`], ['Order status', `${esc(o.status.toLowerCase())}, ${D.lineItems.length} line items delivering`],
+    ['Campaign start', fmtD(idxOfIso(o.start), true)], ['End date', 'Open-ended (runs until paused)'], ['Site', 'The Mineral Rights Forum (mineralrightsforum.com)'],
+    ['Placements', D.lineItems.map(l => esc(LI[l.name].label)).join('<br>')], ['Line item type', 'Sponsorship, priority 4, even delivery'],
+    ['Creative sizes', '728x90 leaderboard, 320x50 mobile leaderboard'], ['Landing page', 'enverus.com/products/minerals-marketplace (tagged utm_source=the-mineral-rights-forum)'],
+    ['Delivered since launch', `${fmtInt(o.impressionsDelivered)} impressions, ${fmtInt(o.clicksDelivered)} clicks`], ['Ad server', 'Google Ad Manager, network 6933594'],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+
+  // Full table
+  const byDayLi = {}; for (const [i, l, au, imp, clk] of D.daily) { if (i < c.s || i > c.e || (state.li !== 'all' && l !== state.li)) continue; const k = i + '|' + l; byDayLi[k] = byDayLi[k] || { i, l, imp: 0, clk: 0 }; byDayLi[k].imp += imp; byDayLi[k].clk += clk; }
+  const vwByDayLi = {}; for (const [i, l, vw, ms, vt] of D.viewLi) { if (i < c.s || i > c.e || (state.li !== 'all' && l !== state.li)) continue; vwByDayLi[i + '|' + l] = { vw, ms, vt }; }
+  const rowsFull = Object.values(byDayLi).sort((a, b) => b.i - a.i || a.l.localeCompare(b.l));
+  FULL_ROWS = rowsFull.map(r => { const v = vwByDayLi[r.i + '|' + r.l] || { vw: 0, ms: 0, vt: null }; return [iso(r.i), DOW[dateOf(r.i).getUTCDay()].slice(0, 3), r.l, LI[r.l].au, r.imp, r.clk, r.imp ? r.clk / r.imp : null, v.ms, v.vw, v.ms ? v.vw / v.ms : null, v.vt]; });
+  document.getElementById('full-table').innerHTML = table(['Date', 'Day', 'Line item', 'Ad unit', 'Impressions', 'Clicks', 'CTR', 'Measurable', 'Viewable', 'Viewable rate', 'Avg. viewable time'],
+    FULL_ROWS.map(r => [r[0], r[1], esc(r[2]), esc(r[3]), fmtInt(r[4]), fmtInt(r[5]), fmtPct(r[6]), fmtInt(r[7]), fmtInt(r[8]), fmtPct(r[9], 1), fmtSec(r[10])]),
+    ['Total', '', '', '', fmtInt(c.imp), fmtInt(c.clk), fmtPct(c.ctr), fmtInt(c.ms), fmtInt(c.vw), fmtPct(c.vr, 1), fmtSec(c.vt)]);
+}
+let FULL_ROWS = [];
+function alignPrior(c, p, f) { const out = new Array(c.nDays).fill(null); p.days.forEach((d, k) => { out[k] = f(d); }); return out; }
+function renderDaily(c, p) {
+  const m = METRIC[state.metric];
+  const f = d => state.metric === 'imp' ? d.imp : state.metric === 'clk' ? d.clk : state.metric === 'ctr' ? (d.imp ? d.clk / d.imp : null) : (d.ms ? d.vw / d.ms : null);
+  const vals = c.days.map(f), prior = p ? alignPrior(c, p, f) : null;
+  const tot = state.metric === 'imp' ? fmtInt(c.imp) + ' impressions' : state.metric === 'clk' ? fmtInt(c.clk) + ' clicks' : state.metric === 'ctr' ? fmtPct(c.ctr) + ' overall' : fmtPct(c.vr, 1) + ' overall';
+  document.getElementById('daily-sub').textContent = `${tot} across ${c.nDays} days` + (state.li !== 'all' ? ', ' + LI[state.li].label : '');
+  document.getElementById('daily-legend').innerHTML = `<span><i style="background:${m.color}"></i>${m.name}, ${rangeLabel(c.s, c.e)}</span>` + (p ? `<span><i style="background:var(--axis)"></i>Prior period, ${rangeLabel(p.s, p.e)}, aligned by day</span>` : '');
+  const el = document.getElementById('daily-chart');
+  lineChart(el, { vals, prior, color: m.color, fmt: m.fmt, tick: m.tick, s: c.s, height: 260, name: m.name, priorLabel: i => 'Prior, ' + fmtD(p.s + i), aria: 'Daily ' + m.name });
+  document.getElementById('daily-table').innerHTML = table(['Date', 'Impressions', 'Clicks', 'CTR', 'Viewable rate'], c.days.map(d => [fmtD(d.i, true), fmtInt(d.imp), fmtInt(d.clk), fmtPct(d.imp ? d.clk / d.imp : null), fmtPct(d.ms ? d.vw / d.ms : null, 1)]), ['Total', fmtInt(c.imp), fmtInt(c.clk), fmtPct(c.ctr), fmtPct(c.vr, 1)]);
+}
+document.getElementById('copy-csv').addEventListener('click', ev => {
+  const head = ['date', 'day', 'line_item', 'ad_unit', 'impressions', 'clicks', 'ctr', 'measurable_impressions', 'viewable_impressions', 'viewable_rate', 'avg_viewable_time_sec'];
+  const csv = [head.join(',')].concat(FULL_ROWS.map(r => r.map(v => v == null ? '' : (typeof v === 'number' ? (Number.isInteger(v) ? v : v.toFixed(5)) : '"' + String(v).replace(/"/g, '""') + '"')).join(','))).join('\n');
+  const b = ev.currentTarget; const done = () => { b.textContent = 'Copied'; b.classList.add('copied'); setTimeout(() => { b.textContent = 'Copy as CSV'; b.classList.remove('copied'); }, 1600); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(csv).then(done).catch(() => { fallbackCopy(csv); done(); }); else { fallbackCopy(csv); done(); }
+});
+function fallbackCopy(t) { const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); }
+
+let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if (CUR) { renderDaily(CUR, PRI); const vwEl = document.getElementById('vw-chart'); if (!vwEl.hidden) { const vwVals = CUR.days.map(d => d.ms ? d.vw / d.ms : null), vwPri = PRI ? alignPrior(CUR, PRI, d => d.ms ? d.vw / d.ms : null) : null; lineChart(vwEl, { vals: vwVals, prior: vwPri, color: 'var(--s3)', fmt: v => fmtPct(v, 1), tick: v => fmtPct(v, 0), s: CUR.s, height: 200, name: 'Viewable rate', priorLabel: i => 'Prior, ' + fmtD(PRI.s + i), aria: 'Daily viewable rate' }); } } }, 120); });
+render();
+</script>

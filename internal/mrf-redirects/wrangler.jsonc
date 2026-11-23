@@ -1,0 +1,13 @@
+{
+  "name": "mrf-redirects",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "account_id": "45ae261c0e3c9f91d9fa2ba50e735ea3",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "*mineralrightsforum.com/t/see-industry-professionals-*",
+      "zone_id": "c4067f82b8e97730dc2560a409569f04"
+    }
+  ]
+}

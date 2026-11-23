@@ -1,0 +1,28 @@
+URL: https://www.mineralwise.com/oil-gas-measurement
+SNAPSHOT: 20250424072207
+TITLE: Accurate Oil and Gas Measurement: Benefits, Methods, and Industry Standards
+H1: Accurate Oil and Gas Measurement Benefits Everyone
+
+Accurate Oil and Gas Measurement Benefits Everyone
+On a typical day $500 million of oil and gas is produced from America’s oil and gas wells. Assuming an average royalty percentage of 17%, that’s $85 million paid daily to royalty owners. Remember the pictures of the old wooden oil derricks gushing black gold into the sky? Or, gas flares burning in the night? Well, things have changed. Regardless of the price fluctuations, every MCF of gas or BBL of oil is valuable and worth measuring and accounting for.
+
+Today’s technology, some very simple, is capable of measuring hydrocarbon production quite accurately. We’ll look here at how crude oil and natural gas are measured. More detailed articles titled Natural Gas Measurement and Crude Oil Measurement are coming soon.
+Oil and Gas Measurement in the Fiel
+Produced crude oil and natural gas (hydrocarbons) are measured prior to leaving the well site, as required by law. The gross volume from which your royalty share is calculated is based on this oil and gas measurement. Customary industry standard is that the Operator verifies the measurements of the First Purchaser through a check meter for gas, or by re-checking the levels in oil storage tanks for oil.
+Crude Oil Measurement
+The modifier “crude” is used to denote oil that comes from the earth in its raw form, which generally means it contains some saltwater and possibly a few other impurities – thus the term crude oil. The unit of measurement for crude oil as reported on your royalty statement is the BBL. A BBL is 42 U.S. gallons. The first step toward accurate crude oil measurement is to remove any free water and sediment. This is done in one of several types of surface equipment such as a Free Water Knockout, a Gun Barrel Separator, or a Three Phase Separator. Following this step the oil is now isolated and can be measured. Crude oil is measured in one of two ways, depending on the aggregate volume available for measurement.
+For smaller volumes in the range of 1-100 BOPD let’s say, the oil generally flows into an atmospheric storage tank and is held there until sufficient quantity is accumulated to make a “run”. A run is simply the act of removing the oil from the lease location, and taking it offsite for further treatment. When a run is ready to be made, the first step is to do a shake-out test. A sample of the oil is taken, and placed in a portable centrifuge which forces entrained impurities to separate from the oil. The results will be used to adjust the final volume on which all owners are paid.
+To measure the volume of a run, a measuring strap with a weight on the end is lowered into the oil tank, and an initial reading is taken. Next, a valve is opened which allows the oil to flow by gravity into a pipeline or truck, whichever the case may be. When the tank is nearly emptied, the valve is shut and a second strap reading is taken. The difference between the two tank levels (readings) is now used to calculate the exact volume of oil that has been removed. The person making the run now completes a field run ticket which is made a part of the accounting records for this transaction.
+For larger volumes in the range of 100-1000 BOPD let’s say, the oil generally flows through an automated system called a LACT unit, which stands for Lease Automatic Custody Transfer. This system provides for the automatic measurement, sampling, and transfer of oil from the lease location into a pipeline. As you can imagine, a system of this type is applicable where larger volumes are being produced, and must have a pipeline available in which to connect. Again, the receipts from a LACT unit become a part of the accounting paper trail.
+Natural Gas Measurement
+The unit of measurement for volume of natural gas is the MCF, or thousand cubic feet. A related unit of natural gas measurement, based on the heating (or energy) value of natural gas is called the MMBTU, or British Thermal Unit. In this article, we’ll use the MCF, since this is what is usually seen on a royalty owner’s monthly statement.
+
+The majority of producing wells measure natural gas production with an orifice style meter. Orifice meters have no moving parts and are easily serviced in the field. Differential pressure is measured and recorded as gas passes across an orifice plate, creating a pressure drop allowing for a calculation of the volume of gas passing through the pipe. Typically, there will be two meters on the well, one owned by the well Operator, and one owned by the First Purchaser.
+
+These serve as a “check” for each other - a benefit from the royalty owner’s perspective. Calculation of total gas flow is done on a monthly basis, usually by a third party gas measurement contractor. These calculations are passed along to the Operator who enters the natural gas measurements into their revenue accounting system, the software through which royalty owners are paid.
+Use of this site constitutes acceptance of our 
+Terms & Conditions
+ and 
+Privacy Policy
+.
+© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED

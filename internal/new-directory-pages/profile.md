@@ -3,7 +3,7 @@ name: "New Directory Pages"
 status: active
 stack: "Cloudflare Pages / Cloudflare Functions / Google Apps Script / KV Storage"
 owner: "Chris"
-updated: "2026-05-19"
+updated: "2026-08-14"
 ---
 
 # New Directory Pages
@@ -23,7 +23,7 @@ Also hosts the MRF forum redesign proposal assets (static HTML pages in `/public
 
 ## Tech Stack
 
-- Cloudflare Pages (direct-upload deploy — **no git auto-deploy, must deploy manually from dashboard**)
+- Cloudflare Pages, project `mrf-county-directories` — git-connected to `main`, pushes auto-deploy to production (confirmed 2026-08-14; earlier notes calling this direct-upload/manual-deploy-only were stale)
 - Cloudflare Functions (SSR, KV reads) — replaces former Astro static build
 - Cloudflare KV for directory data storage
 - Google Apps Script (`/functions/refresh.js` triggers data pull from master sheet)
@@ -52,6 +52,7 @@ The directory uses the MRF brand system — also the basis for the forum redesig
 - **Off-white:** `#f8f6f1` (page background)
 - **Fonts:** Playfair Display (headings) + Inter (body/UI)
 - Card radius: 14px; shadow: `0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(15,23,42,.06)`
+- Favicon and header logo (updated 2026-08-14): served from R2 bucket `pub-06eb4d473d5a4ae3b3274a9a1919e3d7.r2.dev` — favicon is `MRF%20Square%20New%20Logo%20(1).png` (240x240), header logo is `MRF-Logo.png` (1100x175 wordmark). Both set in `functions/counties.js` and `functions/[slug].js` (shared template for nationwide + county pages).
 
 ## Proposal Assets (added 2026-05-15)
 

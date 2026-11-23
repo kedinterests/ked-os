@@ -1,0 +1,38 @@
+URL: https://mineralwise.com/owners-guide/leased-and-producing/royalty-taxes/oil-gas-mineral-and-royalty-income-taxes
+SNAPSHOT: 20230326212758
+TITLE: Oil & Gas Mineral and Royalty Income Taxes — MineralWise
+H1: 
+
+Income tax season is a dreaded time of the year for many mineral & royalty owners. Set aside a portion of your checks each month for 
+royalty taxes
+ and it won't be quite as painful. As bad as we hate writing checks to the IRS, remember it's a good sign that you are paying taxes. Those that aren't paying taxes didn't make as much as you want to.
+Federal Income Taxes for Mineral & Royalty Owners
+If you have producing mineral & royalty interests, you should have received your 1099s in early February. 1099s are required by law to be mailed by the end of January each year.
+Keep all 1099s for your records and be sure the income is included on your tax return.  The 1099 was filed with the IRS, so there is no hiding.  The government is already aware of the income and will be checking your return to make sure it is included. 
+Check the numbers on your 1099
+. Accounting systems aren't perfect and you'll want to double check your 1099s with the money you actually received in the previous year. Keep your check stubs and record income in a spreadsheet or software program. That will make your life easier. If you don't keep up with your income, you'll be fighting through bank statements from the previous year. It's not fun.....I'm speaking from experience.
+Royalty Income Tax Rates
+Oil & gas mineral royalties are treated as ordinary income and are taxed at your marginal (highest) tax rate. The income is in addition to your hard earned pay checks, so prepare to pay a larger percentage than you pay out of your monthly salary.
+For 2012, a single person will pay taxes at rates of:
+10% for income $0-8,700
+15% for income $8,700-34,500
+25% for income $34,500-83,600
+28% for income $83,600-174,400
+33% for income $174,400-379,150
+35% of everything over $379,150
+The bracket for each rate doubles if you are married filing jointly up to the 15% rate.  At that point, the marriage penalty begins to set in and a family pays 28% of everything over 139,350, compared to 28% of everything over 83,600 if each person were single.
+EXAMPLE: If you are single and made $100,000 last year from your day job and made $10,000 from royalties, you'll be paying around 28% of the $10,000 to the IRS. It's not quite that simple, but its close. You'll account for deductions and other investment income, but you get the picture.
+
+Bonus Income Tax Rates
+If you received a lease bonus or signing bonus in the last year, you'll want to make sure the income is included on your tax return. If you were paid more than $600, you will receive a 1099 for the lease bonus you received. Sometimes you won't. The burden is on you to report the income.
+Oil & gas lease bonuses are considered rental income and are taxed at the same ordinary income tax rates as royalties (see tax rates/brackets above). Compare the lease bonus 1099 to the other 1099s you receive for producing royalties and you'll see the income is reported in a different box (Box 1 vs. Box 2). A lease bonus will require a separate Schedule E, but make sure to deduct legal, professional, shipping fees or other IRS approved costs you incurred during the process of negotiating the lease.
+Royalty & Bonus Income Tax Deductions
+Don't forget to add up the deductions on your royalty checks throughout the year. Severance taxes and processing or marketing fees can be deducted on Schedule E. If you itemize deductions, you might be able to deduct your state income taxes on Schedule A, but be sure you don't treat state income taxes the same as severance taxes. They are viewed differently and deducted in a separate area of your federal income tax return.
+Have your gross and net royalty income (after deductions) handy. You'll want to use gross income to calculate your 
+Depletion Allowance
+. The IRS allows mineral owners who meet certain criteria to account for the depreciation of oil & gas mineral assets through a depletion allowance. It saves mineral owners the time and effort needed to do a proper reserves analysis.  Instead, you are allowed to deduct a standard amount (percentage) each year.
+If your minerals are owned through a business, the deductions might be taken on forms or schedules that vary depending on your organizational structure (Corporation, LLC, or Partnership). If you have incurred legal, professional, shipping fees, or other IRS approved costs incurred in the course of managing your minerals, be sure those receipts are kept and costs are deducted as well.
+State Income Taxes on Royalties
+Texas & Wyoming don't levy a state income tax. If you live in either sate, lucky you.
+For most states, the treatment of your mineral income at the state level is very similar to your federal income, but there can be significant differences.  (e.g. Oklahoma allows the lease bonus to be included as part of the basis for depletion) If you have questions, be sure to consult a professional tax accountant.
+Disclaimer: This article was written to answer basic questions and not to provide tax advice. There is no substitute for hiring a professional that knows your situation.
